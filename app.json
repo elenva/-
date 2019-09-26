@@ -1,13 +1,44 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/loading/loading",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#488AE4",
+    "navigationBarTitleText": "虞美家课堂",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#B3B3B3",
+    "selectedColor": "#488AE4",
+    "list": [
+      {
+        "text": "首页",
+        "iconPath": "images/index/icon_home_grey.png",
+        "selectedIconPath": "images/index/icon_home_blue.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "学生中心",
+        "iconPath": "images/index/icon_student_grey.png",
+        "selectedIconPath": "images/index/icon_student_blue.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "健康中心",
+        "iconPath": "images/index/icon_health_grey.png",
+        "selectedIconPath": "images/index/icon_health_blue.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "我的",
+        "iconPath": "images/index/icon_my_grey.png",
+        "selectedIconPath": "images/index/icon_my_blue.png",
+        "pagePath": "pages/index/index"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

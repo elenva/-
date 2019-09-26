@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "searchBar":"../../components/searchBar/searchBar",
+    "mediaType": "../../components/mediaType/mediaType"
+  }
 }

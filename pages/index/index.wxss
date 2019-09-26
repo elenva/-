@@ -1,21 +1,107 @@
-/**index.wxss**/
-.userinfo {
+/* pages/index/index.wxss */
+.swiper {
+  height: 486rpx;
+}
+.swiper image {
+  width: 100%;
+}
+.menu {
+  width: 750rpx;
+  height: 188rpx;
+  padding: 0 30rpx;
+  position: relative;
+  top: -190rpx;
+  z-index: 1;
+}
+.menu .menuInner {
+  width:690rpx;
+  height:188rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 4rpx 8rpx 0rpx rgba(0, 0, 0, 0.2);
+  border-radius:8rpx;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+.menu .menuInner .item {
+  flex: 1;
+  padding-top: 18rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.menu .menuInner .item image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 10rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.menu .menuInner .item text {
+  font-size: 24rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.listwrap {
+  position: relative;
+  top: -150rpx;
+  padding: 0 30rpx;
+}
+.listwrap .title {
+  display: flex;
+  position: relative;
+}
+
+.listwrap .title text:first-child {
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.listwrap .title text:last-child {
+  font-size: 26rpx;
+  position: absolute;
+  color: #488AE4;
+  line-height: 36rpx;
+  right: 0;
+}
+
+.listwrap .item {
+  display: flex;
+  width: 100%;
+  height: 164rpx;
+  margin-top: 50rpx;
+}
+
+.listwrap .item .left {
+  flex: 1;
+  padding-right: 30rpx;
+}
+.listwrap .item .left .title {
+  height: 134rpx;
+}
+.listwrap .item .left .title text{
+  font-size:28rpx;
+  line-height: 31rpx;
+  color: #333333;
+  position: static;
+}
+
+.listwrap .item .left .status {
+  display: flex;
+  height: 30rpx;
+  position: relative;
+}
+
+.listwrap .item .left .status text {
+  font-size: 22rpx;
+}
+.listwrap .item .left .status text:last-child {
+  position: absolute;
+  color: #999;
+  right: 0;
+} 
+
+.listwrap .item .right {
+  flex: 0 0 262rpx;
+}
+.listwrap .item .right image {
+  width: 100%;
+  height: 100%;
 }

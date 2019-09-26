@@ -1,0 +1,23 @@
+/* components/mediaType/mediaType.wxss */
+.wrap {
+  width: 88rpx;
+  height: 30rpx;
+  background-color: rgb(189, 212, 245);
+  border-radius: 8rpx;
+  line-height: 30rpx;
+  display: flex;
+  padding: 5rpx 4rpx;
+  box-sizing: border-box;
+}
+.wrap text {
+  flex: 1;
+  font-size: 22rpx;
+  line-height: 22rpx;
+  color: #488AE4;
+  font-weight: 600;
+}
+.wrap image {
+  flex: 0 0 20rpx;
+  width:20rpx;
+  height: 20rpx;
+}

@@ -1,13 +1,49 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!--pages/index/index.wxml-->
+<block>
+  <searchBar/>
+</block>
+<block>
+  <swiper 
+      class='swiper'
+      indicator-color="#ccc" 
+      indicator-active-color="#fff">
+    <swiper-item wx:for="{{swiperArray}}" wx:key="{{index}}">
+      <image src="/images/index/banner.png"></image>
+    </swiper-item>
+  </swiper>
+</block>
+<block class="menuWrap">
+  <view class='menu'>
+    <view class='menuInner'>
+      <view wx:for="{{menuList}}" class='item' wx:key="{{item.text}}">
+        <image src="{{item.src}}"></image>
+        <view>
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</block>
+<block>
+  <view class='listwrap'>
+    <view class='title'>
+      <text>推荐课程</text>
+      <text>查看全部</text>
+    </view>
+    <view class='item' wx:for="{{list}}" wx:key="{{index}}">
+      <view class='left'>
+        <view class='title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class='status'>
+          <mediaType media="video"/>
+          <text>共12节课 共60分钟</text>
+        </view>
+      </view>
+      <view class='right'>
+        <image src="{{item.src}}"></image>
+      </view>
+    </view>
   </view>
-</view>
+</block>
+

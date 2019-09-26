@@ -1,0 +1,5 @@
+<!--components/mediaType/mediaType.wxml-->
+<view class='wrap'>
+  <text>{{dictMap[media].str}}</text>
+  <image src="{{dictMap[media].icon}}"></image>
+</view>
