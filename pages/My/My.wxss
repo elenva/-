@@ -1,1 +1,100 @@
 /* pages/My/My.wxss */
+.panel {
+  width: 100%;
+  position: relative;
+}
+.panel image {
+  width: 100%;
+  height: 240rpx;
+}
+.panel .scorewrap {
+  height: 186rpx;
+  text-align: center;
+  padding-top: 75rpx;
+}
+.panel .scorewrap .score {
+  display: flex;
+  margin:0 auto;
+  width: 140rpx;
+  height: 40rpx;
+  background-color:rgba(72,138,228,0.3);
+  border-radius: 8rpx;
+  padding: 0 10rpx;
+  margin-top: 10rpx;  
+}
+.panel .scorewrap .score text {
+  font-size: 22rpx;
+  line-height: 40rpx;
+  color: #488AE4;
+}
+.panel .scorewrap .score image {
+  width: 22rpx;
+  height: 22rpx;
+  position: relative;
+  top: 10rpx;
+  right: -10rpx;
+}
+.panel  .avatar {
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 172rpx;
+  left: 50%;
+  margin-left: -68rpx;
+}
+.hr {
+  width: 750rpx;
+  height: 20rpx;
+  background-color: #F2F2F2;
+}
+
+.classlist {
+  display: flex;
+  height: 130rpx;
+  justify-content: center;
+  align-items: center;
+}
+.classlist view {
+  flex: 1;
+  text-align: center;
+}
+.classlist>view image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.classlist .name {
+  font-size: 28rpx;
+  line-height: 33rpx;
+}
+.list {
+ padding: 0 30rpx;
+}
+.list .listItem{
+  border-bottom: 1rpx solid #DCDCDD;
+  display: flex;
+  padding: 25rpx 0;
+  height: 98rpx;
+}
+.list .listItem image {
+  width: 16rpx;
+  height: 28rpx;
+  flex: 0 0 16rpx;
+  vertical-align: middle;
+  position: relative;
+  top: 12rpx;
+}
+.list .listItem image:first-child {
+  width:44rpx;
+  height: 44rpx;
+  flex: 0 0 44rpx;
+  top:3rpx;
+  margin-right: 18rpx;
+}
+.list .listItem text {
+  flex: 1;
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:50rpx;
+}

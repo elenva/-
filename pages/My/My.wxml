@@ -1,2 +1,37 @@
 <!--pages/My/My.wxml-->
-<text>pages/My/My.wxml</text>
+<block>
+  <view class='panel'>
+    <image src="/images/my/icon_big_bg.png"></image>
+    <view class='scorewrap'>
+      <view class='name'>章东莞</view>
+      <view class='score'>
+        <text>积分 408</text>
+        <image src="/images/my/icon_question_blue.png"></image>
+      </view>
+    </view>
+    <image class='avatar' src="/images/my/pic1.png"></image>
+  </view>
+</block>
+<view class='hr'></view>
+<block>
+  <view class='classlist'>
+    <view class='class'>
+      <image src="/images/my/icon_my_course.png"></image>
+      <view class='name'>课程</view>
+    </view>
+    <view class='ticket'>
+      <image src="/images/my/icon_my_ticket.png"></image>
+      <view class='name'>优惠券</view>
+    </view>
+  </view>
+</block>
+<view class='hr'></view>
+<block>
+  <view class='list'>
+    <view class='listItem' wx:for="{{listItems}}" wx:key="{{item.name}}">
+      <image src="{{item.src}}"></image>
+      <text>{{item.name}}</text>
+      <image src="/images/icon_right_gray.png"></image>
+    </view>
+  </view>
+</block>
