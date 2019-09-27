@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/loading/loading",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/stuIndex/stuIndex",
+    "pages/healthIndex/healthIndex",
+    "pages/My/My"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,19 +27,19 @@
         "text": "学生中心",
         "iconPath": "images/index/icon_student_grey.png",
         "selectedIconPath": "images/index/icon_student_blue.png",
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/stuIndex/stuIndex"
       },
       {
         "text": "健康中心",
         "iconPath": "images/index/icon_health_grey.png",
         "selectedIconPath": "images/index/icon_health_blue.png",
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/healthIndex/healthIndex"
       },
       {
         "text": "我的",
         "iconPath": "images/index/icon_my_grey.png",
         "selectedIconPath": "images/index/icon_my_blue.png",
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/My/My"
       }
     ]
   },

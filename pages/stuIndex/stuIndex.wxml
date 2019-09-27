@@ -1,0 +1,12 @@
+<!--pages/stuIndex/stuIndex.wxml-->
+<block>
+  <searchBar/>
+</block>
+<block>
+  <view class='wrap'>
+    <view class='item' wx:for="{{menu}}" wx:key="{{item.name}}">
+      <image src="{{item.src}}"></image>
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+</block>

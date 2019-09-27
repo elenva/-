@@ -1,0 +1,27 @@
+<!--pages/healthIndex/healthIndex.wxml-->
+<block>
+  <searchBar/>
+</block>
+<block>
+  <view class='wrap' style='height:{{screenHei-100}}px'>
+    <view class='left'>
+      <view 
+        class="menuItem {{item.active?'active':''}}"
+        bindtap="menuChange"
+        data-item="{{item}}" 
+        wx:for="{{menu}}" 
+        wx:key="{{item.name}}">
+        <view class='tag'></view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+    <view class='right'>
+      <view wx:for="{{currentData}}" wx:key="{{item.name}}" class='rightItem'>
+        <image src="{{item.src}}"></image>
+        <view class='name'>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

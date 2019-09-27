@@ -1,0 +1,22 @@
+/* pages/stuIndex/stuIndex.wxss */
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 40rpx;
+}
+.wrap .item {
+  flex: 0 0 25%;
+  text-align: center;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:28rpx;
+  margin-bottom: 32rpx;
+}
+
+.wrap .item image {
+  width: 89rpx;
+  height: 89rpx;
+  margin-bottom: 10rpx;
+}
