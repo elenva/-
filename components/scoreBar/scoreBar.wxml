@@ -1,0 +1,4 @@
+<!--components/scoreBar/scoreBar.wxml-->
+<view class='wrap'>
+  当前积分余额：408，可提现金额408.00元
+</view>

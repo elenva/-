@@ -7,8 +7,11 @@
     "pages/My/My/My",
     "components/searchBar/detail/detail",
     "pages/productList/productList",
-    "pages/My/coupon",
-    "pages/score/score"
+    "pages/My/coupon/coupon",
+    "pages/My/score/score",
+    "pages/My/team/team",
+    "pages/My/put/put",
+    "pages/My/putlog/putlog"
   ],
   "window": {
     "backgroundTextStyle": "light",

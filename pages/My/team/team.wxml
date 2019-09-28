@@ -1,0 +1,37 @@
+<!--pages/My/team/team.wxml-->
+<block>
+  <view class='wrap'>
+    <view class='info'>
+      <image class='avatar' src="/images/team/pic5.png"></image>
+      <view class='namewrap'>
+        <text>张东东</text>
+        <view class='level'>
+          <image src="/images/team/icon_my_king.png"></image>
+          <text>一级代理</text>
+        </view>
+      </view>
+      <image class='code' src="/images/team/icon_qr_code.png"></image>
+    </view>
+    <view class='total'>
+      <text>当前推广次数：666</text>
+      <text>当前积分：203</text>
+    </view>
+    <view class='put' bindtap='put'>申请提现</view>
+  </view>
+</block>
+<view class='line'></view>
+<block>
+  <view class='list'>
+    <view class='item myjoin'>
+      <text>我的邀请</text>
+      <text>团队人数 7</text>
+    </view>
+    <view class='item' wx:for="{{list}}" wx:key="{{item.src}}">
+      <image src="{{item.src}}" class='avatar'></image>
+      <view class='nameWrap'>
+        <view class='name'>{{item.name}}</view>
+        <view class='info'>2019-07-01 12:10 邀请用户</view>
+      </view>
+    </view>
+  </view>
+</block>

@@ -1,40 +1,27 @@
-// pages/My/My.js
+// pages/My/put/put.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listItems:[
-      { name: "我的团队", src: "/images/my/icon_myteam.png", url: "/pages/My/team/team"},
-      { name: "我的邀请码", src: "/images/my/icon_invitation_code.png" },
-      { name: "售后帮助", src: "/images/my/icon_service.png" },
-      { name: "在线客服", src: "/images/my/icon_customer_service.png" },
-    ]
+    puting:false
   },
-  coupon(){
-    wx.navigateTo({
-      url: "/pages/My/coupon/coupon",
-    })
-  },
-  score(){
-    wx.navigateTo({
-      url: "/pages/My/score/score",
-    })
-  },
-  navigation(e){
-    const { item } = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: item.url,
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-
+  puting(){
+    this.setData({ puting:true})
+  },
+  putlog(){
+    wx.navigateTo({
+      url: "/pages/My/putlog/putlog",
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,38 @@
+<!--pages/My/put/put.wxml-->
+<block wx:if="{{!puting}}">
+  <scoreBar/>
+  <view class='form'>
+    <view class='formItem'>
+      <label>输入提现金额</label>
+      <input type="digit"></input>
+    </view>
+    <view class='formItem'>
+      <label>输入提现卡号</label>
+      <input type="number"></input>
+    </view>
+    <view class='formItem'>
+      <label>输入卡号持有人姓名</label>
+      <input type="text"></input>
+    </view>
+    <view class='formItem'>
+      <label>输入提现说明</label>
+      <textarea></textarea>
+    </view>
+    <button type='warn' bindtap='puting'>申请提现</button>
+    <button bindtap='putlog'>提现记录</button>
+  </view>
+</block>
+<block wx:else>
+<view class='wrap'>
+  <view class='inner'>
+    <image src="/images/put/icon_bg_one.png"></image>
+    <view class='content'>
+      <view>提现金额</view>
+      <view>81.00元</view>
+      <view>审核中</view>
+      <view>提现申请成功，工作人员会尽快与您联系~</view>
+      <button bindtap='putlog'>提现记录</button>
+    </view>
+  </view >
+</view>
+</block>

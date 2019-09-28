@@ -1,0 +1,9 @@
+/* components/scoreBar/scoreBar.wxss */
+.wrap {
+  height: 60rpx;
+  text-align: center;
+  background-color: rgba(72,138,228,0.2);
+  border-radius:0 0 20rpx 20rpx;
+  line-height: 60rpx;
+  color: #488AE4;
+}

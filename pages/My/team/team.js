@@ -1,31 +1,22 @@
-// pages/My/My.js
+// pages/My/team/team.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listItems:[
-      { name: "我的团队", src: "/images/my/icon_myteam.png", url: "/pages/My/team/team"},
-      { name: "我的邀请码", src: "/images/my/icon_invitation_code.png" },
-      { name: "售后帮助", src: "/images/my/icon_service.png" },
-      { name: "在线客服", src: "/images/my/icon_customer_service.png" },
+    list:[
+      {src:"/images/team/pic2.png",name:"张三四"},
+      { src: "/images/team/pic3.png", name: "张三四" },
+      { src: "/images/team/pic4.png", name: "张三四" },
+      { src: "/images/team/pic5.png", name: "张三四" },
+      { src: "/images/team/pic6.png", name: "张三四" }
     ]
   },
-  coupon(){
+  //申请提现
+  put(){
     wx.navigateTo({
-      url: "/pages/My/coupon/coupon",
-    })
-  },
-  score(){
-    wx.navigateTo({
-      url: "/pages/My/score/score",
-    })
-  },
-  navigation(e){
-    const { item } = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: item.url,
+      url: "/pages/My/put/put",
     })
   },
   /**

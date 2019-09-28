@@ -28,7 +28,7 @@
 <view class='hr'></view>
 <block>
   <view class='list'>
-    <view class='listItem' wx:for="{{listItems}}" wx:key="{{item.name}}">
+    <view class='listItem' wx:for="{{listItems}}" wx:key="{{item.name}}" bindtap='navigation' data-item="{{item}}">
       <image src="{{item.src}}"></image>
       <text>{{item.name}}</text>
       <image src="/images/icon_right_gray.png"></image>
