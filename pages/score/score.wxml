@@ -1,0 +1,21 @@
+<!--pages/score/score.wxml-->
+<view class='list'>
+  <view class='item'>
+    <view class='left'>
+      <view class='title'>购买商品</view>
+      <view class='time'>2019-07-01 12:10</view>
+    </view>
+    <view class='right'>
+      +100
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>
+      <view class='title'>购买商品</view>
+      <view class='time'>2019-07-01 12:10</view>
+    </view>
+    <view class='right' style='color:#EB2E25'>
+      -100
+    </view>
+  </view>
+</view>

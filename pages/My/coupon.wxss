@@ -1,0 +1,101 @@
+/* pages/My/coupon.wxss */
+.tab {
+  display: flex;
+    padding: 24rpx 0;
+}
+.tab .tabItem {
+  flex: 1;
+  border-right: 1px solid #DCDCDD;
+  text-align: center;
+  position: relative;
+  color: #999999;
+  font-size: 28rpx;
+}
+.tab .active {
+  color: #488AE4;
+}
+.tab .active::after {
+  content:'';
+  display: block;
+  width: 68rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  background-color: #488AE4;
+  position: absolute;
+  bottom: -22rpx;
+  left: 50%;
+  margin-left: -34rpx;
+}
+.tab .tabItem:last-child{
+  border-right: none;
+}
+.line {
+  height: 20rpx;
+  background-color: #F2F2F2;
+}
+.list {
+  padding: 30rpx;
+}
+.list .item {
+  height: 180rpx;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+.list .item>image {
+  width: 100%;
+  height: 100%;
+}
+.list .item .content {
+  display: flex;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 53rpx;
+}
+.list .item .content .left {
+  flex:0 0 204rpx;
+  width: 204rpx;
+}
+.list .item .content .right {
+  flex:1;
+  padding-left: 30rpx;
+}
+
+.list .item .content .left .cashwrap{
+  font-size: 60rpx;
+  color: #EB2E25;
+  text-align: center;
+  line-height: 1;
+  position: relative;
+  top: -5rpx;
+}
+.list .item .content .left .cashwrap text {
+  line-height: 1;
+  font-weight: 600;
+}
+.list .item .content .left .cashwrap text:last-child {
+  font-size: 24rpx;
+  position: relative;
+  top: -24rpx;
+}
+.list .item .content .left .tip {
+  text-align: center;
+  font-size: 22rpx;
+  color: #EB2E25;
+  line-height: 1;
+  margin-top: 12rpx;
+}
+.list .item .content .right .name {
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 30rpx;
+}
+.list .item .content .right .time {
+  color: #999999;
+  font-size: 22rpx;
+}

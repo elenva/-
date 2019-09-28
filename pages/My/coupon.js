@@ -1,26 +1,21 @@
-// pages/My/My.js
+// pages/My/coupon.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listItems:[
-      { name: "我的团队", src:"/images/my/icon_myteam.png"},
-      { name: "我的邀请码", src: "/images/my/icon_invitation_code.png" },
-      { name: "售后帮助", src: "/images/my/icon_service.png" },
-      { name: "在线客服", src: "/images/my/icon_customer_service.png" },
-    ]
+    list:new Array(20),
+    tab:[
+      "可用优惠券",
+      "不可用优惠券"
+    ],
+    currentTabIndex:0
   },
-  coupon(){
-    wx.navigateTo({
-      url: "/pages/My/coupon",
-    })
-  },
-  score(){
-    wx.navigateTo({
-      url: "/pages/score/score",
-    })
+  setCurrentTab(e){
+    console.log(e)
+    const currentTabIndex = e.currentTarget.dataset.index;
+    this.setData({ currentTabIndex});
   },
   /**
    * 生命周期函数--监听页面加载

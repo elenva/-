@@ -6,7 +6,9 @@
     "pages/healthIndex/healthIndex",
     "pages/My/My/My",
     "components/searchBar/detail/detail",
-    "pages/productList/productList"
+    "pages/productList/productList",
+    "pages/My/coupon",
+    "pages/score/score"
   ],
   "window": {
     "backgroundTextStyle": "light",

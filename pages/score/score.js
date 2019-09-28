@@ -1,27 +1,13 @@
-// pages/My/My.js
+// pages/score/score.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listItems:[
-      { name: "我的团队", src:"/images/my/icon_myteam.png"},
-      { name: "我的邀请码", src: "/images/my/icon_invitation_code.png" },
-      { name: "售后帮助", src: "/images/my/icon_service.png" },
-      { name: "在线客服", src: "/images/my/icon_customer_service.png" },
-    ]
+
   },
-  coupon(){
-    wx.navigateTo({
-      url: "/pages/My/coupon",
-    })
-  },
-  score(){
-    wx.navigateTo({
-      url: "/pages/score/score",
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

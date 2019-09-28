@@ -4,7 +4,7 @@
     <image src="/images/my/icon_big_bg.png"></image>
     <view class='scorewrap'>
       <view class='name'>章东莞</view>
-      <view class='score'>
+      <view class='score' bindtap='score'>
         <text>积分 408</text>
         <image src="/images/my/icon_question_blue.png"></image>
       </view>
@@ -19,7 +19,7 @@
       <image src="/images/my/icon_my_course.png"></image>
       <view class='name'>课程</view>
     </view>
-    <view class='ticket'>
+    <view class='ticket' bindtap='coupon'>
       <image src="/images/my/icon_my_ticket.png"></image>
       <view class='name'>优惠券</view>
     </view>
