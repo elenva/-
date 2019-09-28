@@ -65,9 +65,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "我的",
-					"pathName": "pages/My/My",
+					"pathName": "pages/My/My/My",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "搜索页面",
+					"pathName": "components/searchBar/detail/detail",
+					"query": "",
 					"scene": null
 				}
 			]

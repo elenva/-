@@ -1,0 +1,15 @@
+<!--components/searchBar/detail/detail.wxml-->
+<block>
+  <searchBar isInput="{{true}}" bind:confirm="confirm"/>
+</block>
+<block>
+  <view class='history'>
+    <view class='title'>搜索记录</view>
+    <view class='list'>
+      <view class='item' wx:for="{{history}}" wx:key="{{item}}">
+        <text>{{item}}</text>
+        <view class='close' bindtap='close' data-index="{{index}}">X</view>
+      </view>
+    </view>
+  </view>
+</block>

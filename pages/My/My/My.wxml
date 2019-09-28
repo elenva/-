@@ -1,4 +1,4 @@
-<!--pages/My/My.wxml-->
+<!--pages/My/My/My.wxml-->
 <block>
   <view class='panel'>
     <image src="/images/my/icon_big_bg.png"></image>

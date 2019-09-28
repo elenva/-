@@ -1,4 +1,4 @@
-/* pages/My/My.wxss */
+/* pages/My/My/My.wxss */
 .panel {
   width: 100%;
   position: relative;

@@ -1,0 +1,46 @@
+/* components/searchBar/detail/detail.wxss */
+.history {
+  padding: 30rpx;
+}
+.history .title {
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 38rpx;
+}
+.history .list {
+
+}
+
+.history .list .item {
+  min-width: 128rpx;
+  text-align: center;
+  height: 48rpx;
+  background-color: rgba(72,138,228,.3);
+  border-radius: 8rpx;
+  float: left;
+  margin-right: 20rpx;
+  position: relative;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.history .list .item text {
+  line-height: 48rpx;
+  font-size: 24rpx;
+  color: #488AE4;
+}
+
+.history .list .item .close {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background-color: #488AE4;
+  font-size: 16rpx;
+  color: #fff;
+  line-height: 28rpx;
+  text-align: center;
+  position: absolute;
+  top: -14rpx;
+  right: -10rpx;
+}

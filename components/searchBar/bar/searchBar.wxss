@@ -25,12 +25,16 @@
   top: -1rpx;
 }
 
-.wrap .wrapInner input {
+.wrap .wrapInner input,.wrap .wrapInner text {
   height: 28rpx;
   margin-right: 14rpx;
   width: 580rpx;
   font-size: 26rpx;
   line-height: 72rpx;
+}
+
+.wrap .wrapInner text {
+  line-height: 28rpx;
 }
 /* .wrap input {
   background-color: #fff;

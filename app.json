@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/stuIndex/stuIndex",
     "pages/healthIndex/healthIndex",
-    "pages/My/My"
+    "pages/My/My/My",
+    "components/searchBar/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,7 +40,7 @@
         "text": "我的",
         "iconPath": "images/index/icon_my_grey.png",
         "selectedIconPath": "images/index/icon_my_blue.png",
-        "pagePath": "pages/My/My"
+        "pagePath": "pages/My/My/My"
       }
     ]
   },
