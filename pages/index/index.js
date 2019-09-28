@@ -9,10 +9,10 @@ Page({
       "banner@2x", "banner@2x", "banner@2x", "banner@2x", "banner@2x",
     ],
     menuList:[
-      { text: '学生中心', src: "/images/index/icon_student.png" },
-      { text: '成人中心', src: "/images/index/icon_man.png" },
-      { text: '老年中心', src: "/images/index/icon_old_man.png" },
-      { text: '全部', src: "/images/index/icon_all.png" }
+      { text: '学生中心', src: "/images/index/icon_student.png", page: "/pages/stuIndex/stuIndex" },
+      { text: '成人中心', src: "/images/index/icon_man.png", page: "/pages/healthIndex/healthIndex" },
+      { text: '老年中心', src: "/images/index/icon_old_man.png", page: "/pages/healthIndex/healthIndex"},
+      { text: '全部', src: "/images/index/icon_all.png", page: "/pages/productList/productList" , newPage:true}
     ],
     list:[
       {title: '2019精选-成人商务英语从入门到精通', src: "/images/index/ad1.png" },
@@ -26,7 +26,23 @@ Page({
       { title: '2021李永乐考研数学全程班数学一/三基础+强化+真题+冲刺', src: "/images/index/ad3.png" },
     ]
   },
-
+  navgationto(e){
+    const { item } = e.currentTarget.dataset;
+    if (item.newPage) {
+      wx.navigateTo({
+        url: item.page,
+      })
+      return
+    }
+    wx.switchTab({
+      url: item.page,
+    })
+  },
+  navgation(){
+    wx.navigateTo({
+      url: `/pages/productList/productList?title=推荐课程`,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -4,7 +4,7 @@
 </block>
 <block>
   <view class='wrap'>
-    <view class='item' wx:for="{{menu}}" wx:key="{{item.name}}">
+    <view class='item' wx:for="{{menu}}" wx:key="{{item.name}}" data-item="{{item}}" bindtap='navigation'>
       <image src="{{item.src}}"></image>
       <view>{{item.name}}</view>
     </view>

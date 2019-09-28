@@ -1,0 +1,2 @@
+<!--components/mask/mask.wxml-->
+<view class="mask" style="top:{{top?top+'rpx':''}}" bindtap='maskTap'></view>

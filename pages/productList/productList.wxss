@@ -1,0 +1,53 @@
+/* pages/productList/productList.wxss */
+.list {
+  padding: 30rpx;
+}
+.list .listItem {
+  height: 164rpx;
+  display: flex;
+  margin-bottom: 50rpx;
+}
+.list .listItem .left{
+  width: 262rpx;
+  flex: 0 0 262rpx;
+}
+.list .listItem .left image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+.list .listItem .right {
+  flex: 1;
+  padding-left: 20rpx;
+}
+.list .listItem .right .title {
+  font-size: 28rpx;
+  line-height: 33rpx;
+  height: 60rpx;
+  margin-bottom: 20rpx;
+}
+.list .listItem .right .status {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.list .listItem .right .status .media {
+  flex: 0 0 88rpx;
+  width: 88rpx;
+  vertical-align: middle;
+}
+.list .listItem .right .status text:last-child {
+  flex: 1;
+  text-align: right;
+  font-size: 22rpx;
+}
+.list .listItem .right .info {
+  display: flex;
+  font-size: 22rpx;
+  color: #999999;
+}
+.list .listItem .right .info text {
+  flex: 1;
+}
+.list .listItem .right .info text:last-child{
+  text-align: right;
+}

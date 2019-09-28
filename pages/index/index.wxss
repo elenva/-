@@ -71,7 +71,7 @@
 
 .listwrap .item .left {
   flex: 1;
-  padding-right: 30rpx;
+  padding-right: 20rpx;
 }
 .listwrap .item .left .title {
   height: 134rpx;

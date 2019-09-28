@@ -1,0 +1,26 @@
+<!--pages/productList/productList.wxml-->
+<block>
+  <sort bind:sort="sort"/>
+</block>
+<block>
+  <view class='list'>
+    <view class='listItem' wx:for="{{list}}" wx:key="{{index}}">
+      <view class='left'>
+        <image src="/images/index/ad1.png"></image>
+      </view>
+      <view class='right'>
+        <view class='title'>
+          小学数学基础快速提升秘诀一知名小学教育专家谭先问先生...
+        </view>
+        <view class='status'>
+          <mediaType media="video" class="media"/>
+          <text>已解锁</text>
+        </view>
+        <view class='info'>
+          <text>158人浏览</text>
+          <text>共12节课 共60分钟</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

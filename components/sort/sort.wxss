@@ -1,0 +1,63 @@
+/* components/sort/sort.wxss */
+.wrap {
+  width: 100%;
+  height: 80rpx;
+  background-color:#488AE4;
+  display: flex;
+  padding: 24rpx 0;
+  box-sizing: border-box;
+  position: relative;
+}
+.wrap > view {
+  flex: 1;
+  border-right: 1rpx solid #DCDCDD;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.wrap > view:last-child {
+  border: none;
+}
+.wrap > view image {
+  width: 16rpx;
+  height: 16rpx;
+  margin-left: 12rpx;
+}
+.wrap > view text {
+  font-size: 28rpx;
+  color: #fff;
+}
+.wrap > view .trans {
+  transform: rotateX(180deg);
+}
+
+.panel {
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 80rpx;
+  max-height:300rpx;
+  width:750rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+  overflow-y: auto;
+}
+.panel .panelItem {
+  border-bottom: 1px solid #DCDCDD;
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  box-sizing: border-box;
+}
+.panel .panelItem:last-child{
+  border:none;
+}
+.panel .panelItem text {
+  flex: 1;
+}
+.panel .panelItem image {
+  flex: 0 0 28rpx;
+  width: 28rpx;
+  height: 28rpx;
+}

@@ -30,6 +30,12 @@ Page({
     currentData:[],
     screenHei:500
   },
+  navigation(e){
+    const { item } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/productList/productList?title=${item.name}`,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

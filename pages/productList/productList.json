@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sort":"/components/sort/sort",
+    "mediaType":"/components/mediaType/mediaType"
+  }
+}

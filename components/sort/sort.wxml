@@ -1,0 +1,28 @@
+<!--components/sort/sort.wxml-->
+<block>
+  <view class='wrap'>
+    <view 
+      wx:for="{{lists}}" 
+      data-item="{{item}}" 
+      bindtap='setCurrent'
+      wx:key="{{item.name}}"> 
+      <text>{{item.name}}</text>
+      <image src="/images/icon_up_w.png" class="{{current&&current.name === item.name?'':'trans'}}"></image>
+    </view>
+  </view>
+</block>
+<block wx:if="{{current&&current.options}}">
+  <view class='panel'>
+    <view 
+      class='panelItem' 
+      wx:for="{{current.options}}" 
+      bindtap="setCurrentOption"
+      wx:key="{{item.value}}" 
+      data-option="{{item}}">
+      <text>{{item.label}}</text>
+      <image src="/images/productList/icon_choiced_red.png" wx:if="{{currentOption.value === item.value}}"></image>
+    </view>
+  </view>
+  <mask top="80" bind:maskTap="maskTap"/>
+</block>
+

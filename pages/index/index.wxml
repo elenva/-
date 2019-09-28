@@ -15,7 +15,12 @@
 <block class="menuWrap">
   <view class='menu'>
     <view class='menuInner'>
-      <view wx:for="{{menuList}}" class='item' wx:key="{{item.text}}">
+      <view 
+        bindtap='navgationto'
+        data-item="{{item}}"
+        wx:for="{{menuList}}" 
+        class='item' 
+        wx:key="{{item.text}}">
         <image src="{{item.src}}"></image>
         <view>
           <text>{{item.text}}</text>
@@ -28,7 +33,7 @@
   <view class='listwrap'>
     <view class='title'>
       <text>推荐课程</text>
-      <text>查看全部</text>
+      <text bindtap="navgation">查看全部</text>
     </view>
     <view class='item' wx:for="{{list}}" wx:key="{{index}}">
       <view class='left'>

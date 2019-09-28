@@ -5,7 +5,8 @@
     "pages/stuIndex/stuIndex",
     "pages/healthIndex/healthIndex",
     "pages/My/My/My",
-    "components/searchBar/detail/detail"
+    "components/searchBar/detail/detail",
+    "pages/productList/productList"
   ],
   "window": {
     "backgroundTextStyle": "light",

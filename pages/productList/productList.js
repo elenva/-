@@ -1,31 +1,28 @@
-// pages/stuIndex/stuIndex.js
+// pages/productList/productList.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    menu:[
-      {src:"/images/stuIndex/icon_k12.png",name:"K12课程"},
-      { src: "/images/stuIndex/icon_zhili.png", name: "智力课程" },
-      { src: "/images/stuIndex/iconnaoli.png", name: "脑力课程" },
-      { src: "/images/stuIndex/icon_yanli.png", name: "视力保护" },
-      { src: "/images/stuIndex/icon_qita.png", name: "其他" }
-    ]
+    list:new Array(20)
+  },
+  sort(e){
+    console.log(e.detail)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //设置标题
+    if(options.title) {
+      wx.setNavigationBarTitle({
+        title: options.title,
+      })
+    }
+  },
 
-  },
-  navigation(e){
-    const { item } = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: `/pages/productList/productList?title=${item.name}`,
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
