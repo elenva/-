@@ -43,6 +43,11 @@ Page({
       url: `/pages/productList/productList?title=推荐课程`,
     })
   },
+  detail(){
+    wx.navigateTo({
+      url: '/pages/video/video',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

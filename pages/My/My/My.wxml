@@ -15,7 +15,7 @@
 <view class='hr'></view>
 <block>
   <view class='classlist'>
-    <view class='class'>
+    <view class='class' bindtap='order'>
       <image src="/images/my/icon_my_course.png"></image>
       <view class='name'>课程</view>
     </view>

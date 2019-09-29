@@ -12,7 +12,10 @@
     "pages/My/team/team",
     "pages/My/put/put",
     "pages/My/putlog/putlog",
-    "pages/My/code/code"
+    "pages/My/code/code",
+    "pages/My/order/order",
+    "pages/My/putdetail/putdetail",
+    "pages/video/video"
   ],
   "window": {
     "backgroundTextStyle": "light",

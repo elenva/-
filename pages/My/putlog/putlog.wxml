@@ -1,6 +1,10 @@
 <!--pages/My/putlog/putlog.wxml-->
 <view class="list">
-  <view class="item" wx:for="{{list}}" wx:key="{{index}}">
+  <view 
+    bindtap="putdetail"
+    class="item" 
+    wx:for="{{list}}"
+    wx:key="{{index}}">
     <view>
       <text>积分提现</text>
       <text>-480</text>

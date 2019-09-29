@@ -1,0 +1,18 @@
+/* pages/My/putdetail/putdetail.wxss */
+.line {
+  height: 20rpx;
+  background-color: #F2F2F2;
+}
+.item {
+  display: flex;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #DCDCDD;
+}
+.item text {
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 98rpx;
+}
+.item text:last-child {
+  text-align: right;
+}

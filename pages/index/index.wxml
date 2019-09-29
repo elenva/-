@@ -35,7 +35,11 @@
       <text>推荐课程</text>
       <text bindtap="navgation">查看全部</text>
     </view>
-    <view class='item' wx:for="{{list}}" wx:key="{{index}}">
+    <view 
+      bindtap="detail"
+      class='item' 
+      wx:for="{{list}}" 
+      wx:key="{{index}}">
       <view class='left'>
         <view class='title'>
           <text>{{item.title}}</text>

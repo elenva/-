@@ -22,6 +22,11 @@ Page({
       url: "/pages/My/score/score",
     })
   },
+  order(){
+    wx.navigateTo({
+      url: "/pages/My/order/order",
+    })
+  },
   navigation(e){
     const { item } = e.currentTarget.dataset;
     wx.navigateTo({
