@@ -1,0 +1,8 @@
+<!--components/pianoPanel/pianoPanel.wxml-->
+
+<view class='panelHead' bindtap='setActive'>
+  <slot name="head"/>
+</view>
+<view class='panelContent' wx:if="{{isActive}}">
+  <slot name="content"/>
+</view>

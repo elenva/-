@@ -56,7 +56,7 @@ Component({
         this.triggerEvent('sort', sortData)
       })
     },
-    maskTap(){
+    maskTap(e){
       this.setData({current:null})
     }
   }

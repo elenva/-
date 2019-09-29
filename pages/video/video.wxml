@@ -1,4 +1,47 @@
 <!--pages/video/video.wxml-->
 <block>
-  <video src="{{videoUrl}}"></video>
+  <video
+    title="视频"
+    src="{{videoUrl}}"></video>
 </block>
+<view class='info'>
+  <view class='title'>2019精选-成人商务英语从入门到精通</view>
+  <view class='total'>共计 12节课  时长 60分钟</view>
+</view>
+<view class='line'></view>
+<view class='list'>
+  <pianoPanel 
+    isActive="{{item.isActive}}"
+    class="panel" 
+    bind:setActive="setActive" 
+    data-idx="{{index}}"
+    wx:for="{{list}}" 
+    wx:key="{{index}}">
+    <view slot="head" class='head'>
+      <text class='index'>第一课</text>
+      <text class='title'>成人商务英语基础篇</text>
+      <image 
+        wx:if="{{item.isActive}}"
+        src="/images/video/icon_uo_grey.png" 
+        class="tag"></image>
+      <image
+        wx:else 
+        src="/images/video/icon_down_grey.png" 
+        class="tag"></image>  
+    </view>
+    <view slot="content">
+      <scroll-view class='list' wx:if="{{item.isActive}}">
+        <view class='item' wx:for="{{item.list}}" wx:for-item="el" wx:index="i" wx:key="{{i}}">
+          <view class='status'>
+            <image src="/images/video/icon_lock_red.png"></image>
+            <text>第一节 发音基础1</text>
+          </view>
+          <view class='time'>
+            <image src="/images/video/icon_point.png"></image>
+            <text>16分钟</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </pianoPanel>
+</view>
