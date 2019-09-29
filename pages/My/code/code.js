@@ -1,29 +1,13 @@
-// pages/My/team/team.js
+// pages/My/code/code.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[
-      {src:"/images/team/pic2.png",name:"张三四"},
-      { src: "/images/team/pic3.png", name: "张三四" },
-      { src: "/images/team/pic4.png", name: "张三四" },
-      { src: "/images/team/pic5.png", name: "张三四" },
-      { src: "/images/team/pic6.png", name: "张三四" }
-    ]
+
   },
-  //申请提现
-  put(){
-    wx.navigateTo({
-      url: "/pages/My/put/put",
-    })
-  },
-  code(){
-    wx.navigateTo({
-      url: '/pages/My/code/code',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

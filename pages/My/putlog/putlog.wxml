@@ -1,2 +1,14 @@
 <!--pages/My/putlog/putlog.wxml-->
-<text>pages/My/putlog/putlog.wxml</text>
+<view class="list">
+  <view class="item" wx:for="{{list}}" wx:key="{{index}}">
+    <view>
+      <text>积分提现</text>
+      <text>-480</text>
+    </view>
+    <view>
+      <text>提现说明：无</text>
+      <text>未通过</text>
+    </view>
+    <view>2019-07-01 12:10</view>
+  </view>
+</view>

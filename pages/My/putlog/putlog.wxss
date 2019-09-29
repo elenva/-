@@ -1,1 +1,37 @@
 /* pages/My/putlog/putlog.wxss */
+.item {
+  padding: 30rpx;
+  height: 154rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #DCDCDD;
+}
+.item > view {
+  display: flex;
+   margin-bottom: 13rpx;
+}
+.item > view text {
+  flex: 0 0 400rpx;
+  line-height: 1;
+}
+.item > view text:last-child{
+  text-align: right;
+  flex: 1;
+}
+.item > view:first-child {
+  font-size: 32rpx;
+}
+.item > view:first-child > text:last-child {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.item > view:nth-child(2) {
+  font-size: 22rpx;
+}
+.item > view:nth-child(2) > text:last-child {
+  color: #EB2E25;
+  /* color: #999; */
+}
+.item > view:nth-child(3) {
+  font-size: 22rpx;
+  color: #999;
+}

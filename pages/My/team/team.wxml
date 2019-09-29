@@ -10,7 +10,8 @@
           <text>一级代理</text>
         </view>
       </view>
-      <image class='code' src="/images/team/icon_qr_code.png"></image>
+      <image class='code' src="/images/team/icon_qr_code.png"
+      bindtap="code"></image>
     </view>
     <view class='total'>
       <text>当前推广次数：666</text>

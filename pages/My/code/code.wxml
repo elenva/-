@@ -1,0 +1,13 @@
+<!--pages/My/code/code.wxml-->
+<view class="wrap">
+  <view class="inner">
+    <image src="/images/code/icon_bg_two.png"></image>
+    <view class="content">
+      <view>向您的朋友出示二维码</view>
+      <view>邀请加入虞美家</view>
+      <image src="/images/code/code_a.png"></image>
+    </view>
+  </view>
+  <button type="warn">立即邀请</button>
+</view>
+

@@ -11,7 +11,8 @@
     "pages/My/score/score",
     "pages/My/team/team",
     "pages/My/put/put",
-    "pages/My/putlog/putlog"
+    "pages/My/putlog/putlog",
+    "pages/My/code/code"
   ],
   "window": {
     "backgroundTextStyle": "light",
