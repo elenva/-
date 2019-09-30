@@ -1,0 +1,31 @@
+<!--pages/buy/buy.wxml-->
+<scoreBar/>
+<view class="infowrap">
+  <view class="pro">
+    <image src="/images/index/ad1.png"></image>
+    <view class="info">
+      <view class="title">小学数学基础快速提升秘诀一知名小学教育专家谭先问先生...</view>
+      <view class="price">18元/次</view>
+      <view class="time">有效期 15天</view>
+    </view>
+  </view>
+  <view class="handle">
+    <view>
+      <text>购买方式</text>
+      <picker
+        bindchange="pickerChange" 
+        range="{{pickerData}}" 
+        value="{{pickermodel}}">
+        {{pickerData[pickermodel]}}
+        <image src="/images/video/icon_down_grey.png"/>
+      </picker>
+    </view>
+    <view>
+      <text>购买时长</text>
+      <view class="numStep"><numStep/></view>
+    </view>
+  </view>
+</view>
+<view class="hr"></view>
+<view class="handlewrap"></view>
+<view class="submitbar"></view>

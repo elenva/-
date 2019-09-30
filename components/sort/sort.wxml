@@ -23,6 +23,6 @@
       <image src="/images/productList/icon_choiced_red.png" wx:if="{{currentOption.value === item.value}}"></image>
     </view>
   </view>
-  <mask top="80" bind:maskTap="maskTap"/>
+  <mask bind:maskTap="maskTap"/>
 </block>
 

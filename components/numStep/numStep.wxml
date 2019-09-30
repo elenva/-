@@ -1,0 +1,6 @@
+<!--components/numStep/numStep.wxml-->
+<view class="wrap">
+  <view>-</view>
+  <input value="{{value}}" type="number"/>
+  <view>+</view>
+</view>

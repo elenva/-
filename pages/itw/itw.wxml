@@ -1,0 +1,29 @@
+<!--pages/i&t/i&t.wxml-->
+<view class="wrap"></view>
+<view class="chooseWrap">
+  <view class="zj">
+    <text>第一课 | 第三节</text>
+    <view class="statu">学习中</view>
+  </view>
+  <view class="select" bindtap="setSelect"> 
+    <text>选择章节</text>
+    <icon type="search" size="16" color="#fff"></icon>
+  </view>
+</view>
+<mask bind:maskTap="maskTap" wx:if="{{showSelect}}">
+  <view class="panel">
+    <view class="list" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="title">{{item.title}}</view>
+      <view 
+        bindtap="chooseItem"
+        class="item"
+        data-item="{{el}}" 
+        wx:for="{{item.list}}" 
+        wx:for-index="idx" 
+        wx:for-item="el" 
+        wx:key="{{idx}}">
+        {{el}}
+      </view>
+    </view>
+  </view>
+</mask>

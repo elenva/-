@@ -1,36 +1,22 @@
-// pages/video/video.js
+// pages/buy/buy.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    videoUrl:"http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
-    list:[
-      {
-        list:[
-          {},{},{}
-        ],
-        isActive:true
-      },
-      {},
-      {}
-      ]
+    pickermodel:0,
+    // pickerData: [
+    //   { name: '按次收费', value: 0, checked:true },
+    //   { name: '按时长收费', value: 1}
+    // ],
+    pickerData: ['按次收费', '按时长收费']
   },
-  setActive(e){
-    const value = e.detail;
-    const { idx } = e.currentTarget.dataset;
-    const { list} = this.data;
-    list.map(item => item.isActive =false);
-    list[idx].isActive = value;
+  pickerChange(e){
+    const v = e.detail.value;
+    this.setData({ pickermodel:v})
+  },
 
-    this.setData({ list})
-  },
-  buy(){
-    wx.navigateTo({
-      url: '/pages/buy/buy',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

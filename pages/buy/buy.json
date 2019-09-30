@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "scoreBar":"/components/scoreBar/scoreBar",
+    "numStep":"/components/numStep/numStep"
+  }
+}

@@ -1,0 +1,65 @@
+/* pages/buy/buy.wxss */
+.infowrap {
+  padding: 40rpx 30rpx;
+}
+.infowrap .pro {
+  display: flex;
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid #DCDCDD;
+}
+.infowrap .pro > image {
+  flex: 0 0 262rpx;
+  height: 164rpx;
+  border-radius: 8rpx;
+}
+.infowrap .pro > .info {
+  flex: 1;
+  padding-left: 20rpx;
+}
+.infowrap .pro > .info .title {
+  font-size: 28rpx;
+  line-height: 33rpx;
+  font-weight: 600;
+  margin-bottom: 14rpx;
+}
+.infowrap .pro > .info .price {
+  font-size: 36rpx;
+  color: #EB2E25;
+  font-weight: 500;
+} 
+
+.infowrap .pro > .info .time {
+  font-size: 22rpx;
+  color: #999999;
+  margin-top: 14rpx;
+}
+
+.infowrap .handle {
+  padding:20rpx 0;
+}
+.infowrap .handle > view {
+  display: flex;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  justify-content: right;
+  align-content: right;
+}
+.infowrap .handle > view text {
+  flex: 0 0 60%;
+}
+.infowrap .handle > view picker {
+  flex: 0 0 40%;
+  text-align: right;
+}
+.infowrap .handle > view .numStep {
+  flex: 0 0 40%;
+  text-align: right;
+}
+.infowrap .handle > view picker image {
+  width: 22rpx;
+  height: 22rpx;
+  margin-left: 10rpx;
+}
+.infowrap .handle > view radio {
+  font-size: 22rpx;
+}

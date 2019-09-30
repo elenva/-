@@ -12,3 +12,9 @@
 view {
   box-sizing: border-box;
 }
+
+.hr {
+  width: 750rpx;
+  height: 20rpx;
+  background-color: #F2F2F2;
+}

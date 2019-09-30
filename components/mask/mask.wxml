@@ -1,2 +1,8 @@
 <!--components/mask/mask.wxml-->
-<view class="mask" style="top:{{top?top+'rpx':''}}" bindtap='maskTap'></view>
+<view 
+  style="background-color:{{bgc?bgc:''}}"
+  catchtouchmove='touchmove'
+  class="mask" 
+  capture-bind:tap='maskTap'>
+  <slot/>
+</view>

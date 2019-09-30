@@ -1,6 +1,6 @@
 <!--pages/My/put/put.wxml-->
 <block wx:if="{{!puting}}">
-  <scoreBar/>
+  <scoreBar showCash="{{true}}"/>
   <view class='form'>
     <view class='formItem'>
       <label>输入提现金额</label>

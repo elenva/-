@@ -10,38 +10,53 @@
 </view>
 <view class='line'></view>
 <view class='list'>
-  <pianoPanel 
-    isActive="{{item.isActive}}"
-    class="panel" 
-    bind:setActive="setActive" 
-    data-idx="{{index}}"
+  <view 
+    class="panel"
     wx:for="{{list}}" 
     wx:key="{{index}}">
-    <view slot="head" class='head'>
-      <text class='index'>第一课</text>
-      <text class='title'>成人商务英语基础篇</text>
-      <image 
-        wx:if="{{item.isActive}}"
-        src="/images/video/icon_uo_grey.png" 
-        class="tag"></image>
-      <image
-        wx:else 
-        src="/images/video/icon_down_grey.png" 
-        class="tag"></image>  
-    </view>
-    <view slot="content">
-      <scroll-view class='list' wx:if="{{item.isActive}}">
-        <view class='item' wx:for="{{item.list}}" wx:for-item="el" wx:index="i" wx:key="{{i}}">
-          <view class='status'>
-            <image src="/images/video/icon_lock_red.png"></image>
-            <text>第一节 发音基础1</text>
+    <pianoPanel 
+      isActive="{{item.isActive}}"
+      data-idx="{{index}}"
+      allowcolspace="{{item.list && item.list.length}}"
+      bind:setActive="setActive">
+      <view slot="head" class='head'>
+        <text class='index'>第一课</text>
+        <text class='title'>成人商务英语基础篇</text>
+        <block wx:if="{{item.list && item.list.length}}">
+          <image 
+            wx:if="{{item.isActive}}"
+            src="/images/video/icon_uo_grey.png" 
+            class="tag"></image>
+          <image
+            wx:else 
+            src="/images/video/icon_down_grey.png" 
+            class="tag"></image>  
+        </block>
+      </view>
+      <view slot="content">
+        <scroll-view class='list' wx:if="{{item.isActive}}">
+          <view class='item' wx:for="{{item.list}}" wx:for-item="el" wx:index="i" wx:key="{{i}}">
+            <view class='status'>
+              <image src="/images/video/icon_lock_red.png"></image>
+              <text>第一节 发音基础1</text>
+            </view>
+            <view class='time'>
+              <image src="/images/video/icon_point.png"></image>
+              <text>16分钟</text>
+            </view>
           </view>
-          <view class='time'>
-            <image src="/images/video/icon_point.png"></image>
-            <text>16分钟</text>
-          </view>
-        </view>
-      </scroll-view>
-    </view>
-  </pianoPanel>
+        </scroll-view>
+      </view>
+    </pianoPanel>
+  </view>
 </view>
+<mask bgc="rgba(24,46,77,.8)">
+  <view class="needBuy">
+    <image src="/images/video/icon_lock_red.png"></image>
+    <view class="inner">
+      <view>当前为付费章节</view>
+      <view>收费标准:18元/次或20元/天</view>
+      <button type="warn" bindtap="buy">点击购买</button>
+    </view>
+  </view>
+</mask>

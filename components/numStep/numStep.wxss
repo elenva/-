@@ -1,0 +1,12 @@
+/* components/numStep/numStep.wxss */
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.wrap > view {
+  width: 60rpx;
+}
+.wrap > input {
+  width: 60rpx;
+}

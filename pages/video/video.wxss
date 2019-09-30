@@ -22,7 +22,18 @@ video {
   background-color: #F2F2F2;
 }
 .panel {
-  border-bottom: 1rpx solid #DCDCDD;
+  position: relative;
+  /* border-bottom: 1rpx solid #DCDCDD; */
+}
+.panel::after {
+  content:"";
+  width: 600rpx;
+  height: 1px;
+  background-color: #DCDCDD;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  
 }
 .panel .head {
   height: 90rpx;
@@ -32,7 +43,6 @@ video {
   line-height: 90rpx;
   font-size: 32prx;
   align-items: center;
-  border-bottom: 1rpx solid #DCDCDD;
 }
 .panel .head .index {
   flex: 0 0 100rpx;
@@ -47,9 +57,8 @@ video {
   flex: 0 0 22rpx;
 }
 .panel .list {
-  padding-left: 100rpx;
+  padding-left: 155rpx;
   padding-top: 10rpx;
-  border-bottom: 1rpx solid #DCDCDD;
 }
 .panel .list .item {
   height: 80rpx;
@@ -83,4 +92,38 @@ video {
   padding-left: 42rpx;
   font-size: 22rpx;
   color: #999999;
+}
+
+.needBuy {
+  text-align: center;
+  padding-top: 240rpx;
+}
+.needBuy > image {
+  width: 64rpx;
+  height: 74rpx;
+  margin-bottom:30rpx;
+}
+.needBuy > .inner {
+  width: 580rpx;
+  height: 310rpx;
+  background-color:rgba(255,255,255,.3);
+  margin:0 auto;
+  border-radius: 20rpx;
+  padding-top: 50rpx;
+  line-height: 1;
+}
+.needBuy > .inner > view {
+  color: #fff;
+  font-weight: 600;
+  font-size: 28rpx;
+  margin-bottom: 50rpx;
+}
+.needBuy > .inner > view:last-child {
+  font-size: 36rpx;
+}
+.needBuy > .inner > button {
+  width: 194rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
 }

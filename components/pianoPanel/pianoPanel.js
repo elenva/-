@@ -10,6 +10,9 @@ Component({
   properties: {
     isActive:{
       type:Boolean,value:false
+    },
+    allowcolspace:{
+      type:Boolean,value:true
     }
   },
 
@@ -25,9 +28,11 @@ Component({
    */
   methods: {
     setActive(){
-      const { isActive } = this.data;
-      this.setData({ isActive: !isActive});
-      this.triggerEvent('setActive',!isActive);
+      const { isActive, allowcolspace } = this.data;
+      if (allowcolspace){
+        this.setData({ isActive: !isActive });
+        this.triggerEvent('setActive', !isActive);
+      }
     }
   }
 })

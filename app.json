@@ -15,7 +15,9 @@
     "pages/My/code/code",
     "pages/My/order/order",
     "pages/My/putdetail/putdetail",
-    "pages/video/video"
+    "pages/video/video",
+    "pages/itw/itw",
+    "pages/buy/buy"
   ],
   "window": {
     "backgroundTextStyle": "light",

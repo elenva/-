@@ -25,7 +25,14 @@ Component({
   data: {
 
   },
-
+  observers:{
+    "current":newV => {
+      if (newV) {
+        const pages = getCurrentPages();
+        const currentPage = pages[pages.length - 1];
+      }
+    }
+  },
   /**
    * 组件的方法列表
    */
