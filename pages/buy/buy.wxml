@@ -20,12 +20,36 @@
         <image src="/images/video/icon_down_grey.png"/>
       </picker>
     </view>
-    <view>
-      <text>购买时长</text>
-      <view class="numStep"><numStep/></view>
+    <view class='tip'>
+      <icon type="warn" size='16'></icon>
+      <text>有效期内无限制次数</text>
     </view>
+    <view>
+      <text>购买次数</text>
+      <view class="numStep"><numStep/> </view>
+      <text class='unit'>次</text>
+    </view>
+  </view>
+  <view class='total'>
+    <text>共1天，合计18元</text>
   </view>
 </view>
 <view class="hr"></view>
-<view class="handlewrap"></view>
-<view class="submitbar"></view>
+<view class="handlewrap">
+  <view class='item'>
+    <text>使用积分(抵扣-2.00元)</text>
+    <numStep/>
+  </view>
+  <view class='item'>
+    <text>优惠券</text>
+    <text>3可用</text>
+    <image src="/images/icon_right_gray.png"></image>
+  </view>
+  <view class='total'>
+    合计抵扣-2.00元
+  </view>
+</view>
+<view class="submitbar">
+  <text>合计18元</text>
+  <button type="warn" bindtap='result'>立即购买</button>
+</view>

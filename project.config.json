@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 18,
 			"list": [
 				{
 					"id": -1,
@@ -167,6 +167,19 @@
 					"name": "购买",
 					"pathName": "pages/buy/buy",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购买页面",
+					"pathName": "pages/buy/buy",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购买结果",
+					"pathName": "pages/result/result",
 					"scene": null
 				}
 			]

@@ -1,20 +1,11 @@
-// pages/buy/buy.js
+// pages/result/result.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pickermodel:0,
-    // pickerData: [
-    //   { name: '按次收费', value: 0, checked:true },
-    //   { name: '按时长收费', value: 1}
-    // ],
-    pickerData: ['按次收费', '按时长收费']
-  },
-  pickerChange(e){
-    const v = e.detail.value;
-    this.setData({ pickermodel:v})
+
   },
 
   /**
@@ -23,11 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
-  result(){
-    wx.navigateTo({
-      url: '/pages/result/result',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

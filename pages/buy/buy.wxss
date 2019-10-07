@@ -1,6 +1,7 @@
 /* pages/buy/buy.wxss */
 .infowrap {
   padding: 40rpx 30rpx;
+  padding-bottom: 0;
 }
 .infowrap .pro {
   display: flex;
@@ -36,6 +37,7 @@
 
 .infowrap .handle {
   padding:20rpx 0;
+  border-bottom: 1rpx solid #DCDCDD;
 }
 .infowrap .handle > view {
   display: flex;
@@ -43,16 +45,22 @@
   line-height: 60rpx;
   justify-content: right;
   align-content: right;
+  margin-bottom: 10rpx;
 }
 .infowrap .handle > view text {
   flex: 0 0 60%;
 }
 .infowrap .handle > view picker {
-  flex: 0 0 40%;
+  flex: 1;
   text-align: right;
 }
 .infowrap .handle > view .numStep {
-  flex: 0 0 40%;
+  flex: 1;
+  text-align: right;
+}
+.infowrap .handle > view .unit {
+  flex: 0 0 40rpx;
+  font-size: 28rpx;
   text-align: right;
 }
 .infowrap .handle > view picker image {
@@ -62,4 +70,75 @@
 }
 .infowrap .handle > view radio {
   font-size: 22rpx;
+}
+.infowrap .handle .tip {
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 22rpx;
+  color: #999;
+}
+.infowrap .handle .tip icon {
+  position: relative;
+  top: 17rpx;
+  margin-right: 10rpx;
+}
+.infowrap .handle .tip text {
+  flex: none;
+}
+
+.infowrap .total {
+  line-height: 88rpx;
+  font-size: 28rpx;
+}
+
+/* handlewrap */
+.handlewrap {
+  padding: 0 30rpx;
+}
+.handlewrap .item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #DCDCDD;
+  height: 98rpx;
+  font-size: 28rpx;
+}
+.handlewrap .item text {
+  flex: 1;
+}
+.handlewrap .item text:nth-child(2) {
+  flex: 0 0 90rpx;
+}
+.handlewrap .item image {
+  width: 16rpx;
+  height: 28rpx;
+}
+.handlewrap .total {
+  font-size: 28rpx;
+  line-height: 1;
+  margin-top: 30rpx;
+}
+.submitbar {
+  height: 100rpx;
+  width: 750rpx;
+  border-top: 1rpx solid #DCDCDD;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  padding-left: 30rpx;
+  font-size: 28rx;
+}
+.submitbar text {
+  flex: 1;
+  color: #EB2E25;
+}
+.submitbar button {
+  flex: 0 0 222rpx;
+  height: 100rpx;
+  border-radius: 0;
+  line-height: 100rpx;
+  font-size: 32rpx;
 }

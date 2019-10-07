@@ -2,11 +2,19 @@
 .wrap {
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-end;
+  user-select: none;
+  text-align: right;
 }
 .wrap > view {
   width: 60rpx;
+  text-align: center;
+  /* border: 1rpx solid #999; */
+  /* border-radius: 50%; */
+  font-size: 38rpx;
 }
 .wrap > input {
   width: 60rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #999;
 }

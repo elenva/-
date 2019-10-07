@@ -21,6 +21,19 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    min(){
+      let {value} = this.data;
+      const v = value === 1 ? 1 : --value;
+      this.setData({
+        value:v
+      })
+    },
+    add(){
+      let { value } = this.data;
+      const v = ++value;
+      this.setData({
+        value: v
+      })
+    }
   }
 })

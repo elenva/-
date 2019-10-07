@@ -1,0 +1,4 @@
+<!--pages/result/result.wxml-->
+<view class='wrap'>
+  <view class='wrapInner'></view>
+</view>
