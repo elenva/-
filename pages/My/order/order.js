@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    flag:1,
+    curriculum:new Array(20)
   },
 
   /**
@@ -14,7 +15,15 @@ Page({
   onLoad: function (options) {
 
   },
-
+  switchTab(e){
+    const { flag } = e.currentTarget.dataset;
+    this.setData({flag})
+  },
+  curriculumOne(){
+    wx.navigateTo({
+      url: '/pages/video/video',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

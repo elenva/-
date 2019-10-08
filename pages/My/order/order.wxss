@@ -1,1 +1,75 @@
 /* pages/My/order/order.wxss */
+.switchwrap {
+  height: 80rpx;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  padding: 24rpx 0;
+  align-items: center;
+  box-sizing: border-box;
+}
+.switchwrap .item {
+  border-right: 1rpx solid #DCDCDD;
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  position: relative;
+}
+.switchwrap .item:last-child{
+  border-right: 0;
+}
+.switchwrap .active {
+  color: #488AE4;
+}
+.switchwrap .active::after {
+  content: '';
+  display: block;
+  width: 68rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  position: absolute;
+  left: 50%;
+  bottom: -24rpx;
+  margin-left: -34rpx;
+  background-color: #488AE4;
+}
+
+/* curriculum */
+.list {
+  width: 100%;
+}
+.list .item {
+  padding:30rpx;
+  border-bottom: 1rpx solid #DCDCDD;
+}
+.list .item>view {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+  line-height: 1;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  color: #999;
+  font-size: 22rpx;
+}
+.list .item>view:last-child{
+  margin-bottom: 0;
+}
+.list .item>view:first-child {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+.list .item view:nth-child(2) .txt{
+  margin-left: 20rpx;
+}
+
+.list .item view:nth-child(3) text {
+  flex: 1;
+}
+.list .item view:nth-child(3) text:last-child{
+  text-align: right;
+}
