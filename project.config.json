@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -86,9 +86,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "优惠券",
-					"pathName": "pages/My/coupon",
+					"pathName": "pages/My/coupon/coupon",
 					"query": "",
 					"scene": null
 				},
@@ -180,6 +180,7 @@
 					"id": -1,
 					"name": "购买结果",
 					"pathName": "pages/result/result",
+					"query": "",
 					"scene": null
 				}
 			]

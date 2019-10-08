@@ -43,6 +43,30 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    openid:1
+  },
+  request(obj){
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
+    wx.request({
+      ...obj,
+      url: "http://gj26975614.wicp.vip" + obj.url,
+      success:res=>{
+        if(res.data.success){
+          obj.success(res.data);
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon:"none"
+          })
+        }
+      },
+      complete:res=>{
+        wx.hideLoading();
+      }
+    }) 
   }
 })

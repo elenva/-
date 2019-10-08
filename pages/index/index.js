@@ -1,4 +1,5 @@
 // pages/loading/loading.js
+const app = getApp();
 Page({
 
   /**
@@ -14,17 +15,7 @@ Page({
       { text: '老年中心', src: "/images/index/icon_old_man.png", page: "/pages/healthIndex/healthIndex"},
       { text: '全部', src: "/images/index/icon_all.png", page: "/pages/productList/productList" , newPage:true}
     ],
-    list:[
-      {title: '2019精选-成人商务英语从入门到精通', src: "/images/index/ad1.png" },
-      {title: '大学水平直达CATTI二级（笔译+口译）| 随到随学，专家级指导...', src: "/images/index/ad2.png" },
-      {title: '2021李永乐考研数学全程班数学一/三基础+强化+真题+冲刺', src: "/images/index/ad3.png" },
-      { title: '2019精选-成人商务英语从入门到精通', src: "/images/index/ad1.png" },
-      { title: '大学水平直达CATTI二级（笔译+口译）| 随到随学，专家级指导...', src: "/images/index/ad2.png" },
-      { title: '2021李永乐考研数学全程班数学一/三基础+强化+真题+冲刺', src: "/images/index/ad3.png" },
-      { title: '2019精选-成人商务英语从入门到精通', src: "/images/index/ad1.png" },
-      { title: '大学水平直达CATTI二级（笔译+口译）| 随到随学，专家级指导...', src: "/images/index/ad2.png" },
-      { title: '2021李永乐考研数学全程班数学一/三基础+强化+真题+冲刺', src: "/images/index/ad3.png" },
-    ]
+    list:[]
   },
   navgationto(e){
     const { item } = e.currentTarget.dataset;
@@ -48,11 +39,21 @@ Page({
       url: '/pages/video/video',
     })
   },
+  //获取推荐课程
+  getRecommend(){
+    app.request({
+      url: `/course/getRecommend`,
+      success:res=>{
+        this.setData({ list: res.datas})
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    //获取推荐
+    this.getRecommend();
   },
 
   /**

@@ -15,13 +15,13 @@ Component({
    */
   data: {
     dictMap:{
-      voice:{
+      2:{
         str: "音频", icon:"/images/index/icon_voice.png"
       },
-      video: {
+      1: {
         str: "视频", icon: "/images/index/icon_video.png"
       },
-      tw: {
+      3: {
         str: "图文", icon: "/images/index/icon_pic.png"
       }
     }

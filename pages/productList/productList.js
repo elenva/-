@@ -1,4 +1,5 @@
 // pages/productList/productList.js
+const app = getApp();
 Page({
 
   /**
@@ -21,10 +22,20 @@ Page({
         title: options.title,
       })
     }
+    //搜索获取列表
+    this.searchAjax(options.title);
   },
   pro(){
     wx.navigateTo({
       url: '/pages/video/video',
+    })
+  },
+  searchAjax(v) {
+    app.request({
+      url: `/course/searchCourseByKey?key=${v}`,
+      success:res=>{
+        console.log(res)
+      }
     })
   },
   /**

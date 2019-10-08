@@ -6,7 +6,12 @@
   <view class='history'>
     <view class='title'>搜索记录</view>
     <view class='list'>
-      <view class='item' wx:for="{{history}}" wx:key="{{item}}">
+      <view 
+        class='item' 
+        wx:for="{{history}}" 
+        wx:key="{{item}}" 
+        data-key="{{item}}"
+        bindtap='historyClick'>
         <text>{{item}}</text>
         <view class='close' bindtap='close' data-index="{{index}}">X</view>
       </view>

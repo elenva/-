@@ -1,4 +1,5 @@
 // components/searchBar/detail/detail.js
+const app = getApp();
 Page({
 
   /**
@@ -21,6 +22,7 @@ Page({
     this.search(value)
   },
   search(v){
+    // if(!v) return;
     const {history} = this.data
     const idx = history.findIndex(item => item === v);
     if (idx !== -1) { 
@@ -28,7 +30,10 @@ Page({
     }
     history.unshift(v);
     wx.setStorageSync('history', history)
-    this.setData({ history})
+    this.setData({ history })
+    wx.navigateTo({
+      url: `/pages/productList/productList?title=${v}`,
+    })
   },
   close(e){
     const {index} = e.currentTarget.dataset;
@@ -37,6 +42,10 @@ Page({
     wx.setStorageSync('history', history)
     this.setData({history})
    },
+  historyClick(e){
+    const {key} = e.currentTarget.dataset;
+    this.search(key);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

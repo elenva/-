@@ -39,18 +39,18 @@
       bindtap="detail"
       class='item' 
       wx:for="{{list}}" 
-      wx:key="{{index}}">
+      wx:key="{{item.id}}">
       <view class='left'>
         <view class='title'>
-          <text>{{item.title}}</text>
+          <text>{{item.name}}</text>
         </view>
         <view class='status'>
-          <mediaType media="video"/>
-          <text>共12节课 共60分钟</text>
+          <mediaType media="{{item.type || 1}}"/>
+          <text>共{{item.keyword1}}节课 共{{item.keyword2}}分钟</text>
         </view>
       </view>
       <view class='right'>
-        <image src="{{item.src}}"></image>
+        <image src="{{item.img_url}}"></image>
       </view>
     </view>
   </view>
