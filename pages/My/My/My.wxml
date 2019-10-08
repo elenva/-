@@ -3,13 +3,13 @@
   <view class='panel'>
     <image src="/images/my/icon_big_bg.png"></image>
     <view class='scorewrap'>
-      <view class='name'>章东莞</view>
+      <view class='name'>{{user.nickName}}</view>
       <view class='score' bindtap='score'>
         <text>积分 408</text>
         <image src="/images/my/icon_question_blue.png"></image>
       </view>
     </view>
-    <image class='avatar' src="/images/my/pic1.png"></image>
+    <image class='avatar' src="{{user.avatarUrl}}"></image>
   </view>
 </block>
 <view class='hr'></view>

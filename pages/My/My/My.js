@@ -1,10 +1,13 @@
 // pages/My/My.js
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    user: app.globalData.userInfo,
     listItems:[
       { name: "我的团队", src: "/images/my/icon_myteam.png", url: "/pages/My/team/team"},
       { name: "我的邀请码", src: "/images/my/icon_invitation_code.png", url: "/pages/My/code/code" },
@@ -37,7 +40,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(app)
+    this.setData({ user: app.globalData.userInfo})
   },
 
   /**

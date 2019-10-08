@@ -4,7 +4,7 @@
 </block>
 <block>
   <view class='list'>
-    <view class='listItem' wx:for="{{list}}" wx:key="{{index}}">
+    <view class='listItem' wx:for="{{list}}" wx:key="{{index}}" bindtap="pro">
       <view class='left'>
         <image src="/images/index/ad1.png"></image>
       </view>

@@ -12,13 +12,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    setTimeout(()=>{
-      wx.switchTab({
-        url: "/pages/index/index",
-      })
-    },1000)
+    // setTimeout(()=>{
+      // wx.switchTab({
+      //   url: "/pages/index/index",
+      // })
+    // },1000)
   },
-
+  getUserInfo(info){
+    console.log(info)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

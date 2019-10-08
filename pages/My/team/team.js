@@ -1,10 +1,12 @@
 // pages/My/team/team.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    user:null,
     list:[
       {src:"/images/team/pic2.png",name:"张三四"},
       { src: "/images/team/pic3.png", name: "张三四" },
@@ -28,7 +30,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      user:app.globalData.userInfo
+    })
   },
 
   /**

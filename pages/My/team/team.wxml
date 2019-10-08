@@ -2,9 +2,9 @@
 <block>
   <view class='wrap'>
     <view class='info'>
-      <image class='avatar' src="/images/team/pic5.png"></image>
+      <image class='avatar' src="{{user.avatarUrl}}"></image>
       <view class='namewrap'>
-        <text>张东东</text>
+        <text>{{user.nickName}}</text>
         <view class='level'>
           <image src="/images/team/icon_my_king.png"></image>
           <text>一级代理</text>
