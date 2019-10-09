@@ -1,47 +1,40 @@
 // pages/healthIndex/healthIndex.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    menu:[
-      {
-        name:"成年中心",
-        list:[
-          { src: '/images/healthIndex/yajiankang.png', name:"亚健康音乐疗法"},
-          { src: '/images/healthIndex/qingzijiaoyu.png', name: "亲子教育" },
-          { src: '/images/healthIndex/yiyulei.png', name: "抑郁类" },
-          { src: '/images/healthIndex/shimianlei.png', name: "失眠类" },
-        ],
-        active:true
-      },
-      {
-        name: "老年中心",
-        list: [
-          { src: '/images/healthIndex/shimianlei.png', name: "失眠类" },
-          { src: '/images/healthIndex/shimianlei.png', name: "失眠类" },
-          { src: '/images/healthIndex/shimianlei.png', name: "失眠类" },
-          { src: '/images/healthIndex/shimianlei.png', name: "失眠类" },
-        ],
-        active: false
-      }
-    ],
+    menu:[],
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.getSystemInfo({
-      success: res => {
-        console.log(res)
-        this.setData({
-          screenHei: res.windowHeight
-        })
-      },
-    })
+    //获取成人中心和老年中心菜单
+    this.getMenuList();
   },
-  
+  //获取成人中心和老年中心菜单
+  getMenuList(){
+    const { baseCourseList } = app.globalData;
+    const arr = [];
+    baseCourseList.map(item=>{
+      if(item.name === '成人中心' || item.name === '老年中心'){
+        arr.push(item);
+      }
+    })
+    arr[0].active = true;
+    this.setData({menu:arr})
+  },
+  //菜单切换
+  menuChange(e){
+    const item = e.detail;
+    const {menu} = this.data;
+    menu.map(item=> item.active=false);
+    menu[item.idx].active = true;
+    this.setData({menu});
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

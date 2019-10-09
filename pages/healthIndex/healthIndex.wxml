@@ -2,4 +2,4 @@
 <block>
   <searchBar/>
 </block>
-<tweenList menu="{{menu}}"/>
+<tweenList menu="{{menu}}" bind:menuChange="menuChange"/>

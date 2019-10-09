@@ -21,11 +21,8 @@ Page({
     const stuList = baseCourseList.find(item=>item.name==='学生中心').children;
     const k12List = stuList.find(item => item.name === "K12课程").children;
     k12List[0].active = true;
-    this.getCourseByPid(k12List[0].id,res=> {
-      k12List[0].list = res.datas;
-      this.setData({ menu: k12List});
-    })
-    
+    this.setData({ menu: k12List });
+    console.log(k12List)
   },
   //根据父级id获取子课程
   getCourseByPid(id,call){
@@ -40,15 +37,11 @@ Page({
   menuChange(e){
     const { menu } = this.data;
     const item = e.detail;
-    if(!item.list) {
-      this.getCourseByPid(item.id,res=>{
-        console.log(menu)
-        return
-        menu[item.idx].list = res.datas;
-        this.setData({ menu })
-      })
-    }
-    console.log(e)
+    menu.map(el=>{
+      el.active = false;
+    })
+    menu[item.idx].active = true;
+    this.setData({ menu })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

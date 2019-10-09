@@ -26,27 +26,34 @@ Component({
     navigation(e) {
       const { item } = e.currentTarget.dataset;
       wx.navigateTo({
-        url: `/pages/productList/productList?title=${item.name}`,
+        url: `/pages/productList/productList?typeId=${item.id}&title=${item.name}`,
       })
     },
-    // setCurrentData() {
-    //   const { menu } = this.data;
-    //   menu.map(item => {
-    //     if (item.active) {
-    //       this.setData({ currentData: item.list })
-    //     }
-    //   })
-    // },
+    setCurrentData(data) {
+      const { menu } = this.data;
+      const _data = data || menu;
+      _data.map(item => {
+        if (item.active) {
+          this.setData({ currentData: item.children })
+        }
+      })
+    },
     menuChange(e) {
       const { item, idx } = e.currentTarget.dataset;
       const newObj = {
-        ...el, idx
+        ...item, idx
       }
       this.triggerEvent('menuChange', newObj);
     },
   },
   ready(){
     //当前列表类容
-    // this.setCurrentData()
+    this.setCurrentData()
+  },
+  //监听传入的值
+  observers:{
+    'menu': function (newV){
+      this.setCurrentData(newV);
+    }
   }
 })

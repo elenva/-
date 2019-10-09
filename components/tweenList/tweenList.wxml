@@ -14,7 +14,7 @@
     </view>
     <view class='right'>
       <view wx:for="{{currentData}}" wx:key="{{item.name}}" class='rightItem' data-item="{{item}}" bindtap="navigation">
-        <image src="{{item.src}}"></image>
+        <image src="{{item.icon_img}}"></image>
         <view class='name'>
           <text>{{item.name}}</text>
         </view>

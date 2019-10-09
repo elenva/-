@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
     const { recommendList } = app.globalData;
-    //设置标题
+    
     if (options.typeId){
       //根据类型获取列表
       this.getListByType(options.typeId);
@@ -29,14 +29,17 @@ Page({
         this.setData({ list: recommendList })
       }
     }
+    //设置标题
     wx.setNavigationBarTitle({
       title: options.title,
     })
   },
-  pro(){
-    wx.navigateTo({
-      url: '/pages/video/video',
-    })
+  pro(e){
+    const {item} = e.currentTarget.dataset;
+    console.log(item)
+    // wx.navigateTo({
+    //   url: '/pages/video/video',
+    // })
   },
   searchAjax(v) {
     const eventChannel = this.getOpenerEventChannel();
@@ -50,7 +53,8 @@ Page({
   },
   getListByType(type){
     app.request({
-      url: `/course/getCourseByType/${type}/${app.globalData.openid}/${1}`,
+      // url: `/course/getCourseByType/${type}/${app.globalData.openid}/${2}`,
+      url: `/course/getCourseByType/20/${app.globalData.openid}/${2}`,
       success: res => {
         console.log(res)
         this.setData({ list: res.datas })
