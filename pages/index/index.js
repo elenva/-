@@ -45,6 +45,7 @@ Page({
       url: `/course/getRecommend`,
       success:res=>{
         this.setData({ list: res.datas})
+        app.globalData.recommendList = res.datas;
       }
     })
   },

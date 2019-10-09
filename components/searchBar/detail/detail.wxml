@@ -9,10 +9,10 @@
       <view 
         class='item' 
         wx:for="{{history}}" 
-        wx:key="{{item}}" 
-        data-key="{{item}}"
-        bindtap='historyClick'>
-        <text>{{item}}</text>
+        wx:key="{{item}}">
+        <text 
+          bindtap='historyClick'  
+          data-key="{{item}}">{{item}}</text>
         <view class='close' bindtap='close' data-index="{{index}}">X</view>
       </view>
     </view>

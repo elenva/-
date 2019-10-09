@@ -14,7 +14,6 @@ Page({
     currentTabIndex:0
   },
   setCurrentTab(e){
-    console.log(e)
     const currentTabIndex = e.currentTarget.dataset.index;
     this.setData({ currentTabIndex});
   },

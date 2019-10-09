@@ -23,7 +23,7 @@ Page({
   navigation(e){
     const { item } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/productList/productList?title=${item.name}`,
+      url: `/pages/productList/productList?typeId=${item.name}`,
     })
   },
   /**

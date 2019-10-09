@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:new Array(20)
+    list:[]
   },
   sort(e){
     console.log(e.detail)
@@ -16,14 +16,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const { recommendList } = app.globalData;
     //设置标题
     if(options.title) {
       wx.setNavigationBarTitle({
         title: options.title,
       })
+      //搜索获取列表
+      if (options.title!=='推荐课程') {
+        this.searchAjax(options.title);
+      }else{
+        this.setData({ list: recommendList })
+      }
+    } else if (options.typeId){
+      //根据类型获取列表
+      this.getListByType(options.typeId);
     }
-    //搜索获取列表
-    this.searchAjax(options.title);
   },
   pro(){
     wx.navigateTo({
@@ -35,6 +43,16 @@ Page({
       url: `/course/searchCourseByKey?key=${v}`,
       success:res=>{
         console.log(res)
+        this.setData({list:res.datas})
+      }
+    })
+  },
+  getListByType(type){
+    app.request({
+      url: `/course/getCourseByType/${type}/${app.globalData.openid}/{sortType}`,
+      success: res => {
+        console.log(res)
+        this.setData({ list: res.datas })
       }
     })
   },

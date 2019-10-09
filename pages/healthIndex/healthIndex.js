@@ -27,16 +27,7 @@ Page({
         active: false
       }
     ],
-    currentData:[],
-    screenHei:500
   },
-  navigation(e){
-    const { item } = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: `/pages/productList/productList?title=${item.name}`,
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -49,30 +40,8 @@ Page({
         })
       },
     })
-    //当前列表类容
-    this.setCurrentData()
   },
-  setCurrentData(){
-    const { menu } = this.data;
-    menu.map(item=> {
-      if(item.active) {
-        this.setData({ currentData:item.list})
-      }
-    })
-  },
-  menuChange(e) {
-    const { item } = e.currentTarget.dataset;
-    const { menu } = this.data;
-    menu.map(el => {
-      el.active = false
-      if (el.name === item.name){
-        el.active = true
-      }
-    });
-    this.setData({menu},()=>{
-      this.setCurrentData()
-    })
-  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
