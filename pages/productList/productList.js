@@ -18,20 +18,20 @@ Page({
   onLoad: function (options) {
     const { recommendList } = app.globalData;
     //设置标题
-    if(options.title) {
-      wx.setNavigationBarTitle({
-        title: options.title,
-      })
+    if (options.typeId){
+      //根据类型获取列表
+      this.getListByType(options.typeId);
+    }else if(options.title) {
       //搜索获取列表
       if (options.title!=='推荐课程') {
         this.searchAjax(options.title);
       }else{
         this.setData({ list: recommendList })
       }
-    } else if (options.typeId){
-      //根据类型获取列表
-      this.getListByType(options.typeId);
     }
+    wx.setNavigationBarTitle({
+      title: options.title,
+    })
   },
   pro(){
     wx.navigateTo({
@@ -39,17 +39,18 @@ Page({
     })
   },
   searchAjax(v) {
+    const eventChannel = this.getOpenerEventChannel();
     app.request({
       url: `/course/searchCourseByKey?key=${v}`,
       success:res=>{
-        console.log(res)
+        eventChannel.emit('requestSuccess',v);
         this.setData({list:res.datas})
       }
     })
   },
   getListByType(type){
     app.request({
-      url: `/course/getCourseByType/${type}/${app.globalData.openid}/{sortType}`,
+      url: `/course/getCourseByType/${type}/${app.globalData.openid}/${1}`,
       success: res => {
         console.log(res)
         this.setData({ list: res.datas })

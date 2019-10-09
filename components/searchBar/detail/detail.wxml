@@ -1,6 +1,6 @@
 <!--components/searchBar/detail/detail.wxml-->
 <block>
-  <searchBar isInput="{{true}}" bind:confirm="confirm"/>
+  <searchBar isInput="{{true}}" bind:confirm="confirm" value="{{value}}"/>
 </block>
 <block>
   <view class='history'>

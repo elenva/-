@@ -25,14 +25,19 @@ Page({
     // if(!v) return;
     const {history} = this.data
     const idx = history.findIndex(item => item === v);
-    if (idx !== -1) { 
-      history.splice(idx, 1);
-    }
-    history.unshift(v);
-    wx.setStorageSync('history', history)
-    this.setData({ history })
+    
     wx.navigateTo({
       url: `/pages/productList/productList?title=${v}`,
+      events:{
+        requestSuccess:data=>{
+          if (idx !== -1) {
+            history.splice(idx, 1);
+          }
+          history.unshift(v);
+          wx.setStorageSync('history', history)
+          this.setData({ history,value:'' })
+        }
+      }
     })
   },
   close(e){

@@ -1,4 +1,5 @@
 // pages/stuIndex/stuIndex.js
+const app = getApp();
 Page({
 
   /**
@@ -11,20 +12,34 @@ Page({
       { src: "/images/stuIndex/iconnaoli.png", name: "脑力课程" },
       { src: "/images/stuIndex/icon_yanli.png", name: "视力保护" },
       { src: "/images/stuIndex/icon_qita.png", name: "其他" }
-    ]
+    ],
+    baseCourseList: app.globalData.baseCourseList
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //设置渲染课程分类
+    this.setCourseList();
+  },
+  //设置渲染课程分类
+  setCourseList(){
+    const { baseCourseList } = app.globalData;
+    const menu = baseCourseList.find(item => item.name === "学生中心");
+    this.setData({ menu });
   },
   navigation(e){
     const { item } = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: `/pages/productList/productList?typeId=${item.name}`,
-    })
+    if (item.name === "K12课程"){
+      wx.navigateTo({
+        url: '/pages/k12/k12',
+      })
+    }else{
+      wx.navigateTo({
+        url: `/pages/productList/productList?typeId=${item.id}&title=${item.name}`,
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

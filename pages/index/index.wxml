@@ -50,7 +50,7 @@
         </view>
       </view>
       <view class='right'>
-        <image src="{{item.img_url}}"></image>
+        <image src="{{item.imgUrl}}"></image>
       </view>
     </view>
   </view>

@@ -18,7 +18,8 @@
     "pages/video/video",
     "pages/itw/itw",
     "pages/buy/buy",
-    "pages/result/result"
+    "pages/result/result",
+    "pages/k12/k12"
   ],
   "window": {
     "backgroundTextStyle": "light",

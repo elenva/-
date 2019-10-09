@@ -46,6 +46,7 @@ App({
     userInfo: null,
     openid:1,
     recommendList:[],//推荐课程列表
+    baseCourseList:[],//课程分类列表
   },
   request(obj){
     wx.showLoading({

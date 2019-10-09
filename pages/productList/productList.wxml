@@ -6,7 +6,7 @@
   <view class='list'>
     <view class='listItem' wx:for="{{list}}" wx:key="{{index}}" bindtap="pro">
       <view class='left'>
-        <image src="{{item?item.img_url:'/images/index/ad1.png'}}"></image>
+        <image src="{{item?item.imgUrl:'/images/index/ad1.png'}}"></image>
       </view>
       <view class='right'>
         <view class='title'>

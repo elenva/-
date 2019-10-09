@@ -4,8 +4,8 @@
 </block>
 <block>
   <view class='wrap'>
-    <view class='item' wx:for="{{menu}}" wx:key="{{item.name}}" data-item="{{item}}" bindtap='navigation'>
-      <image src="{{item.src}}"></image>
+    <view class='item' wx:for="{{menu.children}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap='navigation'>
+      <image src="{{item.icon_img}}"></image>
       <view>{{item.name}}</view>
     </view>
   </view>

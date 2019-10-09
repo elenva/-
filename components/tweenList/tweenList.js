@@ -29,30 +29,24 @@ Component({
         url: `/pages/productList/productList?title=${item.name}`,
       })
     },
-    setCurrentData() {
-      const { menu } = this.data;
-      menu.map(item => {
-        if (item.active) {
-          this.setData({ currentData: item.list })
-        }
-      })
-    },
+    // setCurrentData() {
+    //   const { menu } = this.data;
+    //   menu.map(item => {
+    //     if (item.active) {
+    //       this.setData({ currentData: item.list })
+    //     }
+    //   })
+    // },
     menuChange(e) {
-      const { item } = e.currentTarget.dataset;
-      const { menu } = this.data;
-      menu.map(el => {
-        el.active = false
-        if (el.name === item.name) {
-          el.active = true
-        }
-      });
-      this.setData({ menu }, () => {
-        this.setCurrentData()
-      })
+      const { item, idx } = e.currentTarget.dataset;
+      const newObj = {
+        ...el, idx
+      }
+      this.triggerEvent('menuChange', newObj);
     },
   },
   ready(){
     //当前列表类容
-    this.setCurrentData()
+    // this.setCurrentData()
   }
 })

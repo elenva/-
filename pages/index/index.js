@@ -49,12 +49,23 @@ Page({
       }
     })
   },
+  //获取课程分类
+  getBaseCourse(){
+    app.request({
+      url: `/course/getBaseCourse`,
+      success:res=>{
+        app.globalData.baseCourseList = res.datas
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     //获取推荐
     this.getRecommend();
+    //获取课程分类
+    this.getBaseCourse();
   },
 
   /**

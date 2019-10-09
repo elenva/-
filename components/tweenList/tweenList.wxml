@@ -5,6 +5,7 @@
         class="menuItem {{item.active?'active':''}}"
         bindtap="menuChange"
         data-item="{{item}}" 
+        data-idx="{{index}}"
         wx:for="{{menu}}" 
         wx:key="{{item.name}}">
         <view class='tag'></view>

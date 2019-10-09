@@ -3,6 +3,6 @@
   <view class='wrapInner'>
     <image src='/images/index/icon_search.png'></image>
     <text wx:if="{{!isInput}}" bindtap='detail'>请输入关键词</text>
-    <input wx:else placeholder='请输入关键词' bindconfirm="confirm"></input>
+    <input wx:else placeholder='请输入关键词' bindconfirm="confirm" value="{{value}}"></input>
   </view>
 </view>

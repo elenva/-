@@ -1,0 +1,4 @@
+<!--pages/k12/k12.wxml-->
+<tweenList 
+  bind:menuChange="menuChange"
+  menu="{{menu}}"/>
