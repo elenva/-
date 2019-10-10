@@ -5,24 +5,24 @@
     src="{{videoUrl}}"></video>
 </block>
 <view class='info'>
-  <view class='title'>2019精选-成人商务英语从入门到精通</view>
-  <view class='total'>共计 12节课  时长 60分钟</view>
+  <view class='title'>{{command.name||''}}</view>
+  <view class='total'>共计 {{command.keyword1}} 节课  时长 {{command.keyword2}} 分钟</view>
 </view>
 <view class='line'></view>
 <view class='list'>
   <view 
     class="panel"
-    wx:for="{{list}}" 
+    wx:for="{{command.courseVos}}" 
     wx:key="{{index}}">
     <pianoPanel 
       isActive="{{item.isActive}}"
       data-idx="{{index}}"
-      allowcolspace="{{item.list && item.list.length}}"
+      allowcolspace="{{item.courseVos && item.courseVos.length}}"
       bind:setActive="setActive">
       <view slot="head" class='head'>
-        <text class='index'>第一课</text>
-        <text class='title'>成人商务英语基础篇</text>
-        <block wx:if="{{item.list && item.list.length}}">
+        <text class='index'>第{{index+1}}课</text>
+        <text class='title'>{{item.name}}</text>
+        <block wx:if="{{item.courseVos && item.courseVos.length}}">
           <image 
             wx:if="{{item.isActive}}"
             src="/images/video/icon_uo_grey.png" 
@@ -35,10 +35,18 @@
       </view>
       <view slot="content">
         <scroll-view class='list' wx:if="{{item.isActive}}">
-          <view class='item' wx:for="{{item.list}}" wx:for-item="el" wx:index="i" wx:key="{{i}}">
+          <view 
+            class='item' 
+            bindtap="checkIsFree"
+            data-el="{{el}}"
+            wx:for="{{item.courseVos}}" 
+            wx:for-item="el" 
+            wx:for-index="i" 
+            wx:key="{{i}}">
             <view class='status'>
-              <image src="/images/video/icon_lock_red.png"></image>
-              <text>第一节 发音基础1</text>
+              <mediaType media="1" wx:if="{{i===0}}" short/>
+              <image src="/images/video/icon_lock_red.png" wx:else></image>
+              <text>{{el.name}}</text>
             </view>
             <view class='time'>
               <image src="/images/video/icon_point.png"></image>
@@ -50,12 +58,12 @@
     </pianoPanel>
   </view>
 </view>
-<mask bgc="rgba(24,46,77,.8)">
+<mask bgc="rgba(24,46,77,.8)" wx:if="{{command.isBuy === 2}}">
   <view class="needBuy">
     <image src="/images/video/icon_lock_red.png"></image>
     <view class="inner">
       <view>当前为付费章节</view>
-      <view>收费标准:18元/次或20元/天</view>
+      <view>收费标准:{{price.unit}}或{{price.long}}</view>
       <button type="warn" bindtap="buy">点击购买</button>
     </view>
   </view>

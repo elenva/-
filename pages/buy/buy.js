@@ -1,4 +1,5 @@
 // pages/buy/buy.js
+const app = getApp();
 Page({
 
   /**
@@ -21,7 +22,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //获取信息
+    this.getAllInfo();
+  },
+  getAllInfo(){
+    const { currentCommand } = app.globalData;
+    app.request({
+      url: `/extract/getCourseBuyData/${app.globalData.openid}/{currentCommand.id}`,
+      method: "post",
+      success: res => {
+      }
+    })
   },
   result(){
     wx.navigateTo({

@@ -18,6 +18,6 @@
 }
 .wrap image {
   flex: 0 0 20rpx;
-  width:20rpx;
-  height: 20rpx;
+  width:20rpx!important;
+  height: 20rpx!important;
 }

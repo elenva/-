@@ -34,9 +34,11 @@ Page({
       url: `/pages/productList/productList?title=推荐课程`,
     })
   },
-  detail(){
+  detail(e){
+    const {item} = e.currentTarget.dataset;
+    app.globalData.currentCommand = item;
     wx.navigateTo({
-      url: '/pages/video/video',
+      url: `/pages/video/video`,
     })
   },
   //获取推荐课程

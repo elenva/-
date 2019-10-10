@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "pianoPanel":"/components/pianoPanel/pianoPanel",
-    "mask":"/components/mask/mask"
+    "mask":"/components/mask/mask",
+    "mediaType":"/components/mediaType/mediaType"
   }
 }

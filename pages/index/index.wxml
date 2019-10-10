@@ -38,6 +38,7 @@
     <view 
       bindtap="detail"
       class='item' 
+      data-item="{{item}}"
       wx:for="{{list}}" 
       wx:key="{{item.id}}">
       <view class='left'>

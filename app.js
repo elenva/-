@@ -47,6 +47,7 @@ App({
     openid:1,
     recommendList:[],//推荐课程列表
     baseCourseList:[],//课程分类列表
+    currentCommand:null,//当前打开的课程
   },
   request(obj){
     wx.showLoading({
@@ -55,7 +56,7 @@ App({
     })
     wx.request({
       ...obj,
-      url: "http://gj26975614.wicp.vip" + obj.url,
+      url: "http://shop.miaomuxia.com:81" + obj.url,
       success:res=>{
         if(res.data.success){
           obj.success(res.data);

@@ -1,5 +1,5 @@
 <!--components/mediaType/mediaType.wxml-->
-<view class='wrap'>
-  <text>{{dictMap[media].str}}</text>
-  <image src="{{dictMap[media].icon}}"></image>
+<view class='wrap' style="width:{{short?(38+'rpx'):''}};">
+  <text wx:if="{{!short}}">{{dictMap[media].str}}</text>
+  <image src="{{dictMap[media].icon}}" style="flex:{{short?1:''}}"></image>
 </view>
