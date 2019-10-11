@@ -1,5 +1,5 @@
 <!--components/scoreBar/scoreBar.wxml-->
 <view class='wrap'>
-  当前积分余额：408
-  <text wx:if="{{showCash}}">，可提现金额408.00元</text>
+  当前积分余额：{{score}}
+  <text wx:if="{{showCash}}">，可提现金额{{cash}}元</text>
 </view>

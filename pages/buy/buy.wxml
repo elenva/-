@@ -2,10 +2,10 @@
 <scoreBar/>
 <view class="infowrap">
   <view class="pro">
-    <image src="/images/index/ad1.png"></image>
+    <image src="{{currentCommand.imgUrl}}"></image>
     <view class="info">
-      <view class="title">小学数学基础快速提升秘诀一知名小学教育专家谭先问先生...</view>
-      <view class="price">18元/次</view>
+      <view class="title">{{currentCommand.name}}</view>
+      <view class="price">{{currentCommand.price[pickerData[pickermodel].value]}}</view>
       <view class="time">有效期 15天</view>
     </view>
   </view>
@@ -13,43 +13,53 @@
     <view>
       <text>购买方式</text>
       <picker
+        range-key="label"
         bindchange="pickerChange" 
         range="{{pickerData}}" 
         value="{{pickermodel}}">
-        {{pickerData[pickermodel]}}
+        {{pickerData[pickermodel].label}}
         <image src="/images/video/icon_down_grey.png"/>
       </picker>
     </view>
     <view class='tip'>
       <icon type="warn" size='16'></icon>
-      <text>有效期内无限制次数</text>
+      <text wx:if="{{pickermodel === 1}}">有效期内无限制次数</text>
+      <text wx:if="{{pickermodel === 0}}">有效期内限固定次数</text>
     </view>
     <view>
-      <text>购买次数</text>
-      <view class="numStep"><numStep/> </view>
-      <text class='unit'>次</text>
+      <text wx:if="{{pickermodel === 0}}">购买次数</text>
+      <text wx:if="{{pickermodel === 1}}">购买天数</text>
+      <view class="numStep"><numStep bind:getValue="getUnit" value="{{unit}}"/> </view>
+      <text class='unit' wx:if="{{pickermodel === 0}}">次</text>
+      <text class='unit' wx:if="{{pickermodel === 1}}">天</text>
     </view>
   </view>
   <view class='total'>
-    <text>共1天，合计18元</text>
+    <text wx:if="{{pickermodel === 0}}">共{{unit}}次，合计{{priceBefore}}元</text>
+    <text wx:if="{{pickermodel === 1}}">共{{unit}}天，合计{{priceBefore}}元</text>
   </view>
 </view>
 <view class="hr"></view>
 <view class="handlewrap">
   <view class='item'>
-    <text>使用积分(抵扣-2.00元)</text>
-    <numStep/>
+    <text>使用积分(抵扣-{{score*scale}}元)</text>
+    <numStep 
+      minV="{{0}}"
+      maxV="{{userAccountInfo.integration}}"
+      value="{{score}}" 
+      bind:getValue="getScore"/>
   </view>
-  <view class='item'>
+  <view class='item' bindtap="coupon">
     <text>优惠券</text>
-    <text>3可用</text>
+    <text wx:if="{{!currentCoupon}}">{{couponsCanUse}}可用</text>
+    <text wx:else>-{{currentCoupon.keyword1}}元</text>
     <image src="/images/icon_right_gray.png"></image>
   </view>
   <view class='total'>
-    合计抵扣-2.00元
+    合计抵扣-{{dkPrice}}元
   </view>
 </view>
 <view class="submitbar">
-  <text>合计18元</text>
-  <button type="warn" bindtap='result'>立即购买</button>
+  <text>合计{{priceAfter}}元</text>
+  <button type="warn" bindtap='result' bindtap="buy">立即购买</button>
 </view>

@@ -1,6 +1,6 @@
 <!--components/numStep/numStep.wxml-->
 <view class="wrap">
-  <view bindtap='min' bindlongtap='min'>-</view>
-  <input value="{{value}}" type="number"/>
-  <view bindtap='add' bindlongtap='add'>+</view>
+  <view bindtap='min' bindlongpress='min'>-</view>
+  <input value="{{value}}" type="number" bindconfirm="confirm" bindblur="confirm"/>
+  <view bindtap='add' bindlongpress='add'>+</view>
 </view>

@@ -28,7 +28,6 @@ Page({
     app.request({
       url: `/course/getCourseIsBuy/${app.globalData.openid}/${currentCommand.id}`,
       success:res=> {
-        console.log(res)
         const command = res.datas;
         this.setData({ command })
         if (command.isBuy === 2) {
@@ -46,6 +45,8 @@ Page({
               }
             })
             this.setData({price:obj})
+            command.price = obj;
+            app.globalData.currentCommand = command;
           }
         }
       }

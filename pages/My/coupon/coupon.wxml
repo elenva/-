@@ -14,22 +14,25 @@
 <view class='line'></view>
 <block>
   <view class='list'>
-    <view class='item' wx:for="{{list}}" wx:key="{{index}}">
+    <view class='item' wx:for="{{list}}" wx:key="{{index}}" data-item="{{item}}" bindtap="getCoupon">
       <image src="/images/icon_ticket_red.png" wx:if="currentTabIndex===0"></image>
       <!-- <image src="/images/icon_ticket_red.png" wx:if="currentTabIndex===1"></image> -->
       <view class='content'>
         <view class='left'>
           <view class='cashwrap'>
-            <text class='cach'>100</text>
+            <text class='cach'>{{item.keyword1}}</text>
             <text>￥</text>
           </view>
-          <view class='tip'>无使用门槛</view>
+          <view class='tip'>{{item.keyword2}}</view>
         </view>
         <view class='right'>
-          <view class='name'>新人礼品券</view>
-          <view class='time'>有效期：2019-09-01 至 2019-12-01</view>
+          <view class='name'>{{item.couponName}}</view>
+          <view class='time'>有效期：{{item.beginTime}} 至 {{item.endTime}}</view>
         </view>
       </view>
     </view>
   </view>
 </block>
+<view class="notuse" wx:if="{{isBuy}}">
+  <button type="primary" bindtap="notuse">不使用优惠券</button>
+</view>

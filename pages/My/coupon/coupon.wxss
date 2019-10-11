@@ -99,3 +99,13 @@
   color: #999999;
   font-size: 22rpx;
 }
+.notuse {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.notuse button {
+  background-color: #488AE4;
+  border-radius: 0;
+}

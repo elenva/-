@@ -1,10 +1,11 @@
 //app.js
 App({
   onLaunch: function () {
+    this.getUserInfo();
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    // var logs = wx.getStorageSync('logs') || []
+    // // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
 
     // 登录
     wx.login({
@@ -43,11 +44,23 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
+    scale:1,//积分兑换金额的比例 1积分*scale = 金额
+    userInfo: null,//用户基本信息
+    userAccountInfo:null,//用户账户信息
     openid:1,
     recommendList:[],//推荐课程列表
     baseCourseList:[],//课程分类列表
     currentCommand:null,//当前打开的课程
+    currentCoupon:null,//当前选中的优惠券
+  },
+  getUserInfo(){
+    this.request({
+      url: `/user/getUserByOpenId/${this.globalData.openid}`,
+      success:res=> {
+        this.globalData.userAccountInfo = res.datas;
+        console.log(res.datas)
+      }
+    })
   },
   request(obj){
     wx.showLoading({
@@ -56,7 +69,8 @@ App({
     })
     wx.request({
       ...obj,
-      url: "http://shop.miaomuxia.com:81" + obj.url,
+      // url: "http://shop.miaomuxia.com:81" + obj.url,
+      url: "http://gj26975614.wicp.vip" + obj.url,
       success:res=>{
         if(res.data.success){
           obj.success(res.data);
