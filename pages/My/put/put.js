@@ -45,14 +45,16 @@ Page({
         }
       }
     }
-    console.log(e);
+    value.openId = app.globalData.openid;
     //调用提现接口
     app.request({
       url:`/extract/saveExtract`,
       method:'post',
       data: value,
       success:res=> {
-
+        const {scale} = app.globalData;
+        this.setData({ 
+          puting: true, cash: scale * value.extractNum})
       }
     })
   },

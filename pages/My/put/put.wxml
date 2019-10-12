@@ -31,7 +31,7 @@
     <image src="/images/put/icon_bg_one.png"></image>
     <view class='content'>
       <view>提现金额</view>
-      <view>81.00元</view>
+      <view>{{cash}}元</view>
       <view>审核中</view>
       <view>提现申请成功，工作人员会尽快与您联系~</view>
       <button bindtap='putlog'>提现记录</button>

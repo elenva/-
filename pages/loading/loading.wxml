@@ -1,2 +1,2 @@
 <!--pages/loading/loading.wxml-->
-<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击授权</button>
+<text>loading</text>

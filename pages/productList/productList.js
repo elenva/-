@@ -9,7 +9,7 @@ Page({
     list:[]
   },
   sort(e){
-    console.log(e.detail)
+
   },
 
   /**
@@ -18,16 +18,10 @@ Page({
   onLoad: function (options) {
     const { recommendList } = app.globalData;
     
-    if (options.typeId){
-      //根据类型获取列表
-      this.getListByType(options.typeId);
-    }else if(options.title) {
-      //搜索获取列表
-      if (options.title!=='推荐课程') {
-        this.searchAjax(options.title);
-      }else{
-        this.setData({ list: recommendList })
-      }
+    if (options.title && options.title === '推荐课程') {
+      this.setData({ list: recommendList })
+    }else {
+      this.setData({ key: options.title || '', typeId: options.typeId||''})
     }
     //设置标题
     wx.setNavigationBarTitle({
@@ -41,22 +35,18 @@ Page({
     //   url: '/pages/video/video',
     // })
   },
-  searchAjax(v) {
-    const eventChannel = this.getOpenerEventChannel();
+
+  getListByType(data){
+    const oid = app.globalData.openid
+    const { key, typeId} = this.data;
+    let params = {key,typeId}
+    if (data) params = { ...params,...data}
     app.request({
-      url: `/course/searchCourseByKey?key=${v}`,
-      success:res=>{
-        eventChannel.emit('requestSuccess',v);
-        this.setData({list:res.datas})
-      }
-    })
-  },
-  getListByType(type){
-    app.request({
-      // url: `/course/getCourseByType/${type}/${app.globalData.openid}/${2}`,
-      url: `/course/getCourseByType/20/${app.globalData.openid}/${2}`,
+      url: `/course/getCourseByTypeOrKey/${oid}`,
+      data: params,
       success: res => {
-        console.log(res)
+        const eventChannel = this.getOpenerEventChannel();
+        eventChannel.emit('requestSuccess', v);
         this.setData({ list: res.datas })
       }
     })
