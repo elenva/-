@@ -1,8 +1,11 @@
 /* pages/My/put/put.wxss */
-.form {
+.formWrap {
   padding: 40rpx 30rpx;
-  width: 750rpx;
-  box-sizing: border-box;
+  background-color: #fff;
+}
+.form {
+  /* padding: 40rpx 30rpx; */
+  /* box-sizing: border-box; */
 }
 .form .formItem {
   margin-bottom: 40rpx;

@@ -3,15 +3,16 @@
   <view 
     bindtap="putdetail"
     class="item" 
+    data-item="{{item}}"
     wx:for="{{list}}"
     wx:key="{{index}}">
     <view>
       <text>积分提现</text>
-      <text>-480</text>
+      <text>-{{item.extractNum}}</text>
     </view>
     <view>
-      <text>提现说明：无</text>
-      <text>未通过</text>
+      <text>提现说明：{{item.remark}}</text>
+      <text style="color:{{status[item.status - 1].color}}">{{status[item.status - 1].str}}</text>
     </view>
     <view>2019-07-01 12:10</view>
   </view>

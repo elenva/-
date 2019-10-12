@@ -10,6 +10,7 @@ App({
     // 登录
     wx.login({
       success: res => {
+        this.login(res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -24,9 +25,6 @@ App({
               console.log(res)
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-              wx.switchTab({
-                url: "/pages/index/index",
-              })
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               // if (this.userInfoReadyCallback) {
@@ -52,6 +50,7 @@ App({
     baseCourseList:[],//课程分类列表
     currentCommand:null,//当前打开的课程
     currentCoupon:null,//当前选中的优惠券
+    currentPutlog:null,//当前点击的提现记录
   },
   getUserInfo(){
     this.request({
@@ -85,5 +84,21 @@ App({
         wx.hideLoading();
       }
     }) 
+  },
+  login(code){
+    this.request({
+      url:`/wxUser/login`,
+      method:'post',
+      data:{
+        appKey:"wxcf0e7e19c17ab2ab",
+        code
+      },
+      success:res=> {
+        this.globalData.openid = res.datas.openid;
+        // wx.switchTab({
+        //   url: "/pages/index/index",
+        // })
+      }
+    })
   }
 })

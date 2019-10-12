@@ -13,7 +13,8 @@ Page({
       { src: "/images/team/pic4.png", name: "张三四" },
       { src: "/images/team/pic5.png", name: "张三四" },
       { src: "/images/team/pic6.png", name: "张三四" }
-    ]
+    ],
+    userAccountInfo:null
   },
   //申请提现
   put(){
@@ -31,7 +32,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      user:app.globalData.userInfo
+      user:app.globalData.userInfo,
+      userAccountInfo: app.globalData.userAccountInfo
     })
   },
 

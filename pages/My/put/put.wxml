@@ -1,25 +1,28 @@
 <!--pages/My/put/put.wxml-->
 <block wx:if="{{!puting}}">
   <scoreBar showCash="{{true}}"/>
-  <view class='form'>
-    <view class='formItem'>
-      <label>输入提现金额</label>
-      <input type="digit"></input>
-    </view>
-    <view class='formItem'>
-      <label>输入提现卡号</label>
-      <input type="number"></input>
-    </view>
-    <view class='formItem'>
-      <label>输入卡号持有人姓名</label>
-      <input type="text"></input>
-    </view>
-    <view class='formItem'>
-      <label>输入提现说明</label>
-      <textarea></textarea>
-    </view>
-    <button type='warn' bindtap='puting'>申请提现</button>
-    <button bindtap='putlog'>提现记录</button>
+  <view class="formWrap">
+    <form class='form' bindsubmit="submit">
+      <view class='formItem'>
+        <label>输入提现金额</label>
+        <input type="digit" name="extractNum"></input>
+      </view>
+      <view class='formItem'>
+        <label>输入提现卡号</label>
+        <input type="number" name="cardNum"></input>
+      </view>
+      <view class='formItem'>
+        <label>输入卡号持有人姓名</label>
+        <input type="text" name="cardName"></input>
+      </view>
+      <view class='formItem'>
+        <label>输入提现说明</label>
+        <textarea name="remark"></textarea>
+      </view>
+      <!-- bindtap='puting' -->
+      <button type='warn'  form-type="submit">申请提现</button>
+      <button bindtap='putlog'>提现记录</button>
+    </form>
   </view>
 </block>
 <block wx:else>

@@ -15,7 +15,7 @@
     </view>
     <view class='total'>
       <text>当前推广次数：666</text>
-      <text>当前积分：203</text>
+      <text>当前积分：{{userAccountInfo.integration}}</text>
     </view>
     <view class='put' bindtap='put'>申请提现</view>
   </view>

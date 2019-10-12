@@ -3,26 +3,26 @@
 <view class="list">
   <view class="item">
     <text>提现金额</text>
-    <text>408</text>
+    <text>{{currentPutlog.extractNum}}</text>
   </view>
   <view class="item">
     <text>提现卡号</text>
-    <text>60024458000822554</text>
+    <text>{{currentPutlog.cardNum}}</text>
   </view>
   <view class="item">
     <text>卡号持有人姓名</text>
-    <text>张涛</text>
+    <text>{{currentPutlog.cardName}}</text>
   </view>
   <view class="item">
     <text>提现说明</text>
-    <text>无</text>
+    <text>{{currentPutlog.remark}}</text>
   </view>
   <view class="item">
     <text>提现时间</text>
-    <text>2019-07-01 12:10</text>
+    <text>{{currentPutlog.createTime}}</text>
   </view>
   <view class="item">
     <text>提现状态</text>
-    <text>成功</text>
+    <text>{{status[currentPutlog.status-1].str}}</text>
   </view>
 </view>

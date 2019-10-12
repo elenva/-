@@ -125,10 +125,14 @@ Page({
     }
     console.log(params)
     app.request({
-      url:`/extract/v1/buy`,
+      url:`/buy/v1/create`,
       method:'post',
       data: params,
-      success:res=> console.log(res)
+      success:res=> {
+        wx.navigateTo({
+          url: '/pages/result/result?success=true',
+        })
+      }
     })
   },
   /**
