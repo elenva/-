@@ -20,7 +20,7 @@
       wx:key="{{item.value}}" 
       data-option="{{item}}">
       <text>{{item.label}}</text>
-      <image src="/images/productList/icon_choiced_red.png" wx:if="{{currentOption.value === item.value}}"></image>
+      <image src="/images/productList/icon_choiced_red.png" wx:if="{{item.isActive}}"></image>
     </view>
   </view>
   <mask bind:maskTap="maskTap"/>

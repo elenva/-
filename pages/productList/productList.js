@@ -6,10 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[],
   },
   sort(e){
-
+    this.getListByType(e.detail)
   },
 
   /**
@@ -19,7 +19,7 @@ Page({
     const { recommendList } = app.globalData;
     
     if (options.title && options.title === '推荐课程') {
-      this.setData({ list: recommendList })
+      this.setData({ list: recommendList, title: options.title })
     }else {
       this.setData({ key: options.title || '', typeId: options.typeId||''})
     }

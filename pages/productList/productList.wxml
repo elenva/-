@@ -1,5 +1,5 @@
 <!--pages/productList/productList.wxml-->
-<block>
+<block wx:if="{{title !== '推荐课程'}}">
   <sort bind:sort="sort"/>
 </block>
 <block>
