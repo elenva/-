@@ -14,7 +14,7 @@
       bindtap="code"></image>
     </view>
     <view class='total'>
-      <text>当前推广次数：666</text>
+      <text>当前推广次数：{{userAccountInfo.inviteList.length}}</text>
       <text>当前积分：{{userAccountInfo.integration}}</text>
     </view>
     <view class='put' bindtap='put'>申请提现</view>
@@ -25,13 +25,13 @@
   <view class='list'>
     <view class='item myjoin'>
       <text>我的邀请</text>
-      <text>团队人数 7</text>
+      <text>团队人数 {{userAccountInfo.inviteList.length}}</text>
     </view>
-    <view class='item' wx:for="{{list}}" wx:key="{{item.src}}">
-      <image src="{{item.src}}" class='avatar'></image>
+    <view class='item' wx:for="{{userAccountInfo.inviteList}}" wx:key="{{item.src}}">
+      <image src="{{item.headimg}}" class='avatar'></image>
       <view class='nameWrap'>
-        <view class='name'>{{item.name}}</view>
-        <view class='info'>2019-07-01 12:10 邀请用户</view>
+        <view class='name'>{{item.toInviterName}}</view>
+        <view class='info'>{{item.createTime}} 邀请用户</view>
       </view>
     </view>
   </view>

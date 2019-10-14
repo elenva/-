@@ -1,18 +1,22 @@
 // pages/score/score.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    types:['购买消费','提现','邀请所得'],
+    list:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      list: app.globalData.userAccountInfo.integralHisList
+    },()=>console.log(this.data.list))
   },
 
   /**

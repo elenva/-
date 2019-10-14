@@ -24,7 +24,12 @@ Page({
   },
   //表单submit事件
   submit(e){
+    const { integration } = app.globalData.userAccountInfo;
+    const { scale } = app.globalData;
     const {value} = e.detail;
+    //可提现金额
+    const cash = integration * scale;
+
     for(const k in value){
       const item = value[k];
       if (item === '' && k !=='remark') {
@@ -43,6 +48,14 @@ Page({
           })
           return;
         }
+        console.log(item,)
+        if (item * 1 > cash){
+          wx.showToast({
+            title: '提现金额过大',
+            icon: 'none'
+          })
+          return;
+        }
       }
     }
     value.openId = app.globalData.openid;
@@ -52,6 +65,7 @@ Page({
       method:'post',
       data: value,
       success:res=> {
+        app.getUserAccountInfo();
         const {scale} = app.globalData;
         this.setData({ 
           puting: true, cash: scale * value.extractNum})

@@ -16,10 +16,19 @@ Component({
     cash:0
   },
   ready(){
-    const { userAccountInfo,scale } = app.globalData;
-    this.setData({
-      score: userAccountInfo.integration,
-      cash: userAccountInfo.integration*scale
-    })
+    // const { userAccountInfo,scale } = app.globalData;
+    // this.setData({
+    //   score: userAccountInfo.integration,
+    //   cash: userAccountInfo.integration*scale
+    // })
+  },
+  pageLifetimes:{
+    show:function(){
+      const { userAccountInfo, scale } = app.globalData;
+      this.setData({
+        score: userAccountInfo.integration,
+        cash: userAccountInfo.integration * scale
+      })
+    }
   }
 })

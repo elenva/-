@@ -7,6 +7,7 @@ Page({
    */
   data: {
     list:[],
+    key:''
   },
   sort(e){
     this.getListByType(e.detail)
@@ -18,10 +19,14 @@ Page({
   onLoad: function (options) {
     const { recommendList } = app.globalData;
     
-    if (options.title && options.title === '推荐课程') {
-      this.setData({ list: recommendList, title: options.title })
-    }else {
-      this.setData({ key: options.title || '', typeId: options.typeId||''})
+    if (options.title) {
+      if (options.title === '推荐课程'){
+        this.setData({ list: recommendList, title: options.title })
+      }else if (options.title === '全部课程'){
+        this.setData({ title: "" }, () => this.getListByType())
+      }else {
+        this.setData({ key: options.title || '', typeId: options.typeId || '' }, () => this.getListByType())
+      }
     }
     //设置标题
     wx.setNavigationBarTitle({
@@ -30,23 +35,23 @@ Page({
   },
   pro(e){
     const {item} = e.currentTarget.dataset;
-    console.log(item)
-    // wx.navigateTo({
-    //   url: '/pages/video/video',
-    // })
+    app.globalData.currentCommand = item;
+    wx.navigateTo({
+      url: '/pages/video/video',
+    })
   },
 
   getListByType(data){
     const oid = app.globalData.openid
-    const { key, typeId} = this.data;
-    let params = {key,typeId}
+    const { key='', typeId=''} = this.data;
+    let params = {key,typeId,page:1}
     if (data) params = { ...params,...data}
     app.request({
       url: `/course/getCourseByTypeOrKey/${oid}`,
       data: params,
       success: res => {
         const eventChannel = this.getOpenerEventChannel();
-        eventChannel.emit('requestSuccess', v);
+        eventChannel.emit('requestSuccess', key);
         this.setData({ list: res.datas })
       }
     })

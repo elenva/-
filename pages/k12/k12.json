@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "tweenList": "/components/tweenList/tweenList"
-  }
+  },
+  "navigationBarTitleText": "k12课程"
 }

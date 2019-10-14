@@ -13,7 +13,7 @@ Page({
       { text: '学生中心', src: "/images/index/icon_student.png", page: "/pages/stuIndex/stuIndex" },
       { text: '成人中心', src: "/images/index/icon_man.png", page: "/pages/healthIndex/healthIndex" },
       { text: '老年中心', src: "/images/index/icon_old_man.png", page: "/pages/healthIndex/healthIndex"},
-      { text: '全部', src: "/images/index/icon_all.png", page: "/pages/productList/productList" , newPage:true}
+      { text: '全部', src: "/images/index/icon_all.png", page: "/pages/productList/productList?title=全部课程" , newPage:true}
     ],
     list:[]
   },

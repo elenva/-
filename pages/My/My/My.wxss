@@ -15,24 +15,24 @@
 .panel .scorewrap .score {
   display: flex;
   margin:0 auto;
-  width: 140rpx;
+  width: 160rpx;
   height: 40rpx;
   background-color:rgba(72,138,228,0.3);
   border-radius: 8rpx;
   padding: 0 10rpx;
   margin-top: 10rpx;  
+  align-items: center;
+  justify-content: center;
 }
 .panel .scorewrap .score text {
   font-size: 22rpx;
-  line-height: 40rpx;
   color: #488AE4;
+  margin-right: 10rpx;
 }
 .panel .scorewrap .score image {
   width: 22rpx;
   height: 22rpx;
   position: relative;
-  top: 10rpx;
-  right: -10rpx;
 }
 .panel  .avatar {
   width: 136rpx;

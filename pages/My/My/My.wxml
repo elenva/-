@@ -5,7 +5,7 @@
     <view class='scorewrap'>
       <view class='name'>{{user.nickName}}</view>
       <view class='score' bindtap='score'>
-        <text>积分 408</text>
+        <text>积分 {{userAccountInfo.integration}}</text>
         <image src="/images/my/icon_question_blue.png"></image>
       </view>
     </view>

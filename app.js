@@ -46,4 +46,12 @@ App({
       }
     }) 
   },
+  getUserAccountInfo() {
+    this.request({
+      url: `/user/getUserByOpenId/${this.globalData.openid}`,
+      success: res => {
+        this.globalData.userAccountInfo = res.datas;
+      }
+    })
+  }
 })

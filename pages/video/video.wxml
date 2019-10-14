@@ -2,6 +2,8 @@
 <block>
   <video
     title="视频"
+    bindtimeupdate="videoTime"
+    autoplay="{{true}}"
     src="{{videoUrl}}"></video>
 </block>
 <view class='info'>
@@ -19,7 +21,7 @@
       data-idx="{{index}}"
       allowcolspace="{{item.courseVos && item.courseVos.length}}"
       bind:setActive="setActive">
-      <view slot="head" class='head'>
+      <view slot="head" class='head'bindtap="play" data-item="{{item}}">
         <text class='index'>第{{index+1}}课</text>
         <text class='title'>{{item.name}}</text>
         <block wx:if="{{item.courseVos && item.courseVos.length}}">

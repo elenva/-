@@ -59,23 +59,23 @@ Page({
         // 可以将 res 发送给后台解码出 unionId
         app.globalData.userInfo = resInfo.userInfo
         app.globalData.accontInfo = resInfo
-        if (!app.globalData.unionId) {
-          app.request({
-            url: `/wxUser/decrypt`,
-            method: 'post',
-            data: {
-              "encryptedData": resInfo.encryptedData,
-              "iv": resInfo.iv,
-              "signature": resInfo.signature,
-              "sessionKey": app.globalData.session_key
-            },
-            success: result => {
-              wx.switchTab({
-                url: "/pages/index/index",
-              })
-            }
-          })
-        }
+        // if (!app.globalData.unionId) {
+        //   app.request({
+        //     url: `/wxUser/decrypt`,
+        //     method: 'post',
+        //     data: {
+        //       "encryptedData": resInfo.encryptedData,
+        //       "iv": resInfo.iv,
+        //       "signature": resInfo.signature,
+        //       "sessionKey": app.globalData.session_key
+        //     },
+        //     success: result => {
+        //       wx.switchTab({
+        //         url: "/pages/index/index",
+        //       })
+        //     }
+        //   })
+        // }
         wx.switchTab({
           url: "/pages/index/index",
         })
@@ -95,19 +95,11 @@ Page({
         // app.globalData.openid = res.datas.openId;
         app.globalData.unionId = res.datas.unionId;
         app.globalData.session_key = res.datas.sessionKey;
-        this.getUserAccountInfo();
+        app.getUserAccountInfo();
         this.wxGetUserinfo()
         // wx.switchTab({
         //   url: "/pages/index/index",
         // })
-      }
-    })
-  },
-  getUserAccountInfo() {
-    app.request({
-      url: `/user/getUserByOpenId/${app.globalData.openid}`,
-      success: res => {
-        app.globalData.userAccountInfo = res.datas;
       }
     })
   },
