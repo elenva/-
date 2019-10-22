@@ -2,12 +2,12 @@
 <view class="wrap">
   <view class="inner">
     <image src="/images/code/icon_bg_two.png"></image>
-    <view class="content">
+    <view class="content" wx:if="{{code}}">
       <view>向您的朋友出示二维码</view>
       <view>邀请加入虞美家</view>
-      <image src="/images/code/code_a.png"></image>
+      <image src="{{code}}"></image>
     </view>
   </view>
-  <button type="warn">立即邀请</button>
+  <button type="warn" open-type="share">立即邀请</button>
 </view>
 

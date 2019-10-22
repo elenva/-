@@ -14,18 +14,22 @@
   <view 
     class="item"
     bindtap="curriculumOne" 
-    wx:for="{{curriculum}}" 
+    wx:for="{{list}}" 
     wx:key="{{index}}">
-    <view>这是标题这是标题这是标题这是标题这是标题这是标题这是标题</view>
+    <view></view>
     <view>
       <mediaType media="video"/>
-      <text class="txt">正常</text>
+      <text class="txt" style="color:#488AE4;">正常</text>
     </view>
     <view>
-      <text>收费模式：按次收费</text>
+      <text>收费模式：{{
+        item.buyType === 1
+          ?'按次收费'
+          :'按时长收费'
+      }}</text>
       <text>剩余次数：20次</text>
     </view>
-    <view>有效期至:2019-07-10 12:11</view>
+    <view>有效期至:{{item.endTime}}</view>
   </view>
 </view>
 <view class="list report" wx:if="{{flag === 2}}">

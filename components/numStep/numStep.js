@@ -28,7 +28,7 @@ Component({
     
   },
   ready(){
-    console.log(this.properties)
+
   },
   /**
    * 组件的方法列表

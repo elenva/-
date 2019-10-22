@@ -1,10 +1,23 @@
 <!--pages/video/video.wxml-->
 <block>
   <video
+    wx:if="{{command.type === 1}}"
     title="视频"
+    bindplay="playEvt"
     bindtimeupdate="videoTime"
-    autoplay="{{true}}"
+    autoplay="{{false}}"
     src="{{videoUrl}}"></video>
+  <view class="audioWrap" wx:if="{{command.type === 2}}">
+    <audio
+      controls
+      name="{{name}}"
+      author="{{author}}"
+      title="音频"
+      bindplay="playEvt"
+      autoplay="{{false}}"
+      src="{{videoUrl}}"
+      bindtimeupdate="videoTime"></audio> 
+  </view>
 </block>
 <view class='info'>
   <view class='title'>{{command.name||''}}</view>
@@ -60,7 +73,7 @@
     </pianoPanel>
   </view>
 </view>
-<mask bgc="rgba(24,46,77,.8)" wx:if="{{command.isBuy === 2}}">
+<mask bgc="rgba(24,46,77,.8)" wx:if="{{command.isfree !== 1 && command.isBuy === 2}}">
   <view class="needBuy">
     <image src="/images/video/icon_lock_red.png"></image>
     <view class="inner">

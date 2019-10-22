@@ -1,20 +1,34 @@
 // pages/My/code/code.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    code:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getImgCode()
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   },
-
+  getImgCode(){
+    app.request({
+      url: `/user/getQrcode/${app.globalData.openid}`,
+      success:res=> {
+        console.log(res)
+        this.setData({
+          code:res.datas
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

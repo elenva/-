@@ -4,6 +4,12 @@ video {
   height: 422rpx;
   box-sizing: border-box;
 }
+.audioWrap {
+  text-align: center;
+  height: 222rpx;
+  box-sizing: border-box;
+  padding-top: 50rpx;
+}
 .info {
   padding:20rpx 30rpx;
 }

@@ -1,4 +1,5 @@
 // pages/My/order/order.js
+const app = getApp();
 Page({
 
   /**
@@ -6,14 +7,24 @@ Page({
    */
   data: {
     flag:1,
-    curriculum:new Array(20)
+    list:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //获取已购买课程
+    this.getCommandsList();
+  },
+  //获取已购买课程
+  getCommandsList(){
+    app.request({
+      url:`/course/getCoursePlayHis/${app.globalData.openid}`,
+      success:res=> {
+        this.setData({list:res.datas})
+      }
+    })
   },
   switchTab(e){
     const { flag } = e.currentTarget.dataset;

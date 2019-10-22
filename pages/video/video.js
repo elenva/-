@@ -55,18 +55,44 @@ Page({
   play(e){
     const { item } = e.currentTarget.dataset;
     this.setData({
-      videoUrl: item.url
+      videoUrl: item.url,
+      name:item.name,
+      author:'虞美家课堂'
+    })
+  },
+  playEvt(e){
+    if (!this.data.videoUrl) return
+    const { command} = this.data;
+    if (command.buyType !== 1) return;
+    wx.showToast({
+      title: '播放超过15秒后将消耗次数',
+      icon: 'none',
+      duration: 3000
     })
   },
   videoTime(e){
-    console.log(e)
+    const { currentTime } = e.detail;
+    const { command } = this.data;
+    if (command.buyType !== 1) return;
+    if (currentTime > 15 && this.isAllow) {
+      this.isAllow = false
+      app.request({
+        url: `/course/updateCourse/${app.globalData.openid}/${command.orderId}`,
+        success: res => {
+          wx.showToast({
+            title: '已记入次数',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取课程都基本信息
-    this.checkIsFree();
+    
   },
 
   /**
@@ -80,7 +106,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //获取课程都基本信息
+    this.checkIsFree();
+    this.isAllow = true
   },
 
   /**

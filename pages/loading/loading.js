@@ -5,13 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     wx.getSetting({
       success: r => {
         if (r.authSetting['scope.userInfo']) {
@@ -30,19 +42,6 @@ Page({
       }
     })    
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -53,29 +52,25 @@ Page({
 
   wxGetUserinfo() {
     wx.getUserInfo({
+      lang:'zh_CN',
       // withCredentials:true,
       success: resInfo => {
-        console.log('resInfo', resInfo)
         // 可以将 res 发送给后台解码出 unionId
         app.globalData.userInfo = resInfo.userInfo
         app.globalData.accontInfo = resInfo
-        // if (!app.globalData.unionId) {
-        //   app.request({
-        //     url: `/wxUser/decrypt`,
-        //     method: 'post',
-        //     data: {
-        //       "encryptedData": resInfo.encryptedData,
-        //       "iv": resInfo.iv,
-        //       "signature": resInfo.signature,
-        //       "sessionKey": app.globalData.session_key
-        //     },
-        //     success: result => {
-        //       wx.switchTab({
-        //         url: "/pages/index/index",
-        //       })
-        //     }
-        //   })
-        // }
+        if (app.globalData.session_key) {
+          app.request({
+            url: `/wxUser/decrypt`,
+            method: 'post',
+            data: {
+              "encryptedData": resInfo.encryptedData,
+              "iv": resInfo.iv,
+              "signature": resInfo.signature,
+              "sessionKey": app.globalData.session_key
+            },
+            success: result => {}
+          })
+        }
         wx.switchTab({
           url: "/pages/index/index",
         })
@@ -92,14 +87,11 @@ Page({
       },
       success: res => {
         console.log(res)
-        // app.globalData.openid = res.datas.openId;
+        app.globalData.openid = res.datas.openId;
         app.globalData.unionId = res.datas.unionId;
         app.globalData.session_key = res.datas.sessionKey;
         app.getUserAccountInfo();
         this.wxGetUserinfo()
-        // wx.switchTab({
-        //   url: "/pages/index/index",
-        // })
       }
     })
   },
