@@ -5,16 +5,18 @@
     title="视频"
     bindplay="playEvt"
     bindtimeupdate="videoTime"
-    autoplay="{{false}}"
+    autoplay="{{true}}"
+    controls
     src="{{videoUrl}}"></video>
   <view class="audioWrap" wx:if="{{command.type === 2}}">
     <audio
       controls
+      binderror="binderror"
       name="{{name}}"
       author="{{author}}"
       title="音频"
       bindplay="playEvt"
-      autoplay="{{false}}"
+      autoplay="{{true}}"
       src="{{videoUrl}}"
       bindtimeupdate="videoTime"></audio> 
   </view>

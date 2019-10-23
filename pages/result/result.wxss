@@ -12,3 +12,48 @@
   background-color: #fff;
   border-radius: 20rpx;
 }
+.wrapInner .head {
+  padding-top: 105rpx;
+  text-align: center;
+} 
+.wrapInner .head image {
+  width: 164rpx;
+  height: 100rpx;
+}
+.wrapInner .head .result {
+  margin-top: 50rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 1;
+}
+.wrapInner .head  .integer {
+  font-size: 22rpx;
+  line-height: 1;
+  margin-top: 30rpx;
+}
+.wrapInner .head  .integer text {
+  color: #EB2E25;
+}
+.wrapInner  .btnWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60rpx;
+}
+.wrapInner .btnWrap button {
+  margin: 0;
+  margin-right: 60rpx;
+  height: 60rpx;
+  width: 194rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #fff;
+  border: none;
+  background-color: #EB2E25;
+}
+.wrapInner .btnWrap button:last-child {
+  margin-right: 0;
+  background-color: #fff;
+  border:1px solid #EB2E25;
+  color: #EB2E25;
+}

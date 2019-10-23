@@ -28,7 +28,7 @@ Page({
   },
   pickerChange(e){
     const v = e.detail.value;
-    this.setData({ pickermodel: v * 1 }, () => this.calcPrice())
+    this.setData({ pickermodel: v * 1, currentCoupon:null }, () => this.calcPrice())
   },
   //计算优惠或者积分抵扣以前的价格
   calcPrice(){
@@ -75,6 +75,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //清除全局优惠券
+    app.globalData.currentCoupon = null
     //获取可用的优惠券
     const coupons = [];
     app.globalData.userAccountInfo.couponUserVoList.map(item=> {
@@ -94,13 +96,18 @@ Page({
     this.setData({ currentCommand},()=> {
       this.calcPrice();
     })
-    console.log(currentCommand)
   },
-  result(){
-    wx.navigateTo({
-      url: '/pages/result/result',
-    })
-  },
+  // result(){
+  //   wx.navigateTo({
+  //     url: '/pages/result/result',
+  //     success:res=> {
+  //       console.log(res)
+  //       const evt = res.eventChannel;
+  //       const { score } = this.data;
+  //       evt.emit('result', score)
+  //     }
+  //   })
+  // },
   //跳转至优惠券页面
   coupon(){
     const { couponsCanUse, priceAfter } = this.data;
@@ -123,14 +130,19 @@ Page({
       totalNum:data.priceBefore,
       num:data.priceAfter
     }
-    console.log(params)
+
     app.request({
       url:`/buy/v1/create`,
       method:'post',
       data: params,
       success:res=> {
         wx.navigateTo({
-          url: '/pages/result/result?success=true',
+          url: '/pages/result/result',
+          success: res => {
+            const evt = res.eventChannel;
+            const { priceAfter } = this.data;
+            evt.emit('result', priceAfter)
+          }
         })
       }
     })
@@ -146,7 +158,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(app.globalData)
     const { currentCoupon } = app.globalData;
     this.setData({ currentCoupon }, () => this.cacalAfterPrice())
 

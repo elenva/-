@@ -54,11 +54,17 @@ Page({
   },
   play(e){
     const { item } = e.currentTarget.dataset;
-    this.setData({
-      videoUrl: item.url,
-      name:item.name,
-      author:'虞美家课堂'
-    })
+    console.log(item)
+    if(item.type === 2) {
+      //音频
+      this.createAudio(item.url)
+    }else {
+      this.setData({
+        videoUrl: item.url,
+        name: item.name,
+        author: '虞美家课堂'
+      })
+    }
   },
   playEvt(e){
     if (!this.data.videoUrl) return
@@ -87,6 +93,14 @@ Page({
         }
       })
     }
+  },
+  binderror(e){
+    console.log(e)
+  },
+  createAudio(url){
+    const audio = wx.createInnerAudioContext()
+    audio.src = url;
+    audio.play();
   },
   /**
    * 生命周期函数--监听页面加载

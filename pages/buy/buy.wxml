@@ -61,5 +61,5 @@
 </view>
 <view class="submitbar">
   <text>合计{{priceAfter}}元</text>
-  <button type="warn" bindtap='result' bindtap="buy">立即购买</button>
+  <button type="warn" bindtap="buy">立即购买</button>
 </view>

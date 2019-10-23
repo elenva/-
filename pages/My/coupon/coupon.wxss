@@ -62,7 +62,7 @@
 }
 .list .item .content .right {
   flex:1;
-  padding-left: 30rpx;
+  padding: 0 30rpx;
 }
 
 .list .item .content .left .cashwrap{

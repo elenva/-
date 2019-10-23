@@ -14,8 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取已购买课程
-    this.getCommandsList();
+    
   },
   //获取已购买课程
   getCommandsList(){
@@ -30,7 +29,9 @@ Page({
     const { flag } = e.currentTarget.dataset;
     this.setData({flag})
   },
-  curriculumOne(){
+  curriculumOne(e){
+    const { item } = e.currentTarget.dataset;
+    app.globalData.currentCommand = { id: item.courseId};
     wx.navigateTo({
       url: '/pages/video/video',
     })
@@ -46,7 +47,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //获取已购买课程
+    this.getCommandsList();
   },
 
   /**

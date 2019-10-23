@@ -1,4 +1,29 @@
 <!--pages/result/result.wxml-->
 <view class='wrap'>
-  <view class='wrapInner'></view>
+  <view class='wrapInner'>
+    <block  wx:if="{{true}}">
+      <view class="head">
+        <image src="/images/icon_success.png"></image>
+        <view class="result">购买成功</view>
+        <view class="integer">
+          本次交易可获得
+          <text>{{score}}</text>
+          积分
+        </view>
+      </view>
+      <view class="btnWrap">
+        <button bindtap="isBuy">查看已购课程</button>
+        <button bindtap="integer">查看积分</button>
+      </view>
+    </block>
+    <block  wx:else>
+      <view class="head">
+        <image src="/images/icon_fail.png"></image>
+        <view class="result">购买失败</view>
+      </view>
+      <view class="btnWrap" style="margin-top:111rpx;">
+        <button bindtap="queClass">查看课程</button>
+      </view>
+    </block>
+  </view>
 </view>

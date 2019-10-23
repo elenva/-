@@ -13,13 +13,15 @@
 <view class="list curriculum" wx:if="{{flag === 1}}">
   <view 
     class="item"
-    bindtap="curriculumOne" 
+    bindtap="curriculumOne"
+    data-item="{{item}}" 
     wx:for="{{list}}" 
     wx:key="{{index}}">
     <view></view>
     <view>
-      <mediaType media="video"/>
-      <text class="txt" style="color:#488AE4;">正常</text>
+      <mediaType media="{{item.courseType}}"/>
+      <text class="txt" style="color:#488AE4;" wx:if="{{item.isOk}}">可用</text>
+      <text class="txt" style="color:red;" wx:else>不可用</text>
     </view>
     <view>
       <text>收费模式：{{
@@ -27,7 +29,7 @@
           ?'按次收费'
           :'按时长收费'
       }}</text>
-      <text>剩余次数：20次</text>
+      <text wx:if="{{item.buyType === 1}}">剩余次数：{{item.num - item.useNum < 0 ? 0 : item.num - item.useNum}}次</text>
     </view>
     <view>有效期至:{{item.endTime}}</view>
   </view>
@@ -35,7 +37,8 @@
 <view class="list report" wx:if="{{flag === 2}}">
   <view 
     class="item"
-    bindtap="curriculumOne" 
+    bindtap="curriculumOne"
+    data-item="{{item}}"  
     wx:for="{{curriculum}}" 
     wx:key="{{index}}">
     <view>这是标题这是标题这是标题这是标题这是标题这是标题这是标题</view>
