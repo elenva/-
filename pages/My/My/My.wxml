@@ -28,7 +28,8 @@
 <view class='hr'></view>
 <block>
   <view class='list'>
-    <view 
+    <button
+      open-type="{{item.name === '在线客服'?'contact':''}}"
       class='listItem' 
       wx:for="{{listItems}}" 
       wx:key="{{item.name}}" 
@@ -37,6 +38,6 @@
       <image src="{{item.src}}"></image>
       <text>{{item.name}}</text>
       <image src="/images/icon_right_gray.png"></image>
-    </view>
+    </button>
   </view>
 </block>

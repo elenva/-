@@ -72,9 +72,16 @@
 }
 .list .listItem{
   border-bottom: 1rpx solid #DCDCDD;
+  background-color: transparent;
+  border: noen;
+  outline: none;
   display: flex;
   padding: 25rpx 0;
   height: 98rpx;
+  text-align: left;
+}
+.list .listItem::after {
+  display: none;
 }
 .list .listItem image {
   width: 16rpx;
