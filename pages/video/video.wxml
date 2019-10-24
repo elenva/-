@@ -19,7 +19,7 @@
       autoplay="{{true}}"
       src="{{videoUrl}}"
       bindtimeupdate="videoTime"></audio>  -->
-      <voice info="{{audioInfo}}"/>
+      <voice info="{{audioInfo}}" bind:currentTime="videoTime"/>
   </view>
 </block>
 <view class='info'>

@@ -19,7 +19,7 @@ Component({
    */
   data: {
     currentTime:0,
-    playing:false
+    playing:false,
   },
 
   /**
@@ -37,6 +37,7 @@ Component({
   },
   ready(){
     const audio = wx.getBackgroundAudioManager();
+    console.log(audio)
     this.setData({ audio},()=> {
       //缓冲
       audio.onWaiting(()=> clearInterval(this.timer));
@@ -46,7 +47,7 @@ Component({
       })
       //播放
       audio.onPlay(res => {
-        this.timer = setInterval(() => {
+        this.timer = setInterval(res => {
           const { currentTime } = this.data;
           this.setData({ currentTime: currentTime + 1, playing: true })
         }, 1000)
@@ -57,7 +58,8 @@ Component({
       })
       //监听播放进度
       audio.onTimeUpdate(res=> {
-        console.log(res)
+        const now = audio.currentTime;
+        this.triggerEvent('currentTime', now)
       })
     })
   },
