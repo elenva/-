@@ -8,6 +8,7 @@ Page({
   data: {
     videoUrl:"",
     command:null,
+    audioInfo:null,//音频对象
   },
   setActive(e){
     const value = e.detail;
@@ -57,7 +58,7 @@ Page({
     console.log(item)
     if(item.type === 2) {
       //音频
-      this.createAudio(item.url)
+      this.createAudio(item)
     }else {
       this.setData({
         videoUrl: item.url,
@@ -97,10 +98,21 @@ Page({
   binderror(e){
     console.log(e)
   },
-  createAudio(url){
-    const audio = wx.createInnerAudioContext()
-    audio.src = url;
-    audio.play();
+  createAudio(item){
+    // const audio = wx.createInnerAudioContext()
+    // audio.onTimeUpdate(res => {
+    //   console.log(res)
+    // })
+    // audio.src = url;
+    // audio.play();
+    this.setData({
+      audioInfo:{
+        url: item.url,
+        author:'虞美家',
+        title:item.name
+      }
+    })
+   
   },
   /**
    * 生命周期函数--监听页面加载

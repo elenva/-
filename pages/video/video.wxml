@@ -9,7 +9,7 @@
     controls
     src="{{videoUrl}}"></video>
   <view class="audioWrap" wx:if="{{command.type === 2}}">
-    <audio
+    <!-- <audio
       controls
       binderror="binderror"
       name="{{name}}"
@@ -18,7 +18,8 @@
       bindplay="playEvt"
       autoplay="{{true}}"
       src="{{videoUrl}}"
-      bindtimeupdate="videoTime"></audio> 
+      bindtimeupdate="videoTime"></audio>  -->
+      <voice info="{{audioInfo}}"/>
   </view>
 </block>
 <view class='info'>

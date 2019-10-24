@@ -14,6 +14,13 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+//通过秒格式化mm:ss
+const formatMMSS = t=> {
+  const m = parseInt(t/60);
+  const s = m % 60;
+  return m ? `${m}:${s < 10 ? '0' + s : s}` : `00:${s < 10 ? '0' + s : s}`
+}
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatMMSS: formatMMSS
 }

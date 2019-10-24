@@ -1,0 +1,12 @@
+//通过秒格式化mm:ss
+var formatMMSS = function (t){
+  var m = parseInt(t / 60);
+  var s = t % 60;
+  // return m ? `${m}:${s < 10 ? '0' + s : s}` : `00:${s < 10 ? '0' + s : s}`
+  var result = m ? m + ":" + (s < 10 ? ('0' + s) : s)
+    : '00' + ':' + (s < 10 ? ('0' + s) : s)
+  return result;
+}
+module.exports = {
+  formatMMSS: formatMMSS
+}

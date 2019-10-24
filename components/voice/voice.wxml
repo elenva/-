@@ -1,0 +1,17 @@
+<wxs src="../../utils/format.wxs" module="format" />
+<!--components/voice/voice.wxml-->
+<view class="voiceWrap">
+  <text style="color:#fff" wx:if="{{info.title && info.author}}">{{info.title}}/{{info.author}}</text>
+  <view class="contollers">
+    <view class="play" bindtap="play" wx:if="{{!playing}}">播放</view>
+    <view class="play" bindtap="pause" wx:else>暂停</view>
+    <view class="time">{{format.formatMMSS(currentTime)}}</view>
+    <view class="progress">
+      <view class="progressInner">
+        <view class="percent">
+          <view class="pointer"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
