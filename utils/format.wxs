@@ -7,6 +7,11 @@ var formatMMSS = function (t){
     : '00' + ':' + (s < 10 ? ('0' + s) : s)
   return result;
 }
+
+var jsonString = function(j){
+  return JSON.stringify(j);
+}
 module.exports = {
-  formatMMSS: formatMMSS
+  formatMMSS: formatMMSS,
+  jsonString: jsonString
 }

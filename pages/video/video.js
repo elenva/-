@@ -79,6 +79,7 @@ Page({
   },
   videoTime(e){
     const currentTime = e.detail.currentTime || e.detail;
+    console.log(currentTime)
     const { command } = this.data;
     if (command.buyType !== 1) return;
     if (currentTime > 15 && this.isAllow) {
