@@ -63,7 +63,7 @@ Page({
       this.setData({
         videoUrl: item.url,
         name: item.name,
-        author: '虞美家课堂'
+        author: '虞美家课堂',
       })
     }
   },
@@ -79,7 +79,6 @@ Page({
   },
   videoTime(e){
     const currentTime = e.detail.currentTime || e.detail;
-    console.log(currentTime)
     const { command } = this.data;
     if (command.buyType !== 1) return;
     if (currentTime > 15 && this.isAllow) {
@@ -97,7 +96,7 @@ Page({
     }
   },
   binderror(e){
-    console.log(e)
+    
   },
   createAudio(item){
     // const audio = wx.createInnerAudioContext()
@@ -110,7 +109,8 @@ Page({
       audioInfo:{
         url: item.url,
         author:'虞美家',
-        title:item.name
+        title:item.name,
+        imgurl: item.imgUrl
       }
     })
    

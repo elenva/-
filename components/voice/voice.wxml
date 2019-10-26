@@ -1,15 +1,21 @@
 <wxs src="../../utils/format.wxs" module="format" />
 <!--components/voice/voice.wxml-->
 <view class="voiceWrap" wx:if="{{audio}}">
+  <image mode="center" src="{{info.imgurl}}"></image>
   <text style="color:#fff" wx:if="{{info.title && info.author}}">{{info.title}}/{{info.author}}</text>
   <view class="contollers" wx:if="{{audioObj}}">
     <view class="play" bindtap="play" wx:if="{{!audioObj.status}}">播放</view>
     <view class="play" bindtap="pause" wx:else>暂停</view>
     <view class="time" wxL>{{format.formatMMSS(audioObj.currentPosition)}}/{{format.formatMMSS(audioObj.duration)}}</view>
     <view class="progress">
-      <view class="progressInner">
+      <view class="progressInner" id="progressInner">
         <view class="percent" style="width:{{audioObj.percent}}">
-          <view class="pointer"></view>
+          <view 
+            class="pointer" 
+            id="pointer"
+            bindtouchstart="pointTouchStart"
+            bindtouchmove="pointTouchMove"
+            bindtouchend="pointTouchEnd"></view>
         </view>
       </view>
     </view>

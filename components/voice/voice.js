@@ -9,7 +9,8 @@ Component({
       value:{
         author:'虞美家',
         url:"",
-        title:''
+        title:'',
+        imgurl:""
       }
     }
   },
@@ -33,6 +34,42 @@ Component({
     pause(){
       const { audio } = this.data;
       audio.pause();
+    },
+    pointTouchStart(e){
+      const { audioObj} = this.data;
+      console.log(audioObj)
+      this.setData({
+        startObj: {
+          ...e.touches[0],
+          startTime:audioObj.currentPosition
+        }
+      })
+    },
+    pointTouchMove(e){
+      const { startObj} = this.data;
+      const moveObj = e.touches[0];
+      if (!startObj) return;
+      console.log(e)
+      this.setData({
+        moveObj
+      })
+    },
+    pointTouchEnd(e){
+      const { moveObj, startObj, audioObj, audio } = this.data;
+      if (!moveObj) return;
+      const slector = wx.createSelectorQuery().in(this);
+      const scale = startObj.clientX - moveObj.clientX;
+      const end = moveObj.clientX;
+      const progressInner = slector.select('#progressInner')
+      progressInner.boundingClientRect(function (rect){
+        const nodeWidth = rect.width;
+        const nodeLeft = rect.left;
+        const _end = end - nodeLeft;
+        const percent = _end / nodeWidth;
+        const ms = audioObj.duration * percent
+        audio.seek(ms)
+      }).exec()
+      
     }
   },
   ready(){
