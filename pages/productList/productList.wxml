@@ -14,13 +14,9 @@
         </view>
         <view class='status'>
           <mediaType media="{{item.type}}" class="media"/>
-          <text>{{
-            item.isfree === 1
-            ?"已解锁"
-            :item.isBuy === 1
-            ?'已解锁'
-            :"未解锁"
-          }}</text>
+          <text style="color:#488AE4;" wx:if="{{item.isfree === 1 || item.isBuy === 1}}">已解锁</text>
+          <text style="color:#488AE4;" wx:elif="{{item.isfree === 2 && item.isBuy === 1}}">已解锁</text>
+          <text wx:else>未解锁</text>
         </view>
         <view class='info'>
           <text>{{item.courseView}}人浏览</text>
@@ -28,5 +24,5 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> 
 </block>
