@@ -20,7 +20,8 @@
     "pages/buy/buy",
     "pages/result/result",
     "pages/k12/k12",
-    "pages/visitor/visitor"
+    "pages/visitor/visitor",
+    "pages/My/editBasicInfo/editBasicInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -60,5 +61,7 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": ["audio"]
+  "requiredBackgroundModes": [
+    "audio"
+  ]
 }

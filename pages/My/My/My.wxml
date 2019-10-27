@@ -3,6 +3,7 @@
   <view class='panel'>
     <image src="/images/my/icon_big_bg.png"></image>
     <view class='scorewrap'>
+      <text class="editBasicInfo" bindtap="editBasicInfo">编辑资料</text>
       <view class='name'>{{user.nickName}}</view>
       <view class='score' bindtap='score'>
         <text>积分 {{userAccountInfo.integration}}</text>

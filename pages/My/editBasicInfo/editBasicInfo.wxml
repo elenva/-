@@ -1,0 +1,31 @@
+<!--pages/My/put/put.wxml-->
+<block>
+  <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getphonenumber">反馈</button> -->
+  <view class="formWrap">
+    <form class='form' bindsubmit="submit">
+      <view class='formItem'>
+        <label>昵称</label>
+        <input type="digit" name="extractNum"></input>
+      </view>
+      <view class='formItem'>
+        <label>性别</label>
+        <input type="number" name="cardNum"></input>
+      </view>
+      <view class='formItem'>
+        <label>年龄</label>
+        <input type="text" name="cardName"></input>
+      </view>
+      <view class='formItem'>
+        <label>头像</label>
+        <input type="text" name="cardName"></input>
+      </view>
+      <view class='formItem'>
+        <label>手机号码</label>
+        <input type="text" name="cardName"></input>
+      </view>
+      <!-- bindtap='puting' -->
+      <button type='warn'  form-type="submit">修改信息</button>
+    </form>
+  </view>
+</block>
+

@@ -47,6 +47,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 5,
 			"list": [
@@ -181,6 +185,12 @@
 					"name": "购买结果",
 					"pathName": "pages/result/result",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑基本资料",
+					"pathName": "pages/My/editBasicInfo/editBasicInfo",
 					"scene": null
 				}
 			]

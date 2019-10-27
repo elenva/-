@@ -11,6 +11,13 @@
   height: 186rpx;
   text-align: center;
   padding-top: 75rpx;
+  position: relative;
+}
+.panel .scorewrap .editBasicInfo {
+  position: absolute;
+  right: 40rpx;
+  top: 10rpx;
+  font-size: 28rpx;
 }
 .panel .scorewrap .score {
   display: flex;

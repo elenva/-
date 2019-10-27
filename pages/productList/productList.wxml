@@ -17,6 +17,8 @@
           <text>{{
             item.isfree === 1
             ?"已解锁"
+            :item.isBuy === 1
+            ?'已解锁'
             :"未解锁"
           }}</text>
         </view>

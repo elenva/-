@@ -36,6 +36,11 @@ Page({
       url: item.url,
     })
   },
+  editBasicInfo(){
+    wx.navigateTo({
+      url: '/pages/My/editBasicInfo/editBasicInfo',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
