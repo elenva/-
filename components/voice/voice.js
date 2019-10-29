@@ -35,6 +35,12 @@ Component({
       const { audio } = this.data;
       audio.pause();
     },
+    stop(){
+      const { audio } = this.data;
+      audio.stop();
+      clearInterval(this.timer);
+      wx.stopBackgroundAudio();
+    },
     pointTouchStart(e){
       const { audioObj} = this.data;
       console.log(audioObj)
@@ -77,7 +83,7 @@ Component({
     this.setData({
       audio
     })
-    setInterval(()=>{
+    this.timer = setInterval(()=>{
       wx.getBackgroundAudioPlayerState({
         success:res=>{
           const now = res.currentPosition;
@@ -89,6 +95,11 @@ Component({
         }
       })
     },500)
+
+    audio.onStop(res=> {
+      clearInterval(this.timer)
+      this.setData({ audioObj: null })
+    })
   },
   observers:{
     'info':function(newV) {

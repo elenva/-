@@ -21,7 +21,7 @@
       autoplay="{{true}}"
       src="{{videoUrl}}"
       bindtimeupdate="videoTime"></audio>  -->
-      <voice info="{{audioInfo}}" bind:currentTime="videoTime"/>
+      <voice info="{{audioInfo}}" bind:currentTime="videoTime" id="voice"/>
   </view>
 </block>
 <view class='info'>
@@ -53,7 +53,7 @@
             src="/images/video/icon_down_grey.png" 
             class="tag"></image>  
         </block> -->
-        <image src="/images/video/icon_lock_red.png" class="tag" wx:if="{{!item.freeSecond}}"></image>
+        <image src="/images/video/icon_lock_red.png" class="tag" wx:if="{{!item.freeSecond && command.isBuy!==1}}"></image>
         <mediaType media="1" wx:else short/>
       </view>
       <view slot="content">
@@ -90,7 +90,7 @@
       <view class="btnwrap">
         <button type="warn" bindtap="buy">点击购买</button>
         <button
-          wx:if="{{command.canBeFreeUse}}" 
+          wx:if="{{command.canBeFreeUse && !isUsedFreeSecond}}" 
           type="primary" 
           bindtap="freeUse">可试{{command.type === 2?'听':'看'}}</button>
       </view>

@@ -37,8 +37,8 @@ Page({
           command.canBeFreeUse = canBeFreeUse;
         }
         //是否显示购买面板
-        command.showBuyWrap = (command.isfree !== 1 && command.isBuy === 2);
-        this.setData({ command })
+        command.showBuyWrap = (command.isfree === 2);
+
         if (command.isBuy === 2) {
           if (command.buyTypeList){
             const obj = {unit:'',long:''};
@@ -53,11 +53,13 @@ Page({
                 obj.long = str;
               }
             })
-            this.setData({price:obj})
+            this.setData({ price:obj})
             command.price = obj;
             app.globalData.currentCommand = command;
           }
         }
+
+        this.setData({ command })
       }
     })
   },
@@ -78,7 +80,7 @@ Page({
     })
     this.setData({ command }, () => console.log(this.data.command));
 
-    if (command.canBeFreeUse) {
+    if (command.canBeFreeUse && command.isBuy!==1) {
       if (!item.freeSecond) return;
       //记录试看时间
       this.freeSecond = item.freeSecond;
@@ -97,20 +99,24 @@ Page({
   playEvt(e){
     if (!this.data.videoUrl) return
     const { command} = this.data;
-    if (command.buyType !== 1) return;
-    if (!command.canBeFreeUse ) {
-      wx.showToast({
-        title: '播放超过15秒后将消耗次数',
-        icon: 'none',
-        duration: 3000
-      })
-    }else{
+
+    //未购买，可试用
+    if (command.canBeFreeUse && command.isBuy!==1){
       wx.showToast({
         title: '当前处于试看模式',
         icon: 'none',
         duration: 2000
       })
+      return
     }
+    
+    //不是次数购买
+    if (command.buyType !== 1) return;
+    wx.showToast({
+      title: '播放超过15秒后将消耗次数',
+      icon: 'none',
+      duration: 3000
+    })
   },
   videoTime(e){
     const currentTime = e.detail.currentTime || e.detail;
@@ -129,7 +135,19 @@ Page({
         const video = wx.createVideoContext('video',this)
         video.stop();
         video.exitFullScreen();
-        this.onShow()
+
+        const voice = this.selectComponent("#voice")
+        if (voice) {
+          voice.stop();
+          this.setData({ audioInfo: null })
+        }
+        
+        //表示已经试用过了
+        this.setData({ isUsedFreeSecond:true})
+
+        if (!this.freeSecond) return;
+        this.onShow();
+        this.freeSecond = null;
       }
       return;
     }
@@ -156,12 +174,6 @@ Page({
     this.setData({ command});
   },
   createAudio(item){
-    // const audio = wx.createInnerAudioContext()
-    // audio.onTimeUpdate(res => {
-    //   console.log(res)
-    // })
-    // audio.src = url;
-    // audio.play();
     this.setData({
       audioInfo:{
         url: item.url,
@@ -176,7 +188,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**
