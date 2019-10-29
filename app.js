@@ -30,8 +30,9 @@ App({
     })
     wx.request({
       ...obj,
-      // url: "http://shop.miaomuxia.com:81" + obj.url,
-      url: "http://gj26975614.wicp.vip:11842" + obj.url,
+      url: "http://shop.miaomuxia.com:81" + obj.url,
+      // url: "http://gj26975614.wicp.vip:11842" + obj.url,
+      // url: "http://192.168.88.18" + obj.url,
       success:res=>{
         if(res.data.success){
           obj.success(res.data);

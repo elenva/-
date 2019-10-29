@@ -56,6 +56,9 @@ video {
   flex: 1;
   padding-left: 30rpx;
 }
+.isPlaying .title {
+  color: #488AE4;
+}
 .panel .head > image {
   width: 22rpx;
   height: 22rpx;
@@ -126,7 +129,10 @@ video {
 .needBuy > .inner > view:last-child {
   font-size: 36rpx;
 }
-.needBuy > .inner > button {
+ .needBuy > .inner .btnwrap {
+   display: flex;
+ }
+.needBuy > .inner .btnwrap button {
   width: 194rpx;
   height: 60rpx;
   line-height: 60rpx;

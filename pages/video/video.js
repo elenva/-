@@ -29,7 +29,15 @@ Page({
     app.request({
       url: `/course/getCourseIsBuy/${app.globalData.openid}/${currentCommand.id}`,
       success:res=> {
-        const command = res.datas;
+        let command = res.datas;
+
+        //判定是否可试看/试听
+        if (command.courseVos && command.courseVos.length) {
+          const canBeFreeUse = command.courseVos.some(item => item.freeSecond);
+          command.canBeFreeUse = canBeFreeUse;
+        }
+        //是否显示购买面板
+        command.showBuyWrap = (command.isfree !== 1 && command.isBuy === 2);
         this.setData({ command })
         if (command.isBuy === 2) {
           if (command.buyTypeList){
@@ -55,7 +63,26 @@ Page({
   },
   play(e){
     const { item } = e.currentTarget.dataset;
-    console.log(item)
+    const {command} = this.data;
+
+    //既没买也不可试用
+    if (command.isBuy !== 1 && !item.freeSecond) return;
+
+    //样式修改
+    command.courseVos.map(el => {
+      if (el.id === item.id){
+        el.isPlaying = true
+      }else{
+        el.isPlaying = false
+      }
+    })
+    this.setData({ command }, () => console.log(this.data.command));
+
+    if (command.canBeFreeUse) {
+      if (!item.freeSecond) return;
+      //记录试看时间
+      this.freeSecond = item.freeSecond;
+    }
     if(item.type === 2) {
       //音频
       this.createAudio(item)
@@ -71,15 +98,42 @@ Page({
     if (!this.data.videoUrl) return
     const { command} = this.data;
     if (command.buyType !== 1) return;
-    wx.showToast({
-      title: '播放超过15秒后将消耗次数',
-      icon: 'none',
-      duration: 3000
-    })
+    if (!command.canBeFreeUse ) {
+      wx.showToast({
+        title: '播放超过15秒后将消耗次数',
+        icon: 'none',
+        duration: 3000
+      })
+    }else{
+      wx.showToast({
+        title: '当前处于试看模式',
+        icon: 'none',
+        duration: 2000
+      })
+    }
   },
   videoTime(e){
     const currentTime = e.detail.currentTime || e.detail;
     const { command } = this.data;
+
+    //试看模式
+    if (this.freeSecond) {
+      if (currentTime > this.freeSecond) {
+        const str = command.type === 2 ? '试听' :"试看"
+        wx.showToast({
+          title: `${str}完毕`,
+          icon: 'none',
+          duration: 2000
+        })
+
+        const video = wx.createVideoContext('video',this)
+        video.stop();
+        video.exitFullScreen();
+        this.onShow()
+      }
+      return;
+    }
+
     if (command.buyType !== 1) return;
     if (currentTime > 15 && this.isAllow) {
       this.isAllow = false
@@ -95,8 +149,11 @@ Page({
       })
     }
   },
-  binderror(e){
-    
+  //点击试看按钮
+  freeUse(e){
+    const {command} = this.data;
+    command.showBuyWrap = false;
+    this.setData({ command});
   },
   createAudio(item){
     // const audio = wx.createInnerAudioContext()

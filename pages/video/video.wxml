@@ -1,6 +1,8 @@
 <!--pages/video/video.wxml-->
 <block>
   <video
+    id="video"
+    title="{{name}}"
     wx:if="{{command.type === 1}}"
     title="视频"
     bindplay="playEvt"
@@ -37,10 +39,11 @@
       data-idx="{{index}}"
       allowcolspace="{{item.courseVos && item.courseVos.length}}"
       bind:setActive="setActive">
-      <view slot="head" class='head'bindtap="play" data-item="{{item}}">
+      <view slot="head" class="head {{item.isPlaying?'isPlaying':''}}" bindtap="play" data-item="{{item}}">
         <text class='index'>第{{index+1}}课</text>
         <text class='title'>{{item.name}}</text>
-        <block wx:if="{{item.courseVos && item.courseVos.length}}">
+        
+        <!-- <block wx:if="{{item.courseVos && item.courseVos.length}}">
           <image 
             wx:if="{{item.isActive}}"
             src="/images/video/icon_uo_grey.png" 
@@ -49,7 +52,9 @@
             wx:else 
             src="/images/video/icon_down_grey.png" 
             class="tag"></image>  
-        </block>
+        </block> -->
+        <image src="/images/video/icon_lock_red.png" class="tag" wx:if="{{!item.freeSecond}}"></image>
+        <mediaType media="1" wx:else short/>
       </view>
       <view slot="content">
         <scroll-view class='list' wx:if="{{item.isActive}}">
@@ -76,13 +81,19 @@
     </pianoPanel>
   </view>
 </view>
-<mask bgc="rgba(24,46,77,.8)" wx:if="{{command.isfree !== 1 && command.isBuy === 2}}">
+<mask bgc="rgba(24,46,77,.8)" wx:if="{{command.showBuyWrap}}">
   <view class="needBuy">
     <image src="/images/video/icon_lock_red.png"></image>
     <view class="inner">
       <view>当前为付费章节</view>
       <view>收费标准:{{price.unit}}或{{price.long}}</view>
-      <button type="warn" bindtap="buy">点击购买</button>
+      <view class="btnwrap">
+        <button type="warn" bindtap="buy">点击购买</button>
+        <button
+          wx:if="{{command.canBeFreeUse}}" 
+          type="primary" 
+          bindtap="freeUse">可试{{command.type === 2?'听':'看'}}</button>
+      </view>
     </view>
   </view>
 </mask>
