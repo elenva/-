@@ -7,7 +7,7 @@
         <text>{{user.nickName}}</text>
         <view class='level'>
           <image src="/images/team/icon_my_king.png"></image>
-          <text>一级代理</text>
+          <text>{{roles[userAccountInfo.roleId-1]}}</text>
         </view>
       </view>
       <image class='code' src="/images/team/icon_qr_code.png"

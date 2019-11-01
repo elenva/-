@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 21,
 			"list": [
 				{
 					"id": -1,
@@ -191,6 +191,28 @@
 					"id": -1,
 					"name": "编辑基本资料",
 					"pathName": "pages/My/editBasicInfo/editBasicInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "scene=ols5H49ajZVKJ038utATTzoJsF7M",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "pages/loading/loading",
+					"pathName": "pages/loading/loading",
+					"query": "scene=ols5H42Vvpfo1XOEvz-mZVvHNF7s",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/My/team/team",
+					"pathName": "pages/My/team/team",
+					"query": "scene=ols5H42Vvpfo1XOEvz-mZVvHNF7s",
 					"scene": null
 				}
 			]

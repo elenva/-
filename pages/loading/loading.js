@@ -5,13 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    scene:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    if (options.scene) app.globalData.scene = options.scene
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -19,7 +20,25 @@ Page({
   onReady: function () {
 
   },
-
+  bindRelation(fn){
+    const { scene, openid } = app.globalData;
+    if (!scene) {
+      fn();
+      return;
+    }
+    //如果有被邀请人，绑定他们之间的关系
+    app.request({
+      url:`/invite/saveInvite`,
+      data:{
+        inviter: scene,
+        toInviter: openid
+      },
+      method:'post',
+      success:res=> {
+        fn()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -86,12 +105,13 @@ Page({
         code
       },
       success: res => {
-        console.log(res)
         app.globalData.openid = res.datas.openId;
         app.globalData.unionId = res.datas.unionId;
         app.globalData.session_key = res.datas.sessionKey;
-        app.getUserAccountInfo();
-        this.wxGetUserinfo()
+        this.bindRelation(()=> {
+          app.getUserAccountInfo();
+          this.wxGetUserinfo();
+        });
       }
     })
   },

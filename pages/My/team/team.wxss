@@ -23,7 +23,7 @@
   line-height: 1;
 }
 .wrap .info .namewrap .level {
-  width: 130rpx;
+  width: 140rpx;
   height: 30rpx;
   border-radius: 8rpx;
   background-color: rgba(235,46,37,.2);

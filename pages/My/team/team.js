@@ -14,6 +14,7 @@ Page({
       { src: "/images/team/pic5.png", name: "张三四" },
       { src: "/images/team/pic6.png", name: "张三四" }
     ],
+    roles:['超级管理员','省级代理','市级代理','区/县代理'],
     userAccountInfo:null
   },
   //申请提现
@@ -35,23 +36,30 @@ Page({
       user:app.globalData.userInfo,
       userAccountInfo: app.globalData.userAccountInfo
     })
-  },
 
+    //获取我的团队列表
+    // this.getTeamList();
+  },
+  getTeamList(){
+    app.request({
+      url: `/invite/getInviteByOpenId/${app.globalData.openid}`,
+      success:res=> {
+
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      user: app.globalData.userInfo,
-      userAccountInfo: app.globalData.userAccountInfo
-    })
+
   },
 
   /**

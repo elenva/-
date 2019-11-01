@@ -7,7 +7,8 @@ Page({
    */
   data: {
     flag:1,
-    list:[]
+    list:[],
+    reportList:[]
   },
 
   /**
@@ -22,6 +23,15 @@ Page({
       url:`/course/getCoursePlayHis/${app.globalData.openid}`,
       success:res=> {
         this.setData({list:res.datas})
+      }
+    })
+  },
+  //获取个人报告
+  getReport(){
+    app.request({
+      url: `/report/getReportByOpenId/${app.globalData.openid}`,
+      success:res=> {
+        this.reportList = res.datas
       }
     })
   },
@@ -49,6 +59,8 @@ Page({
   onShow: function () {
     //获取已购买课程
     this.getCommandsList();
+    //获取个人报告
+    this.getReport();
   },
 
   /**

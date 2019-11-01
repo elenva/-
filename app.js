@@ -10,6 +10,7 @@ App({
     
   },
   globalData: {
+    scene:null,//邀请人的oid
     scale:1,//积分兑换金额的比例 1积分*scale = 金额
     userInfo: null,//用户基本信息
     accontInfo:null,//通过wx.getuserinfo拿到的信息包含userinfo
@@ -31,8 +32,8 @@ App({
     wx.request({
       ...obj,
       // url: "http://shop.miaomuxia.com:81" + obj.url,
-      url: "http://rz27513550.qicp.vip:57026/" + obj.url,
-      // url: "http://192.168.88.18" + obj.url,
+      // url: "http://rz27513550.qicp.vip:57026/" + obj.url,
+      url: "http://192.168.88.18:81" + obj.url,
       success:res=>{
         if(res.data.success){
           obj.success(res.data);
