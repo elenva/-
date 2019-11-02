@@ -20,7 +20,7 @@
         </view>
         <view class='info'>
           <text>{{item.courseView}}人浏览</text>
-          <text>共{{item.keyword1}}节课 共{{item.keyword2}}分钟</text>
+          <text>共{{item.keyword1}}节课</text>
         </view>
       </view>
     </view>

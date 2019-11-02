@@ -11,7 +11,12 @@ var formatMMSS = function (t){
 var jsonString = function(j){
   return JSON.stringify(j);
 }
+
+var numberTofix = function(num,x){
+  return Number(num).toFixed(x||2)
+}
 module.exports = {
   formatMMSS: formatMMSS,
-  jsonString: jsonString
+  jsonString: jsonString,
+  numberTofix: numberTofix
 }

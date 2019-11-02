@@ -28,10 +28,13 @@ Page({
   },
   //获取个人报告
   getReport(){
+    // // app.globalData.openid
+    // const oid = "ols5H42Vvpfo1XOEvz-mZVvHNF7s"
+    const oid = app.globalData.openid
     app.request({
-      url: `/report/getReportByOpenId/${app.globalData.openid}`,
+      url: `/report/getReportByOpenId/${oid}`,
       success:res=> {
-        this.reportList = res.datas
+        this.setData({ reportList:res.datas})
       }
     })
   },
@@ -44,6 +47,17 @@ Page({
     app.globalData.currentCommand = { id: item.courseId};
     wx.navigateTo({
       url: '/pages/video/video',
+    })
+  },
+  //查看报告详情
+  reportDetail(e){
+    const {item} = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: '/pages/My/reportDetail/reportDetail',
+      success:res => {
+        const { eventChannel } = res;
+        eventChannel.emit(`reportDetail`,item)
+      }
     })
   },
   /**

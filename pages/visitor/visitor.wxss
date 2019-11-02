@@ -1,1 +1,8 @@
 /* pages/visitor/visitor.wxss */
+.wrap {
+  padding: 40rpx;
+}
+.info {
+  font-size: 38rpx;
+  margin-bottom: 60rpx;
+}

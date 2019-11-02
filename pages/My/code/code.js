@@ -13,12 +13,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (app.globalData.openid === 1) {
+      wx.reLaunch({
+        url: `/pages/loading/loading?scene=${options.oid}`,
+      })
+      return
+    }
     this.getImgCode()
-    wx.showShareMenu({
-      withShareTicket: true
-    })
+    // wx.showShareMenu({
+    //   withShareTicket: true
+    // })
   },
   getImgCode(){
+    
     app.request({
       url: `/user/getQrcode/${app.globalData.openid}`,
       success:res=> {
@@ -75,6 +82,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    // wx.reLaunch({
+    //   url: '/pages/loading/loading',
+    // })
   }
 })

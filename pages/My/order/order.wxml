@@ -10,7 +10,7 @@
     class="item {{flag===2?'active':''}}">个人报告管理</view>
 </view>
 <view class="hr"></view>
-<view class="list curriculum" wx:if="{{flag === 1}}">
+<view class="list curriculum" hidden="{{flag !== 1}}">
   <view 
     class="item"
     bindtap="curriculumOne"
@@ -34,14 +34,14 @@
     <view>有效期至:{{item.endTime}}</view>
   </view>
 </view>
-<view class="list report" wx:if="{{flag === 2}}">
+<view class="list report" hidden="{{flag !== 2}}">
   <view 
     class="item"
-    bindtap="curriculumOne"
+    bindtap="reportDetail"
     data-item="{{item}}"  
-    wx:for="{{curriculum}}" 
+    wx:for="{{reportList}}" 
     wx:key="{{index}}">
-    <view>这是标题这是标题这是标题这是标题这是标题这是标题这是标题</view>
-    <view>报告生成时间:2019-07-10 12:11</view>
+    <view>{{item.title || '无标题'}}</view>
+    <view>报告生成时间:{{item.createTime}}</view>
   </view>
 </view>

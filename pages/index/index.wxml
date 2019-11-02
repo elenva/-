@@ -47,7 +47,7 @@
         </view>
         <view class='status'>
           <mediaType media="{{item.type || 1}}"/>
-          <text>共{{item.keyword1}}节课 共{{item.keyword2}}分钟</text>
+          <text>共{{item.keyword1}}节课</text>
         </view>
       </view>
       <view class='right'>

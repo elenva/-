@@ -24,11 +24,11 @@ Page({
   },
   //表单submit事件
   submit(e){
-    const { integration } = app.globalData.userAccountInfo;
+    const { extractIntegration } = app.globalData.userAccountInfo;
     const { scale } = app.globalData;
     const {value} = e.detail;
     //可提现金额
-    const cash = integration * scale;
+    const cash = extractIntegration * scale;
 
     for(const k in value){
       const item = value[k];
@@ -59,6 +59,7 @@ Page({
       }
     }
     value.openId = app.globalData.openid;
+    value.extractIntegration = app.globalData.userAccountInfo.extractIntegration
     //调用提现接口
     app.request({
       url:`/extract/saveExtract`,
@@ -68,7 +69,7 @@ Page({
         app.getUserAccountInfo();
         const {scale} = app.globalData;
         this.setData({ 
-          puting: true, cash: scale * value.extractNum})
+          puting: true, cash: value.extractNum})
       }
     })
   },

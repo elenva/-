@@ -5,14 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    scene:null
+    scene:null,
+    str:"123"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.scene) app.globalData.scene = options.scene
+    if (options.scene) {
+      app.globalData.scene = options.scene
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -22,6 +25,10 @@ Page({
   },
   bindRelation(fn){
     const { scene, openid } = app.globalData;
+    // wx.showModal({
+    //   title: 'bindRelation',
+    //   content: `123 ${scene}`,
+    // })
     if (!scene) {
       fn();
       return;
@@ -42,22 +49,35 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    wx.getSetting({
-      success: r => {
-        if (r.authSetting['scope.userInfo']) {
-          // 登录
-          wx.login({
-            success: res => {
-              this.login(res.code)
-              // 发送 res.code 到后台换取 openId, sessionKey, unionId
-            }
-          })
-        } else {
-          wx.redirectTo({
-            url: '/pages/visitor/visitor',
-          })
+  getSettingAfter(r){
+    const authSetting = r.authSetting;
+
+    const boolean = authSetting["scope.userInfo"];
+
+    if (boolean) {
+      // 登录
+      wx.login({
+        // success: res => {
+        //   this.login(res.code)
+        //   // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        // },
+        complete:res=> {
+          this.login(res.code)
         }
+      })
+    } else {
+      wx.redirectTo({
+        url: '/pages/visitor/visitor',
+      })
+    }
+  },
+  onShow() {
+    wx.getSetting({
+      // success: r => {
+      //   this.getSettingAfter(r)
+      // },
+      complete:r=> {
+        this.getSettingAfter(r)
       }
     })    
   },
@@ -73,7 +93,7 @@ Page({
     wx.getUserInfo({
       lang:'zh_CN',
       // withCredentials:true,
-      success: resInfo => {
+      complete: resInfo => {
         // 可以将 res 发送给后台解码出 unionId
         app.globalData.userInfo = resInfo.userInfo
         app.globalData.accontInfo = resInfo
@@ -109,8 +129,8 @@ Page({
         app.globalData.unionId = res.datas.unionId;
         app.globalData.session_key = res.datas.sessionKey;
         this.bindRelation(()=> {
-          app.getUserAccountInfo();
           this.wxGetUserinfo();
+          app.getUserAccountInfo();
         });
       }
     })

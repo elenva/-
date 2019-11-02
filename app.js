@@ -1,12 +1,18 @@
 //app.js
 App({
   onLaunch: function (options) {
-    console.log(options)
-    // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-    // 获取用户信息
+    wx.hideShareMenu();
+    if (options.shareTicket) {
+      wx.getShareInfo({
+        shareTicket: true,
+        success: res => {
+          wx.showModal({
+            title: '123',
+            content: JSON.stringify(res),
+          })
+        }
+      })
+    }
     
   },
   globalData: {
@@ -24,19 +30,19 @@ App({
     currentCoupon:null,//当前选中的优惠券
     currentPutlog:null,//当前点击的提现记录
   },
-  request(obj){
+  request:function(obj){
     wx.showLoading({
       title: '加载中',
       mask:true
     })
     wx.request({
       ...obj,
-      // url: "http://shop.miaomuxia.com:81" + obj.url,
+      // url: "http://www.miaomuxia.com:81" + obj.url,
       // url: "http://rz27513550.qicp.vip:57026/" + obj.url,
-      url: "http://192.168.88.18:81" + obj.url,
+      url: "http://27s540w789.zicp.vip:56976" + obj.url,
       success:res=>{
         if(res.data.success){
-          obj.success(res.data);
+          obj.success &&　obj.success(res.data);
         }else{
           wx.showToast({
             title: res.data.msg || res.data.datas ||'未知错误',
@@ -46,6 +52,7 @@ App({
       },
       complete:res=>{
         wx.hideLoading();
+        obj.complete && obj.complete(res.data)
       }
     }) 
   },
@@ -54,6 +61,7 @@ App({
       url: `/user/getUserByOpenId/${this.globalData.openid}`,
       success: res => {
         this.globalData.userAccountInfo = res.datas;
+        this.globalData.scale = res.datas.constantMap.extractScale;
       }
     })
   }

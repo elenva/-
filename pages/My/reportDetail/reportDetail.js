@@ -1,28 +1,23 @@
-const app = getApp();
+// pages/My/reportDetail/reportDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    info:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // setTimeout(()=>{
-    // wx.switchTab({
-    //   url: "/pages/index/index",
-    // })
-    // },1000)
-  },
-  getUserInfo(info) {
-    wx.reLaunch({
-      url: '/pages/loading/loading'
+    const Evt = this.getOpenerEventChannel();
+    Evt.on(`reportDetail`,data=> {
+      this.setData({ info: data})
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

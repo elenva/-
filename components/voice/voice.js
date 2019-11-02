@@ -83,28 +83,30 @@ Component({
     this.setData({
       audio
     })
-    this.timer = setInterval(()=>{
+    clearInterval(this.timer)
+    this.timer = setInterval(() => {
       wx.getBackgroundAudioPlayerState({
-        success:res=>{
+        success: res => {
           const now = res.currentPosition;
+          if(res.status === 2) {
+            clearInterval(this.timer)
+          }
           this.triggerEvent('currentTime', now)
-          this.setData({ audioObj:{
-            ...res,
-            percent: (res.currentPosition / res.duration*100) + '%'
-          }})
+          this.setData({
+            audioObj: {
+              ...res,
+              percent: (res.currentPosition / res.duration * 100) + '%'
+            }
+          })
         }
       })
-    },500)
-
-    audio.onStop(res=> {
-      clearInterval(this.timer)
-      this.setData({ audioObj: null })
-    })
+    }, 500)
   },
   observers:{
     'info':function(newV) {
       const { audio } = this.data;
       if (newV && newV.url) {
+        console.log(this.data.audioObj)
         if (audio.src === newV.url) return;
         audio.src = newV.url;
         audio.title = newV.title || '未知标题';

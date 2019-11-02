@@ -69,7 +69,9 @@ Page({
   getScore(e){
     this.setData({
       score: e.detail
-    }, () => this.cacalAfterPrice())
+    }, () => {
+      this.cacalAfterPrice()
+    })
   },
   /**
    * 生命周期函数--监听页面加载

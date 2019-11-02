@@ -9,10 +9,7 @@ Page({
   data: {
     user: app.globalData.userInfo,
     listItems:[
-      { name: "我的团队", src: "/images/my/icon_myteam.png", url: "/pages/My/team/team"},
-      { name: "我的邀请码", src: "/images/my/icon_invitation_code.png", url: "/pages/My/code/code" },
-      { name: "售后帮助", src: "/images/my/icon_service.png" },
-      { name: "在线客服", src: "/images/my/icon_customer_service.png" },
+      
     ]
   },
   coupon(){
@@ -45,8 +42,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-  },
+    console.log(app.globalData.openid)
+    this.setData({
+      listItems:[
+        { name: "我的团队", src: "/images/my/icon_myteam.png", url: "/pages/My/team/team" },
+        { name: "我的邀请码", src: "/images/my/icon_invitation_code.png", url: `/pages/My/code/code?oid=${app.globalData.openid}` },
+        { name: "售后帮助", src: "/images/my/icon_service.png" },
+        { name: "在线客服", src: "/images/my/icon_customer_service.png" },
+      ]
+    })
+  },  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

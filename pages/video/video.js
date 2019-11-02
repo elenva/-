@@ -37,7 +37,7 @@ Page({
           command.canBeFreeUse = canBeFreeUse;
         }
         //是否显示购买面板
-        command.showBuyWrap = (command.isfree === 2);
+        command.showBuyWrap = (command.isfree === 2 && command.isBuy===2);
 
         if (command.isBuy === 2) {
           if (command.buyTypeList){

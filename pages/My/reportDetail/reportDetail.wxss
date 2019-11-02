@@ -1,0 +1,5 @@
+/* pages/My/reportDetail/reportDetail.wxss */
+.content {
+  width: 100%;
+  max-width: 100%;
+}

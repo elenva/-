@@ -1,0 +1,5 @@
+<!--pages/My/reportDetail/reportDetail.wxml-->
+<view class="wrap" wx:if="{{info}}">
+  <view class="title">{{info.title || '无标题'}}</view>
+  <rich-text nodes="{{info.content}}" class="content"></rich-text>
+</view>

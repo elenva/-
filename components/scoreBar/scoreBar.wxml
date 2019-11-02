@@ -1,5 +1,6 @@
 <!--components/scoreBar/scoreBar.wxml-->
-<view class='wrap'>
+<wxs src="../../utils/format.wxs" module="format" />
+<view class='wrap' bindtap="showInfo">
   当前积分余额：{{score}}
-  <text wx:if="{{showCash}}">，可提现金额{{cash}}元</text>
+  <text wx:if="{{showCash}}">，可提现金额{{format.numberTofix(cash)}}元</text>
 </view>

@@ -21,7 +21,8 @@
     "pages/result/result",
     "pages/k12/k12",
     "pages/visitor/visitor",
-    "pages/My/editBasicInfo/editBasicInfo"
+    "pages/My/editBasicInfo/editBasicInfo",
+    "pages/My/reportDetail/reportDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,4 +1,5 @@
 <!--pages/buy/buy.wxml-->
+<wxs src="../../utils/format.wxs" module="format" />
 <scoreBar/>
 <view class="infowrap">
   <view class="pro">
@@ -42,7 +43,7 @@
 <view class="hr"></view>
 <view class="handlewrap">
   <view class='item'>
-    <text>使用积分(抵扣-{{score*scale}}元)</text>
+    <text>使用积分(抵扣-{{format.numberTofix(score*scale)}}元)</text>
     <numStep 
       minV="{{0}}"
       maxV="{{userAccountInfo.integration}}"
@@ -56,10 +57,10 @@
     <image src="/images/icon_right_gray.png"></image>
   </view>
   <view class='total'>
-    合计抵扣-{{dkPrice}}元
+    合计抵扣-{{format.numberTofix(dkPrice)}}元
   </view>
 </view>
 <view class="submitbar">
-  <text>合计{{priceAfter}}元</text>
-  <button type="warn" bindtap="buy">立即购买</button>
+  <text>合计{{format.numberTofix(priceAfter)}}元</text>
+  <button type="warn" bindtap="buy" disabled="{{priceAfter<0}}">立即购买</button>
 </view>

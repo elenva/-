@@ -11,7 +11,8 @@
       <text>-{{item.extractNum}}</text>
     </view>
     <view>
-      <text>提现说明：{{item.remark}}</text>
+      <text wx:if="{{item.status!==3}}">提现说明：{{item.remark}}</text>
+      <text wx:else>拒绝原因:{{item.refuseRemark}}</text>
       <text style="color:{{status[item.status - 1].color}}">{{status[item.status - 1].str}}</text>
     </view>
     <view>2019-07-01 12:10</view>

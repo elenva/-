@@ -17,7 +17,6 @@ Page({
 
     const evt = this.getOpenerEventChannel();
     evt.on(`result`,res=> {
-      console.log(res)
       this.setData({ score: res})
     })
   },

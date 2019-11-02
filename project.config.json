@@ -214,6 +214,12 @@
 					"pathName": "pages/My/team/team",
 					"query": "scene=ols5H42Vvpfo1XOEvz-mZVvHNF7s",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/visitor/visitor",
+					"pathName": "pages/visitor/visitor",
+					"scene": null
 				}
 			]
 		}
