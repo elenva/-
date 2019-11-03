@@ -7,7 +7,7 @@ Component({
     info:{
       type:Object,
       value:{
-        author:'虞美家',
+        author:'易脑永逸',
         url:"",
         title:'',
         imgurl:""

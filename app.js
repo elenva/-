@@ -2,18 +2,6 @@
 App({
   onLaunch: function (options) {
     wx.hideShareMenu();
-    if (options.shareTicket) {
-      wx.getShareInfo({
-        shareTicket: true,
-        success: res => {
-          wx.showModal({
-            title: '123',
-            content: JSON.stringify(res),
-          })
-        }
-      })
-    }
-    
   },
   globalData: {
     scene:null,//邀请人的oid

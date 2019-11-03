@@ -92,7 +92,7 @@ Page({
       this.setData({
         videoUrl: item.url,
         name: item.name,
-        author: '虞美家课堂',
+        author: '易脑永逸',
       })
     }
   },
@@ -177,7 +177,7 @@ Page({
     this.setData({
       audioInfo:{
         url: item.url,
-        author:'虞美家',
+        author:'易脑永逸',
         title:item.name,
         imgurl: item.imgUrl
       }

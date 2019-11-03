@@ -38,11 +38,9 @@ Page({
     const {item} = e.currentTarget.dataset;
     app.globalData.currentCommand = item;
     if(item.type === 3) {
-      wx.showModal({
-        title: '提示',
-        content: '图文课程',
+      wx.navigateTo({
+        url: '/pages/itw/itw',
       })
-      return
     }
     wx.navigateTo({
       url: `/pages/video/video`,

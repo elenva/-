@@ -1,6 +1,6 @@
 <!--pages/loading/loading.wxml-->
 <view class="wrap">
-  <view class="info">点击按钮授权登陆虞美家</view>
+  <view class="info">点击按钮授权登陆易脑永逸</view>
   <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" type="primary">点击授权</button>
 </view>
 

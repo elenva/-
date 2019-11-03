@@ -121,7 +121,7 @@ Page({
       url: `/wxUser/login`,
       method: 'post',
       data: {
-        appKey: "wxcf0e7e19c17ab2ab",
+        appKey: "wx5a265ebdb3062d8b",
         code
       },
       success: res => {

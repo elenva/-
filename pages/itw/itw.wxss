@@ -1,4 +1,18 @@
 /* pages/i&t/i&t.wxss */
+.wrap {
+  padding: 50rpx 30rpx;
+}
+.wrap .title {
+  font-size:36rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  line-height:1;
+  margin-bottom: 47rpx;
+}
+.wrap > image {
+  max-width: 100%;
+}
 .chooseWrap {
   display: flex;
   width: 750rpx;
@@ -74,6 +88,46 @@
   font-size: 28rpx;
   line-height: 98rpx;
 }
+.panel .isActive {
+  color: #488AE4;
+}
 .panel .item:last-child{
   border-bottom: 0;
+}
+
+.needBuy {
+  text-align: center;
+  padding-top: 240rpx;
+}
+.needBuy > image {
+  width: 64rpx;
+  height: 74rpx;
+  margin-bottom:30rpx;
+}
+.needBuy > .inner {
+  width: 580rpx;
+  height: 310rpx;
+  background-color:rgba(255,255,255,.3);
+  margin:0 auto;
+  border-radius: 20rpx;
+  padding-top: 50rpx;
+  line-height: 1;
+}
+.needBuy > .inner > view {
+  color: #fff;
+  font-weight: 600;
+  font-size: 28rpx;
+  margin-bottom: 50rpx;
+}
+.needBuy > .inner > view:last-child {
+  font-size: 36rpx;
+}
+ .needBuy > .inner .btnwrap {
+   display: flex;
+ }
+.needBuy > .inner .btnwrap button {
+  width: 194rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
 }

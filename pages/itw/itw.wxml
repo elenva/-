@@ -1,8 +1,11 @@
 <!--pages/i&t/i&t.wxml-->
-<view class="wrap"></view>
-<view class="chooseWrap">
+<view class="wrap" wx:if="{{command}}">
+  <view class="title">{{title}}</view>
+  <image src="{{url}}"></image>
+</view>
+<view class="chooseWrap" wx:if="{{command}}">
   <view class="zj">
-    <text>第一课 | 第三节</text>
+    <text>{{title}}</text>
     <view class="statu">学习中</view>
   </view>
   <view class="select" bindtap="setSelect"> 
@@ -11,18 +14,31 @@
   </view>
 </view>
 <mask bind:maskTap="maskTap" wx:if="{{showSelect}}">
-  <view class="panel">
-    <view class="list" wx:for="{{list}}" wx:key="{{index}}">
-      <view class="title">{{item.title}}</view>
+  <scroll-view class="panel" scroll-y="{{true}}">
+    <view class="list" >
       <view 
         bindtap="chooseItem"
-        class="item"
-        data-item="{{el}}" 
-        wx:for="{{item.list}}" 
-        wx:for-index="idx" 
-        wx:for-item="el" 
-        wx:key="{{idx}}">
-        {{el}}
+        class="item {{item.isActive?'isActive':''}}"
+        data-item="{{item}}" 
+        wx:for="{{list}}" 
+        wx:key="{{item.id}}">
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+</mask>
+<mask bgc="rgba(24,46,77,.8)" wx:if="{{command.showBuyWrap}}">
+  <view class="needBuy">
+    <image src="/images/video/icon_lock_red.png"></image>
+    <view class="inner">
+      <view>当前为付费章节</view>
+      <view>收费标准:{{price.unit}}或{{price.long}}</view>
+      <view class="btnwrap">
+        <button type="warn" bindtap="buy">点击购买</button>
+        <button
+          wx:if="{{command.canBeFreeUse && !isUsedFreeSecond}}" 
+          type="primary" 
+          bindtap="freeUse">可试{{command.type === 2?'听':'看'}}</button>
       </view>
     </view>
   </view>

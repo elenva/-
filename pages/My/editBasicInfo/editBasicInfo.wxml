@@ -1,6 +1,6 @@
 <!--pages/My/put/put.wxml-->
 <block>
-  <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getphonenumber">反馈</button> -->
+  <button open-type="getPhoneNumber" bindgetphonenumber="getphonenumber">反馈</button>
   <view class="formWrap">
     <form class='form' bindsubmit="submit">
       <view class='formItem'>
