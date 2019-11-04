@@ -26,9 +26,9 @@ App({
     })
     wx.request({
       ...obj,
-      // url: "https://www.scynyykj.com" + obj.url,
+      url: "https://www.scynyykj.com" + obj.url,
       // url: "http://rz27513550.qicp.vip:57026/" + obj.url,
-      url: "http://27s540w789.zicp.vip:56976" + obj.url,
+      // url: "http://27s540w789.zicp.vip:56976" + obj.url,
       success:res=>{
         if(res.data.success){
           obj.success &&　obj.success(res.data);

@@ -25,7 +25,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const userAccountInfo = app.globalData.userAccountInfo;
+    let { models } = this.data;
+    models.phone = userAccountInfo.phone || ''
+    models.name = userAccountInfo.name || ''
+    models.age = userAccountInfo.age || 22
+    models.sex = userAccountInfo.sex
+    models.sexStr = userAccountInfo.sex == 1?'男':'女'
+    this.setData({ models })
   },
   getphonenumber(e){
     console.log(e)
@@ -51,6 +58,16 @@ Page({
   submit(e){
     const { models} = this.data;
     const {value} = e.detail;
+    for (const k in value) {
+      const item = value[k];
+      if (!item) {
+        wx.showToast({
+          title: '有信息没有填写！',
+          icon:'none'
+        })
+        return
+      }
+    }
     app.request({
       url:`/user/updateUser`,
       method:'post',
