@@ -128,6 +128,7 @@ Page({
         app.globalData.openid = res.datas.openId;
         app.globalData.unionId = res.datas.unionId;
         app.globalData.session_key = res.datas.sessionKey;
+        app.globalData.sessionKeyPhone = res.datas.sessionKeyPhone;
         this.bindRelation(()=> {
           this.wxGetUserinfo();
           app.getUserAccountInfo();

@@ -1,4 +1,5 @@
 // pages/My/editBasicInfo/editBasicInfo.js
+const app = getApp();
 Page({
 
   /**
@@ -16,13 +17,15 @@ Page({
   },
   getphonenumber(e){
     console.log(e)
-    wx.login({
-      success:res=> {
-        wx.showModal({
-          title: '提示',
-          content: JSON.stringify(e.detail),
-        })
-      }
+    const {detail} = e;
+    app.request({
+      url: `/wxUser/decrypt?type=getPhoneNumber`,
+      method: 'post',
+      data: {
+        ...detail,
+        "sessionKey": app.globalData.sessionKeyPhone
+      },
+      success: result => { }
     })
     
   },

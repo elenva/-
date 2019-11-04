@@ -12,6 +12,7 @@ App({
     openid:1,
     unionId:null,
     session_key:null,
+    sessionKeyPhone:null,
     recommendList:[],//推荐课程列表
     baseCourseList:[],//课程分类列表
     currentCommand:null,//当前打开的课程
