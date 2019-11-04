@@ -6,7 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    models:{
+      phone: "",
+      name:"",
+      age:'',
+      sex:"",
+      sexStr:""
+    },
+    ranges:{
+      sex:[
+        {label:'男',value:1},
+        { label: '女', value: 2 },
+      ]
+    }
   },
 
   /**
@@ -25,11 +37,44 @@ Page({
         ...detail,
         "sessionKey": app.globalData.sessionKeyPhone
       },
-      success: result => { }
+      success: res => { 
+        const {models} = this.data;
+        this.setData({
+          models:{
+            ...models,
+            phone: res.datas.phoneNumber
+          }
+        })  
+      }
     })
-    
   },
-
+  submit(e){
+    const { models} = this.data;
+    const {value} = e.detail;
+    app.request({
+      url:`/user/updateUser`,
+      method:'post',
+      data: {
+        ...models,
+        ...value
+      }
+    })
+  },
+  pickerChange(e) {
+    const { value } = e.detail;
+    const { models, ranges} =  this.data;
+    const sexStr = ranges.sex.find(item => (item.value * 1 - 1) == value).label
+    models.sex = value * 1 + 1;
+    models.sexStr = sexStr;
+    this.setData({ models })
+  },
+  inputChange(e){
+    const { label } = e.currentTarget.dataset;
+    const { value } = e.detail; 
+    let { models } = this.data;
+    models[label] = value;
+    this.setData({ models})
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

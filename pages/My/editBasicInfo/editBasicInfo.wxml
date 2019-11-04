@@ -1,30 +1,54 @@
 <!--pages/My/put/put.wxml-->
 <block>
-  <button open-type="getPhoneNumber" bindgetphonenumber="getphonenumber">反馈</button>
+  <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getphonenumber">反馈</button> -->
   <view class="formWrap">
     <form class='form' bindsubmit="submit">
       <view class='formItem'>
         <label>昵称</label>
-        <input type="digit" name="extractNum"></input>
+        <input 
+          type="text" 
+          name="name" 
+          value="{{models.name}}" 
+          data-label="name"
+          bindinput="inputChange"></input>
       </view>
       <view class='formItem'>
         <label>性别</label>
-        <input type="number" name="cardNum"></input>
+        <picker range="{{ranges.sex}}" range-key="label" bindchange="pickerChange">
+          <input type="text" name="sexStr" value="{{models.sexStr}}"></input>
+        </picker>
       </view>
       <view class='formItem'>
         <label>年龄</label>
-        <input type="text" name="cardName"></input>
+        <input 
+          data-label="age"
+          bindinput="inputChange"
+          type="number" 
+          name="age" 
+          value="{{models.age}}"></input>
       </view>
-      <view class='formItem'>
+      <!-- <view class='formItem'>
         <label>头像</label>
         <input type="text" name="cardName"></input>
-      </view>
+      </view> -->
       <view class='formItem'>
         <label>手机号码</label>
-        <input type="text" name="cardName"></input>
+        <view class="phoneNumber">
+          <input 
+            type="text" 
+            name="phone"
+            data-label="phone"
+            bindinput="inputChange" 
+            value="{{models.phone}}"></input>
+          <button
+            type="primary" 
+            open-type="getPhoneNumber" 
+            bindgetphonenumber="getphonenumber">微信手机号</button>
+        </view>
+        
       </view>
       <!-- bindtap='puting' -->
-      <button type='warn'  form-type="submit">修改信息</button>
+      <button type='warn'  class="submit" form-type="submit">修改信息</button>
     </form>
   </view>
 </block>

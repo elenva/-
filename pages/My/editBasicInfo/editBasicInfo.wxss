@@ -28,14 +28,12 @@
   width: 650rpx;
   height: 160rpx;
 }
-button {
-  margin-bottom: 20rpx;
-  outline: none;
-}
-button:last-child {
+.submit {
   background-color: #fff;
   color: #EB2E25;
   border: 1rpx solid #EB2E25;
+  margin-bottom: 20rpx;
+  outline: none;
 }
 
 .wrap {
@@ -90,4 +88,19 @@ button:last-child {
   line-height: 60rpx;
   font-size: 28rpx;
   font-weight: 600;
+}
+.phoneNumber {
+  display: flex;
+  align-items: center;
+}
+.phoneNumber  input {
+  flex: 0 0 400rpx;
+}
+
+.phoneNumber button {
+  margin-left: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  position: relative;
+  top: 5rpx;
 }

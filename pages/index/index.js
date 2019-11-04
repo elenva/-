@@ -41,6 +41,7 @@ Page({
       wx.navigateTo({
         url: '/pages/itw/itw',
       })
+      return
     }
     wx.navigateTo({
       url: `/pages/video/video`,

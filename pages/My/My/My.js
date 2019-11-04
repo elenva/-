@@ -42,7 +42,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.openid)
     this.setData({
       listItems:[
         { name: "我的团队", src: "/images/my/icon_myteam.png", url: "/pages/My/team/team" },
