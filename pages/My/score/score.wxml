@@ -1,5 +1,5 @@
 <!--pages/score/score.wxml-->
-<view class='list'>
+<view class='list' wx:if="{{list.length}}">
   <view class='item' wx:for="{{list}}" wx:key="{{index}}">
     <view class='left'>
       <view class='title'>{{types[item.type - 1]}}</view>
@@ -10,3 +10,4 @@
     </view>
   </view>
 </view>
+<view wx:else style="text-align:center;padding-top:20rpx;">暂无数据</view>

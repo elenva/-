@@ -62,7 +62,7 @@ Page({
       listItems: [
         { name: "我的团队", src: "/images/my/icon_myteam.png", url: "/pages/My/team/team" },
         { name: "我的邀请码", src: "/images/my/icon_invitation_code.png", url: `/pages/My/code/code?oid=${app.globalData.openid}` },
-        { name: "售后帮助", src: "/images/my/icon_service.png" },
+        { name: "售后帮助", src: "/images/my/icon_service.png", url: `/pages/My/help/help`},
         { name: "在线客服", src: "/images/my/icon_customer_service.png" },
       ] })
   },

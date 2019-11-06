@@ -4,10 +4,11 @@
     <view class='info'>
       <image class='avatar' src="{{user.avatarUrl}}"></image>
       <view class='namewrap'>
-        <text>{{user.nickName}}</text>
+        <text>{{userAccountInfo.name}}</text>
         <view class='level'>
           <image src="/images/team/icon_my_king.png"></image>
-          <text>{{roles[userAccountInfo.roleId-1]}}</text>
+          <text wx:if="{{userAccountInfo.roleId!==null}}">{{roles[userAccountInfo.roleId-1]}}</text>
+          <text wx:else>普通用户</text>
         </view>
       </view>
       <image class='code' src="/images/team/icon_qr_code.png"
@@ -27,12 +28,15 @@
       <text>我的邀请</text>
       <text>团队人数 {{userAccountInfo.inviteList.length}}</text>
     </view>
-    <view class='item' wx:for="{{userAccountInfo.inviteList}}" wx:key="{{item.src}}">
-      <image src="{{item.headimg}}" class='avatar'></image>
-      <view class='nameWrap'>
-        <view class='name'>{{item.toInviterName}}</view>
-        <view class='info'>{{item.createTime}} 邀请用户</view>
+    <block wx:if="{{userAccountInfo.inviteList.length}}">
+      <view class='item' wx:for="{{userAccountInfo.inviteList}}" wx:key="{{item.src}}">
+        <image src="{{item.headimg}}" class='avatar'></image>
+        <view class='nameWrap'>
+          <view class='name'>{{item.toInviterName}}</view>
+          <view class='info'>{{item.createTime}} 邀请用户</view>
+        </view>
       </view>
-    </view>
+    </block>
+    <view wx:else style="text-align:center;padding-top:20rpx;">暂无数据</view>
   </view>
 </block>

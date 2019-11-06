@@ -15,7 +15,7 @@
       <view class='formItem'>
         <label>性别</label>
         <picker range="{{ranges.sex}}" range-key="label" bindchange="pickerChange">
-          <input type="text" name="sexStr" value="{{models.sexStr}}"></input>
+          <input type="text" name="sexStr" value="{{models.sexStr}}" disabled="{{true}}"></input>
         </picker>
       </view>
       <view class='formItem'>

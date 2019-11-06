@@ -1,5 +1,5 @@
 <!--pages/My/putlog/putlog.wxml-->
-<view class="list">
+<view class="list" wx:if="{{list.length}}">
   <view 
     bindtap="putdetail"
     class="item" 
@@ -18,3 +18,4 @@
     <view>2019-07-01 12:10</view>
   </view>
 </view>
+<view wx:else style="text-align:center;padding-top:20rpx;">暂无数据</view>

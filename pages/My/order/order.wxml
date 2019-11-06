@@ -11,37 +11,44 @@
 </view>
 <view class="hr"></view>
 <view class="list curriculum" hidden="{{flag !== 1}}">
-  <view 
-    class="item"
-    bindtap="curriculumOne"
-    data-item="{{item}}" 
-    wx:for="{{list}}" 
-    wx:key="{{index}}">
-    <view>{{item.courseName}}</view>
-    <view>
-      <mediaType media="{{item.courseType}}"/>
-      <text class="txt" style="color:#488AE4;" wx:if="{{item.isOk}}">可用</text>
-      <text class="txt" style="color:red;" wx:else>不可用</text>
+  <block wx:if="{{list.length}}">
+    <view 
+      class="item"
+      bindtap="curriculumOne"
+      data-item="{{item}}" 
+      wx:for="{{list}}" 
+      wx:key="{{index}}">
+      <view>{{item.courseName}}</view>
+      <view>
+        <mediaType media="{{item.courseType}}"/>
+        <text class="txt" style="color:#488AE4;" wx:if="{{item.isOk}}">可用</text>
+        <text class="txt" style="color:red;" wx:else>不可用</text>
+      </view>
+      <view>
+        <text>收费模式：{{
+          item.buyType === 1
+            ?'按次收费'
+            :'按时长收费'
+        }}</text>
+        <text wx:if="{{item.buyType === 1}}">剩余次数：{{item.num - item.useNum < 0 ? 0 : item.num - item.useNum}}次</text>
+      </view>
+      <view>有效期至:{{item.endTime}}</view>
     </view>
-    <view>
-      <text>收费模式：{{
-        item.buyType === 1
-          ?'按次收费'
-          :'按时长收费'
-      }}</text>
-      <text wx:if="{{item.buyType === 1}}">剩余次数：{{item.num - item.useNum < 0 ? 0 : item.num - item.useNum}}次</text>
-    </view>
-    <view>有效期至:{{item.endTime}}</view>
-  </view>
+  </block>
+  <view wx:else style="text-align:center;padding-top:20rpx;">暂无数据</view>
+  
 </view>
 <view class="list report" hidden="{{flag !== 2}}">
-  <view 
-    class="item"
-    bindtap="reportDetail"
-    data-item="{{item}}"  
-    wx:for="{{reportList}}" 
-    wx:key="{{index}}">
-    <view>{{item.title || '无标题'}}</view>
-    <view>报告生成时间:{{item.createTime}}</view>
-  </view>
+  <block  wx:if="{{reportList.length}}">
+    <view 
+      class="item"
+      bindtap="reportDetail"
+      data-item="{{item}}"  
+      wx:for="{{reportList}}" 
+      wx:key="{{index}}">
+      <view>{{item.title || '无标题'}}</view>
+      <view>报告生成时间:{{item.createTime}}</view>
+    </view>
+  </block>
+  <view wx:else style="text-align:center;padding-top:20rpx;">暂无数据</view>
 </view>
