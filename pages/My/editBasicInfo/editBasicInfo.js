@@ -58,6 +58,7 @@ Page({
   submit(e){
     const { models} = this.data;
     const {value} = e.detail;
+    const userAccountInfo = app.globalData.userAccountInfo;
     for (const k in value) {
       const item = value[k];
       if (!item) {
@@ -73,7 +74,13 @@ Page({
       method:'post',
       data: {
         ...models,
-        ...value
+        ...value,
+        userId: userAccountInfo.userId
+      },
+      success:res=> {
+        app.getUserAccountInfo(()=> {
+          wx.navigateBack()
+        });
       }
     })
   },

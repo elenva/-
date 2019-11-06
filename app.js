@@ -45,12 +45,13 @@ App({
       }
     }) 
   },
-  getUserAccountInfo() {
+  getUserAccountInfo(fn) {
     this.request({
       url: `/user/getUserByOpenId/${this.globalData.openid}`,
       success: res => {
         this.globalData.userAccountInfo = res.datas;
         this.globalData.scale = res.datas.constantMap.extractScale;
+        fn && fn()
       }
     })
   }
