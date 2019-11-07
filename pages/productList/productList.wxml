@@ -2,7 +2,7 @@
 <block wx:if="{{title !== '推荐课程'}}">
   <sort bind:sort="sort"/>
 </block>
-<block>
+<block wx:if="{{list.length}}">
   <view class='list'>
     <view class='listItem' wx:for="{{list}}" wx:key="{{index}}" bindtap="pro" data-item="{{item}}">
       <view class='left'>
@@ -26,3 +26,4 @@
     </view>
   </view> 
 </block>
+<view wx:else style="text-align:center;padding-top:20rpx;">暂无数据</view>
