@@ -2,8 +2,17 @@
 App({
   onLaunch: function (options) {
     wx.hideShareMenu();
+    wx.getSystemInfo({
+      success: res=>{
+        if (res.system.indexOf('iOS') !== -1) {
+          console.log(this)
+          this.globalData.isIOS = true;
+        }
+      },
+    })
   },
   globalData: {
+    isIOS:false,
     scene:null,//邀请人的oid
     scale:1,//积分兑换金额的比例 1积分*scale = 金额
     userInfo: null,//用户基本信息

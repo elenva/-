@@ -23,7 +23,8 @@
     "pages/visitor/visitor",
     "pages/My/editBasicInfo/editBasicInfo",
     "pages/My/reportDetail/reportDetail",
-    "pages/My/help/help"
+    "pages/My/help/help",
+    "pages/ios/ios"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,5 @@
+<!--pages/ios/ios.wxml-->
+<view class="wrap">
+  <view class="txt">根据小程序相关规定，IOS系统暂不支持购买</view>
+  <button open-type="contact" type="primary">联系客服</button>
+</view>

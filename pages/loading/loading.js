@@ -53,14 +53,17 @@ Page({
     const authSetting = r.authSetting;
 
     const boolean = authSetting["scope.userInfo"];
-
+    app.globalData.globalAuthed = boolean;
+    wx.login({
+      complete: res => {
+        this.login(res.code)
+      }
+    })
+    
+    return
     if (boolean) {
       // 登录
       wx.login({
-        // success: res => {
-        //   this.login(res.code)
-        //   // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        // },
         complete:res=> {
           this.login(res.code)
         }

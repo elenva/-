@@ -20,6 +20,19 @@ Page({
     this.setData({ list})
   },
   buy(){
+    const { globalAuthed ,isIOS} = app.globalData;
+    if (isIOS) {
+      wx.navigateTo({
+        url: '/pages/ios/ios',
+      })
+      return
+    }
+    if (!globalAuthed) {
+      wx.redirectTo({
+        url: '/pages/visitor/visitor',
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/buy/buy',
     })

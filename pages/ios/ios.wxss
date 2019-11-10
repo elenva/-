@@ -1,0 +1,11 @@
+/* pages/ios/ios.wxss */
+.wrap {
+  padding: 40rpx;
+}
+.wrap .txt {
+  font-size:34rpx;
+}
+.wrap  button {
+  width: 200rpx;
+  margin-top: 60rpx;
+}

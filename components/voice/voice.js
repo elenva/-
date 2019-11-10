@@ -43,7 +43,6 @@ Component({
     },
     pointTouchStart(e){
       const { audioObj} = this.data;
-      console.log(audioObj)
       this.setData({
         startObj: {
           ...e.touches[0],
@@ -79,6 +78,7 @@ Component({
     }
   },
   ready(){
+    wx.stopBackgroundAudio();
     const audio = wx.getBackgroundAudioManager();
     this.setData({
       audio
@@ -88,16 +88,15 @@ Component({
       wx.getBackgroundAudioPlayerState({
         success: res => {
           const now = res.currentPosition;
-          if(res.status === 2) {
-            clearInterval(this.timer)
+          if(res.status !== 2) {
+            this.triggerEvent('currentTime', now)
+            this.setData({
+              audioObj: {
+                ...res,
+                percent: (res.currentPosition / res.duration * 100) + '%'
+              }
+            })
           }
-          this.triggerEvent('currentTime', now)
-          this.setData({
-            audioObj: {
-              ...res,
-              percent: (res.currentPosition / res.duration * 100) + '%'
-            }
-          })
         }
       })
     }, 500)
