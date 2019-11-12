@@ -138,14 +138,24 @@ Page({
       method:'post',
       data: params,
       success:res=> {
-        wx.navigateTo({
-          url: '/pages/result/result',
-          success: res => {
-            const evt = res.eventChannel;
-            const { priceAfter } = this.data;
-            evt.emit('result', priceAfter)
+        const p = res.datas.payData;
+        const orderId = res.datas.orderId;
+        wx.requestPayment({
+          ...p,
+          package: p.packageValue,
+          success:res => {
+            wx.navigateTo({
+              url: '/pages/result/result',
+              success: res => {
+                const evt = res.eventChannel;
+                evt.emit('orderId', orderId)
+              }
+            })
+          },
+          fail:res=> {
           }
         })
+        
       }
     })
   },

@@ -1,13 +1,13 @@
 <!--pages/result/result.wxml-->
-<view class='wrap'>
+<view class='wrap' wx:if="{{info}}">
   <view class='wrapInner'>
-    <block  wx:if="{{true}}">
+    <block  wx:if="{{info.isOk}}">
       <view class="head">
         <image src="/images/icon_success.png"></image>
         <view class="result">购买成功</view>
         <view class="integer">
           本次交易可获得
-          <text>{{score}}</text>
+          <text>{{info.moneyNum}}</text>
           积分
         </view>
       </view>

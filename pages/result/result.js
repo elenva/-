@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    score:0
+    orderId:null,
+    info:null
   },
 
   /**
@@ -16,15 +17,21 @@ Page({
     app.getUserAccountInfo();
 
     const evt = this.getOpenerEventChannel();
-    evt.on(`result`,res=> {
-      this.setData({ score: res})
+    evt.on(`orderId`,res=> {
+      this.setData({ orderId: res},()=> {
+        app.request({
+          url: `/buy/getOrderByOrderId/${res}`,
+          success:res=> {
+            this.setData({ info:res.datas})
+          }
+        })
+      })
     })
   },
   //查看课程
   queClass(){
-    console.log('aaa')
-    wx.switchTab({
-      url: '/pages/index/index',
+    wx.navigateBack({
+      delta:2
     })
   },
   //查看已购
