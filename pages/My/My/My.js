@@ -42,12 +42,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const { globalAuthed} = app.globalData;
-    if (!globalAuthed) {
-      wx.redirectTo({
-        url: '/pages/visitor/visitor',
-      })
-    }
+    
   },  
 
   /**
@@ -61,6 +56,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //授权页面
+    const { globalAuthed } = app.globalData;
+    if (!globalAuthed) {
+      wx.redirectTo({
+        url: '/pages/visitor/visitor',
+      })
+    }
+    //初始化我的菜单
     this.setData({ 
       user: app.globalData.userInfo, 
       userAccountInfo: app.globalData.userAccountInfo,
