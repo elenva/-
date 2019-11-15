@@ -48,7 +48,6 @@ Page({
           })
           return;
         }
-        console.log(item,)
         if (item * 1 > cash){
           wx.showToast({
             title: '提现金额过大',
@@ -59,7 +58,7 @@ Page({
       }
     }
     value.openId = app.globalData.openid;
-    value.extractIntegration = app.globalData.userAccountInfo.extractIntegration
+    value.extractIntegration = value.extractNum / scale
     //调用提现接口
     app.request({
       url:`/extract/saveExtract`,
