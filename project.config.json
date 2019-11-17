@@ -226,6 +226,20 @@
 					"id": -1,
 					"name": "pages/My/editBasicInfo/editBasicInfo",
 					"pathName": "pages/My/editBasicInfo/editBasicInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人报告详情",
+					"pathName": "pages/My/reportDetail/reportDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人报告",
+					"pathName": "pages/My/order/order",
 					"scene": null
 				}
 			]

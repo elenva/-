@@ -49,15 +49,17 @@ Page({
     const {isBuy} = this.data;
     const {item} = e.currentTarget.dataset;
     if (!isBuy) return;
-    if (isBuy >= item.keyword1) {
-      app.globalData.currentCoupon = item;
-      wx.navigateBack()
-    }else{
-      wx.showToast({
-        title: '此优惠券金额过大！',
-        icon:"none"
-      })
-    }
+    // if (isBuy >= item.keyword1) {
+    //   app.globalData.currentCoupon = item;
+    //   wx.navigateBack()
+    // }else{
+    //   wx.showToast({
+    //     title: '此优惠券金额过大！',
+    //     icon:"none"
+    //   })
+    // }
+    app.globalData.currentCoupon = item;
+    wx.navigateBack()
     
   },
   /**

@@ -59,16 +59,27 @@ Page({
     }
     value.openId = app.globalData.openid;
     value.extractIntegration = value.extractNum / scale
-    //调用提现接口
-    app.request({
-      url:`/extract/saveExtract`,
-      method:'post',
-      data: value,
-      success:res=> {
-        app.getUserAccountInfo();
-        const {scale} = app.globalData;
-        this.setData({ 
-          puting: true, cash: value.extractNum})
+
+    //弹出确认框
+    wx.showModal({
+      title: '提示',
+      content: '提现需扣6%税费，审核通过后预计3个工作日内到账。',
+      confirmColor:'red',
+      confirmText:'同意',
+      success: ()=> {
+        //调用提现接口
+        app.request({
+          url: `/extract/saveExtract`,
+          method: 'post',
+          data: value,
+          success: res => {
+            app.getUserAccountInfo();
+            const { scale } = app.globalData;
+            this.setData({
+              puting: true, cash: value.extractNum
+            })
+          }
+        })
       }
     })
   },

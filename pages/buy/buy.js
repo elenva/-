@@ -45,14 +45,17 @@ Page({
   cacalAfterPrice(){
     // priceAfter
     const { priceBefore, score, currentCoupon,scale } = this.data;
+    const { currentCommand } = app.globalData;
     //获取积分抵扣金额
     const scorePrice = score * scale;
     //获取优惠券金额
-    const couponPrice = currentCoupon?currentCoupon.keyword1:0;
+    let couponPrice = currentCoupon?currentCoupon.keyword1:0;
+    couponPrice = couponPrice >= priceBefore ? priceBefore : couponPrice
     //获取总抵扣金额
     const dkPrice = couponPrice + scorePrice;
     //获取最终价格
-    const price = priceBefore - dkPrice;
+    let price = priceBefore - dkPrice;
+    price = price < 0 ? 0 : price
     this.setData({
       dkPrice, priceAfter: price
     })

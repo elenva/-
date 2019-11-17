@@ -106,7 +106,7 @@
   flex: 1;
 }
 .handlewrap .item text:nth-child(2) {
-  flex: 0 0 90rpx;
+  flex: 0 0 100rpx;
 }
 .handlewrap .item image {
   width: 16rpx;

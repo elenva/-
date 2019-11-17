@@ -1,5 +1,15 @@
 /* pages/My/reportDetail/reportDetail.wxss */
+.wrap {
+  padding: 30rpx;
+}
 .content {
-  width: 100%;
   max-width: 100%;
+  font-size: 26rpx;
+}
+.title {
+  font-size: 30rpx;
+  text-align: center;
+  line-height:35rpx;
+  margin-bottom: 20rpx;
+  flex-wrap: 600;
 }

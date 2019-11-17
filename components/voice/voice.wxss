@@ -8,29 +8,32 @@
   display: flex;
   align-items: center;
 }
+.voiceWrap .inner {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  padding-left: 10rpx;
+}
+.voiceWrap .inner text{
+  color: #fff;
+  font-size: 22rpx;
+}
 .voiceWrap  image {
   height: 100rpx;
   width: 100rpx;
   margin-right: 10rpx;
 }
 .voiceWrap .contollers {
-  height: 86rpx;
-  background-color: #F4F4F4;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
   padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #fff;
 }
 .voiceWrap .contollers .play {
   flex: 0 0 50rpx;
-  font-size: 24rpx;
 }
 .voiceWrap .contollers .time {
   flex: 0 0 170rpx;
-  font-size: 26rpx;
 }
 .voiceWrap .contollers .progress {
   flex: 1;

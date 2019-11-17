@@ -1,8 +1,6 @@
 <wxs src="../../utils/format.wxs" module="format" />
 <!--components/voice/voice.wxml-->
 <view class="voiceWrap" wx:if="{{audio}}">
-  <image mode="center" src="{{info.imgurl}}"></image>
-  <text style="color:#fff" wx:if="{{info.title && info.author}}">{{info.title}}/{{info.author}}</text>
   <view class="contollers" wx:if="{{audioObj}}">
     <view class="play" bindtap="play" wx:if="{{!audioObj.status}}">播放</view>
     <view class="play" bindtap="pause" wx:else>暂停</view>
@@ -20,4 +18,10 @@
       </view>
     </view> -->
   </view>
+  <view class="inner">
+    <text wx:if="{{info.title && info.author}}">当前播放{{info.title}}-{{info.author}}</text>
+  </view>
+  <!-- <image mode="center" src="{{info.imgurl}}"></image>
+  <text style="color:#fff" wx:if="{{info.title && info.author}}">{{info.title}}-{{info.author}}</text> -->
+  
 </view>

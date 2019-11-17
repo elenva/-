@@ -125,15 +125,16 @@ Page({
     
     //不是次数购买
     if (command.buyType !== 1) return;
-    wx.showToast({
-      title: '播放超过15秒后将消耗次数',
-      icon: 'none',
-      duration: 3000
-    })
+    // wx.showToast({
+    //   title: '播放超过50%后将消耗次数',
+    //   icon: 'none',
+    //   duration: 3000
+    // })
   },
   videoTime(e){
-    const currentTime = e.detail.currentTime || e.detail;
+    const currentTime = e.detail.now || e.detail;
     const { command } = this.data;
+    const freeDuration = e.detail.duration*0.5
 
     //试看模式
     if (this.freeSecond) {
@@ -166,16 +167,18 @@ Page({
     }
 
     if (command.buyType !== 1) return;
-    if (currentTime > 15 && this.isAllow) {
+    if (currentTime > freeDuration && this.isAllow) {
       this.isAllow = false
+      if (this.isTaged) return;
       app.request({
         url: `/course/updateCourse/${app.globalData.openid}/${command.orderId}`,
         success: res => {
-          wx.showToast({
-            title: '已记入次数',
-            icon: 'none',
-            duration: 2000
-          })
+          this.isTaged = true;//当前已经计入次数
+          // wx.showToast({
+          //   title: '已记入次数',
+          //   icon: 'none',
+          //   duration: 2000
+          // })
         }
       })
     }

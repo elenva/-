@@ -88,8 +88,11 @@ Component({
       wx.getBackgroundAudioPlayerState({
         success: res => {
           const now = res.currentPosition;
+          const duration = res.duration;
           if(res.status !== 2) {
-            this.triggerEvent('currentTime', now)
+            this.triggerEvent('currentTime', {
+              now, duration
+            })
             this.setData({
               audioObj: {
                 ...res,
