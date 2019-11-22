@@ -16,7 +16,7 @@ Page({
     this.getMenuList();
   },
   //获取成人中心和老年中心菜单
-  getMenuList(){
+  getMenuList(active=0){
     const { baseCourseList } = app.globalData;
     const arr = [];
     baseCourseList.map(item=>{
@@ -24,16 +24,20 @@ Page({
         arr.push(item);
       }
     })
-    arr[0].active = true;
+    arr[active].active = true;
     this.setData({menu:arr})
   },
   //菜单切换
   menuChange(e){
     const item = e.detail;
-    const {menu} = this.data;
-    menu.map(item=> item.active=false);
+    this.setActive(item)
+  },
+  //设置active
+  setActive(item){
+    const { menu } = this.data;
+    menu.map(_item => _item.active = false);
     menu[item.idx].active = true;
-    this.setData({menu});
+    this.setData({ menu });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -46,7 +50,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const { healthCenterIdx } = app.globalData;
+    if (healthCenterIdx) this.setActive({ idx: healthCenterIdx})
   },
 
   /**

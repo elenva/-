@@ -58,11 +58,11 @@ Page({
             command.buyTypeList.map(item => {
               if (item.buyType == 1) {
                 //按次数购买
-                const str = `${item.money}元/${item.num === 1?'':item.num}次`
+                const str = item.money?`${item.money}元/${item.num === 1?'':item.num}次`:''
                 obj.unit = str;
               } else if (item.buyType == 2 ){
                 //按时长购买
-                const str = `${item.money}元/${item.num === 1 ? '' : item.num}天`
+                const str = item.mone?`${item.money}元/${item.num === 1 ? '' : item.num}天`:''
                 obj.long = str;
               }
             })

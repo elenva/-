@@ -71,10 +71,19 @@
 
 .listwrap .item .left {
   flex: 1;
+  max-width: 404rpx;
   padding-right: 20rpx;
 }
 .listwrap .item .left .title {
-  height: 134rpx;
+  /* height: 134rpx; */
+}
+.listwrap .item .left .description {
+  width: 100%;
+  padding-top: 10rpx;
+  line-height: 30rpx;
+  color: #B3B3B3;
+  font-size: 26rpx;
+  height: 96rpx;
 }
 .listwrap .item .left .title text{
   font-size:28rpx;

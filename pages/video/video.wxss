@@ -18,9 +18,16 @@ video {
   line-height: 33prx;
 }
 .info .total {
+  margin-top: 10rpx;
   font-size: 22rpx;
   color: #999999;
   line-height: 28rpx;
+}
+.info .description {
+  font-size: 26rpx;
+  color: #999;
+  line-height: 30rpx;
+  margin-top: 10rpx;
 }
 .line {
   height: 20rpx;

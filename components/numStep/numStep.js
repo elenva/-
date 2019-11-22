@@ -42,7 +42,7 @@ Component({
     },
     add(){
       let { value, maxV } = this.properties;
-      if (value >= maxV) return
+      if ((value+1) > maxV) return
       const v =  ++value;
       this.triggerEvent('getValue', v);
     },

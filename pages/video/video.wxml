@@ -30,6 +30,7 @@
 <view class='info'>
   <view class='title'>{{command.name||''}}</view>
   <view class='total'>共计 {{command.keyword1}} 节课 </view>
+  <view class="description">简介:{{command.description}}</view>
 </view>
 <view class='line'></view>
 <view class='list'>
@@ -89,7 +90,11 @@
     <image src="/images/video/icon_lock_red.png"></image>
     <view class="inner">
       <view>当前为付费章节</view>
-      <view>收费标准:{{price.unit}}或{{price.long}}</view>
+      <view>
+        收费标准:
+        <text wx:if="{{price.unit}}">{{price.unit}}</text>
+        <text wx:if="{{price.long}}">或{{price.long}}</text>
+      </view>
       <view class="btnwrap">
         <button type="warn" bindtap="buy">点击购买</button>
         <button

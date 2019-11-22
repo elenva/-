@@ -1,4 +1,5 @@
 <!--pages/productList/productList.wxml-->
+<wxs src="../../utils/format.wxs" module="format" />
 <block wx:if="{{title !== '推荐课程'}}">
   <sort bind:sort="sort"/>
 </block>
@@ -11,6 +12,9 @@
       <view class='right'>
         <view class='title'>
           {{item.name}}
+        </view>
+        <view class="description">
+          {{format.strSubAbstract(item.description,30)}}
         </view>
         <view class='status'>
           <mediaType media="{{item.type}}" class="media"/>

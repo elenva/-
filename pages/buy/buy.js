@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pickerIsDisable:false,
     pickermodel:0,
     pickerData: [{
       label: '按次收费',
@@ -98,7 +99,19 @@ Page({
   },
   getAllInfo(){
     const { currentCommand } = app.globalData;
-    this.setData({ currentCommand},()=> {
+    const { pickerData } = this.data;
+    const { price } = currentCommand;
+    
+    //如果是单种购买方式则选择器剔除相应选项
+    for (const k in price) {
+      const _item = price[k];
+      if (!_item) {
+        const _idx = pickerData.findIndex(el => el.value === k)
+        pickerData.splice(_idx,1);
+      }
+    }
+
+    this.setData({ currentCommand, pickerData},()=> {
       this.calcPrice();
     })
   },

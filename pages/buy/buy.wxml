@@ -14,6 +14,7 @@
     <view>
       <text>购买方式</text>
       <picker
+        disabled="{{pickerIsDisable}}"
         range-key="label"
         bindchange="pickerChange" 
         range="{{pickerData}}" 

@@ -15,8 +15,14 @@ var jsonString = function(j){
 var numberTofix = function(num,x){
   return Number(num).toFixed(x||2)
 }
+
+var strSubAbstract = function(str,len){
+  var lenth = len || 28;
+  return str.length > lenth ? str.substring(0, lenth-2) + '...' :str;
+}
 module.exports = {
   formatMMSS: formatMMSS,
   jsonString: jsonString,
-  numberTofix: numberTofix
+  numberTofix: numberTofix,
+  strSubAbstract: strSubAbstract
 }

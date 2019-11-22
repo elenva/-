@@ -1,4 +1,5 @@
 <!--pages/index/index.wxml-->
+<wxs src="../../utils/format.wxs" module="format" />
 <block>
   <searchBar/>
 </block>
@@ -45,6 +46,9 @@
         <view class='title'>
           <text>{{item.name}}</text>
         </view>
+        <view class="description">
+          <text>{{format.strSubAbstract(item.description)}}</text>
+        </view> 
         <view class='status'>
           <mediaType media="{{item.type || 1}}"/>
           <text>共{{item.keyword1}}节课</text>

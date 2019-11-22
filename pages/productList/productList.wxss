@@ -23,12 +23,17 @@
 .list .listItem .right .title {
   font-size: 28rpx;
   line-height: 33rpx;
-  height: 60rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 5rpx;
+}
+.list .listItem .right .description {
+  font-size: 26rpx;
+  line-height: 30rpx;
+  color: #999;
+  margin-bottom: 5rpx;
 }
 .list .listItem .right .status {
   display: flex;
-  margin-bottom: 20rpx;
+  margin-bottom: 6rpx;
 }
 .list .listItem .right .status .media {
   flex: 0 0 88rpx;
