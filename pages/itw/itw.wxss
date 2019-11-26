@@ -119,6 +119,9 @@
   font-size: 28rpx;
   margin-bottom: 50rpx;
 }
+.needBuy > .inner .tip {
+  margin-bottom: 10rpx;
+}
 .needBuy > .inner > view:last-child {
   font-size: 36rpx;
 }

@@ -32,9 +32,12 @@
     <image src="/images/video/icon_lock_red.png"></image>
     <view class="inner">
       <view>当前为付费章节</view>
-      <view>收费标准:{{price.unit}}或{{price.long}}</view>
+      <view wx:if="{{isIOS}}">根据相关规定,IOS系统暂不支持购买</view>
+      <view wx:else>收费标准:{{price.unit}}或{{price.long}}</view>
+      
       <view class="btnwrap">
-        <button type="warn" bindtap="buy">点击购买</button>
+        <button type="warn" bindtap="buy" wx:if="{{!isIOS}}">点击购买</button>
+        <!-- <button type="warn" wx:else open-type="contact">联系客服</button> -->
         <button
           wx:if="{{command.canBeFreeUse && !isUsedFreeSecond}}" 
           type="primary" 

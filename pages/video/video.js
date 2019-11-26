@@ -9,6 +9,7 @@ Page({
     videoUrl:"",
     command:null,
     audioInfo:null,//音频对象
+    isIOS:false
   },
   setActive(e){
     const value = e.detail;
@@ -204,9 +205,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const { isIOS } = app.globalData;
+    this.setData({ isIOS })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
