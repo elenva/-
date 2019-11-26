@@ -44,7 +44,7 @@
       allowcolspace="{{item.courseVos && item.courseVos.length}}"
       bind:setActive="setActive">
       <view slot="head" class="head {{item.isPlaying?'isPlaying':''}}" bindtap="play" data-item="{{item}}">
-        <text class='index'>第{{index+1}}课</text>
+        <text class='index'>第{{index+1}}节</text>
         <text class='title'>{{item.name}}</text>
         
         <!-- <block wx:if="{{item.courseVos && item.courseVos.length}}">
