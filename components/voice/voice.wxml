@@ -1,6 +1,6 @@
 <wxs src="../../utils/format.wxs" module="format" />
 <!--components/voice/voice.wxml-->
-<view class="voiceWrap" wx:if="{{audio}}">
+<view class="voiceWrap" wx:if="{{audio}}" style="background-image:url({{audioObj.status?bgi:''}})">
   <view class="contollers" wx:if="{{audioObj}}">
     <view class="play" bindtap="play" wx:if="{{!audioObj.status}}">播放</view>
     <view class="play" bindtap="pause" wx:else>暂停</view>

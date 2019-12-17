@@ -6,7 +6,7 @@ video {
 }
 .audioWrap {
   text-align: center;
-  height: 222rpx;
+  height: 350rpx;
   box-sizing: border-box;
 }
 .info {

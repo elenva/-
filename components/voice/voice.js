@@ -19,6 +19,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    bgi:"https://img.zcool.cn/community/016802564476186ac7259e0f9c2b56.gif",
     currentTime:0,
     playing:false,
   },
