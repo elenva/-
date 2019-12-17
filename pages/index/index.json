@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "searchBar": "/components/searchBar/bar/searchBar",
-    "mediaType": "/components/mediaType/mediaType"
+    "mediaType": "/components/mediaType/mediaType",
+    "diySwiper": "/components/swiper/swiper"
   }
 }

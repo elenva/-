@@ -6,9 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperArray:[
-      "banner@2x", "banner@2x", "banner@2x", "banner@2x", "banner@2navgationtox",
-    ],
     menuList:[
       { text: '学生中心', src: "/images/index/icon_student.png", page: "/pages/stuIndex/stuIndex" },
       { text: '成人中心', src: "/images/index/icon_man.png", page: "/pages/healthIndex/healthIndex",idx:"0" },

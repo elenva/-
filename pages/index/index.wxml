@@ -3,16 +3,7 @@
 <block>
   <searchBar/>
 </block>
-<block>
-  <swiper 
-      class='swiper'
-      indicator-color="#ccc" 
-      indicator-active-color="#fff">
-    <swiper-item wx:for="{{swiperArray}}" wx:key="{{index}}">
-      <image src="/images/index/banner.png"></image>
-    </swiper-item>
-  </swiper>
-</block>
+<diySwiper/>
 <block class="menuWrap">
   <view class='menu'>
     <view class='menuInner'>

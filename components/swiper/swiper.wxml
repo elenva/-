@@ -1,0 +1,10 @@
+<block>
+  <swiper 
+      class='swiper'
+      indicator-color="#ccc" 
+      indicator-active-color="#fff">
+    <swiper-item wx:for="{{swiperArray}}" wx:key="{{index}}">
+      <image src="/images/index/banner.png" bindtap="swiperItemTap"></image>
+    </swiper-item>
+  </swiper>
+</block>

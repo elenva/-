@@ -1,10 +1,4 @@
 /* pages/index/index.wxss */
-.swiper {
-  height: 486rpx;
-}
-.swiper image {
-  width: 100%;
-}
 .menu {
   width: 750rpx;
   height: 188rpx;

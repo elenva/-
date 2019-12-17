@@ -24,7 +24,8 @@
     "pages/My/editBasicInfo/editBasicInfo",
     "pages/My/reportDetail/reportDetail",
     "pages/My/help/help",
-    "pages/ios/ios"
+    "pages/ios/ios",
+    "pages/swiperDetail/swiperDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
