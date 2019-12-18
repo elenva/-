@@ -4,7 +4,7 @@
       indicator-color="#ccc" 
       indicator-active-color="#fff">
     <swiper-item wx:for="{{swiperArray}}" wx:key="{{index}}">
-      <image src="/images/index/banner.png" bindtap="swiperItemTap"></image>
+      <image src="{{item}}" bindtap="swiperItemTap" data-current="{{item}}"></image>
     </swiper-item>
   </swiper>
 </block>

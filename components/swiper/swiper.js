@@ -12,7 +12,7 @@ Component({
    */
   data: {
     swiperArray: [
-      "banner@2x", "banner@2x", "banner@2x", "banner@2x", "banner@2navgationtox",
+      "/images/index/banner1.png", "/images/index/banner2.png", "/images/index/banner3.png",
     ],
   },
 
@@ -20,9 +20,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    swiperItemTap(){
-      wx.navigateTo({
-        url: "/pages/swiperDetail/swiperDetail",
+    swiperItemTap(e){
+      const {current} = e.currentTarget.dataset;
+      wx.previewImage({
+        current: current, // 当前显示图片的http链接
+        urls: this.data.swiperArray // 需要预览的图片http链接列表
       })
     }
   }
